@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/31/2015 9:57:41 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Update DimPerson"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{E9F40B3E-69D5-4B77-9796-DDA3C1EA32F4}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{800B168D-B0D6-49E9-87E1-E2A743C7F375}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1402,7 +1402,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Insert Into DimPerson (PersonID, FirstName, MiddleName, LastName, PreferredName, Ethnicity, BirthDate, Gender, Email,DWInsertDate,ChangeHash) Values (?,?,?,?,?,?,?,?,?,GETDATE(),?);</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Insert Into DimPerson (PersonID, FirstName, MiddleName, LastName, PreferredName, Ethnicity, BirthDate, Gender, Email,DateCreated,DWInsertDate,ChangeHash) Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),?);</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1495,12 +1495,18 @@
                       externalMetadataColumnId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\Update DimPerson\Merge Join.Outputs[Merge Join Output].Columns[FormattedGender]" />
                     <inputColumn
+                      refId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Update DimPerson\Merge Join.Outputs[Merge Join Output].Columns[DateCreated]" />
+                    <inputColumn
                       refId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].Columns[StagePersonChangeHash]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="StagePersonChangeHash"
-                      externalMetadataColumnId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      externalMetadataColumnId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       lineageId="Package\Update DimPerson\Merge Join.Outputs[Merge Join Output].Columns[StagePersonChangeHash]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -1622,9 +1628,20 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="dbTimeStamp"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Update DimPerson\Insert Into DimPerson.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       dataType="bytes"
                       length="16"
-                      name="Param_9">
+                      name="Param_10">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -3405,7 +3422,7 @@ order by PersonID</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
           Id="Package\Import Person data"
@@ -3418,40 +3435,6 @@ order by PersonID</property>
           Size="166,42"
           Id="Package\Update DimPerson"
           TopLeft="83,507" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="131.5,121">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.5,66"
-              Start="0,0"
-              End="11.5,58.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="4,33" />
-                  <mssgle:LineSegment
-                    End="7.5,33" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.5,33"
-                    Point2="11.5,33"
-                    Point3="11.5,37" />
-                  <mssgle:LineSegment
-                    End="11.5,58.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="167,42"
           Id="Package\Update HubPerson"
@@ -3461,7 +3444,7 @@ order by PersonID</property>
           TopLeft="143,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="16.5,123"
               Start="0,0"
               End="16.5,115.5">
@@ -3491,11 +3474,45 @@ order by PersonID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="131.5,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="11.5,66"
+              Start="0,0"
+              End="11.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="7.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,33"
+                    Point2="11.5,33"
+                    Point3="11.5,37" />
+                  <mssgle:LineSegment
+                    End="11.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="162.75,394">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,113"
               Start="0,0"
               End="0,105.5">
@@ -3531,7 +3548,7 @@ order by PersonID</property>
     design-time-name="Package\Import Person data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\Import Person data\Person data"
@@ -3545,7 +3562,7 @@ order by PersonID</property>
           TopLeft="366.5,175">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-18,150"
               Start="0,0"
               End="-18,142.5">
@@ -3571,7 +3588,9 @@ order by PersonID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3597,19 +3616,23 @@ order by PersonID</property>
     design-time-name="Package\Update DimPerson">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="166,42"
           Id="Package\Update DimPerson\Update DimPerson"
           TopLeft="96,629" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\Update DimPerson\Merge Join"
+          TopLeft="356,252" />
+        <NodeLayout
           Size="165,42"
           Id="Package\Update DimPerson\Data Conversion 1"
           TopLeft="515,148" />
         <NodeLayout
-          Size="130,42"
-          Id="Package\Update DimPerson\Merge Join"
-          TopLeft="356,252" />
+          Size="196,42"
+          Id="Package\Update DimPerson\StagePerson source data"
+          TopLeft="109,41" />
         <NodeLayout
           Size="183,42"
           Id="Package\Update DimPerson\Insert Into DimPerson"
@@ -3619,23 +3642,19 @@ order by PersonID</property>
           Id="Package\Update DimPerson\DimPerson source data"
           TopLeft="494,36" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\Update DimPerson\Data Conversion"
-          TopLeft="139,158" />
-        <NodeLayout
           Size="209,42"
           Id="Package\Update DimPerson\DimPerson Conditional Split"
           TopLeft="318,439" />
         <NodeLayout
-          Size="196,42"
-          Id="Package\Update DimPerson\StagePerson source data"
-          TopLeft="109,41" />
+          Size="156,42"
+          Id="Package\Update DimPerson\Data Conversion"
+          TopLeft="139,158" />
         <EdgeLayout
           Id="Package\Update DimPerson.Paths[UpdateRow]"
           TopLeft="389,481">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-210,148"
               Start="0,0"
               End="-210,140.5">
@@ -3671,7 +3690,7 @@ order by PersonID</property>
           TopLeft="456,481">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="81.5,144"
               Start="0,0"
               End="81.5,136.5">
@@ -3703,11 +3722,33 @@ order by PersonID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Update DimPerson.Paths[Merge Join Output]"
+          TopLeft="421.75,294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,145"
+              Start="0,0"
+              End="0,137.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Update DimPerson.Paths[Data Conversion Output1]"
           TopLeft="597.5,190">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-156.166666666667,62"
               Start="0,0"
               End="-156.166666666667,54.5">
@@ -3741,7 +3782,7 @@ order by PersonID</property>
           TopLeft="217,200">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="183.666666666667,52"
               Start="0,0"
               End="183.666666666667,44.5">
@@ -3775,7 +3816,7 @@ order by PersonID</property>
           TopLeft="588,78">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="9.5,70"
               Start="0,0"
               End="9.5,62.5">
@@ -3809,7 +3850,7 @@ order by PersonID</property>
           TopLeft="207,83">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="10,75"
               Start="0,0"
               End="10,67.5">
@@ -3838,33 +3879,11 @@ order by PersonID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update DimPerson.Paths[Merge Join Output]"
-          TopLeft="421.75,294">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,145"
-              Start="0,0"
-              End="0,137.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,137.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Update DimPerson\DimPerson source data">
+    design-time-name="Package\Update DimPerson\StagePerson source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3872,7 +3891,7 @@ order by PersonID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update DimPerson\StagePerson source data">
+    design-time-name="Package\Update DimPerson\DimPerson source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3883,33 +3902,41 @@ order by PersonID</property>
     design-time-name="Package\Update HubPerson">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Update HubPerson\HubPerson Conditional Split"
-          TopLeft="323,414" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Update HubPerson\Merge Join"
-          TopLeft="356,252" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\Update HubPerson\Insert Into HubPerson"
           TopLeft="374,581" />
         <NodeLayout
-          Size="188,42"
-          Id="Package\Update HubPerson\HubPerson source data"
-          TopLeft="494,36" />
+          Size="165,42"
+          Id="Package\Update HubPerson\Data Conversion 1"
+          TopLeft="509,141" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Update HubPerson\Merge Join"
+          TopLeft="356,252" />
         <NodeLayout
           Size="196,42"
           Id="Package\Update HubPerson\StagePerson source data"
           TopLeft="109,41" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Update HubPerson\HubPerson Conditional Split"
+          TopLeft="323,414" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Update HubPerson\Data Conversion"
+          TopLeft="131,145" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Update HubPerson\HubPerson source data"
+          TopLeft="494,36" />
         <EdgeLayout
           Id="Package\Update HubPerson.Paths[NewRow]"
           TopLeft="427.5,456">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="38.5,125"
               Start="0,0"
               End="38.5,117.5">
@@ -3945,7 +3972,7 @@ order by PersonID</property>
           TopLeft="424.25,294">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,120"
               Start="0,0"
               End="0,112.5">
@@ -3962,50 +3989,32 @@ order by PersonID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Update HubPerson\Data Conversion"
-          TopLeft="131,145" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Update HubPerson\Data Conversion 1"
-          TopLeft="509,141" />
         <EdgeLayout
-          Id="Package\Update HubPerson.Paths[ADO NET Source Output]"
-          TopLeft="208,83">
+          Id="Package\Update HubPerson.Paths[Data Conversion Output1]"
+          TopLeft="591.5,183">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62"
+              StartConnector="{x:Null}"
+              EndConnector="-150.166666666667,69"
               Start="0,0"
-              End="0,54.5">
+              End="-150.166666666667,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update HubPerson.Paths[ADO NET Source Output1]"
-          TopLeft="589.75,78">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,63"
-              Start="0,0"
-              End="0,55.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="0,36.8966565349544" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.8966565349544"
+                    Point2="0,40.8966565349544"
+                    Point3="-4,40.8966565349544" />
                   <mssgle:LineSegment
-                    End="0,55.5" />
+                    End="-146.166666666667,40.8966565349544" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-146.166666666667,40.8966565349544"
+                    Point2="-150.166666666667,40.8966565349544"
+                    Point3="-150.166666666667,44.8966565349544" />
+                  <mssgle:LineSegment
+                    End="-150.166666666667,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4019,7 +4028,7 @@ order by PersonID</property>
           TopLeft="209,187">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="191.666666666667,65"
               Start="0,0"
               End="191.666666666667,57.5">
@@ -4049,31 +4058,41 @@ order by PersonID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update HubPerson.Paths[Data Conversion Output1]"
-          TopLeft="591.5,183">
+          Id="Package\Update HubPerson.Paths[ADO NET Source Output1]"
+          TopLeft="589.75,78">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-150.166666666667,69"
+              StartConnector="{x:Null}"
+              EndConnector="0,63"
               Start="0,0"
-              End="-150.166666666667,61.5">
+              End="0,55.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.8966565349544" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.8966565349544"
-                    Point2="0,40.8966565349544"
-                    Point3="-4,40.8966565349544" />
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update HubPerson.Paths[ADO NET Source Output]"
+          TopLeft="208,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-146.166666666667,40.8966565349544" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-146.166666666667,40.8966565349544"
-                    Point2="-150.166666666667,40.8966565349544"
-                    Point3="-150.166666666667,44.8966565349544" />
-                  <mssgle:LineSegment
-                    End="-150.166666666667,61.5" />
+                    End="0,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4086,7 +4105,7 @@ order by PersonID</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Update HubPerson\HubPerson source data">
+    design-time-name="Package\Update HubPerson\StagePerson source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4094,7 +4113,7 @@ order by PersonID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update HubPerson\StagePerson source data">
+    design-time-name="Package\Update HubPerson\HubPerson source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
