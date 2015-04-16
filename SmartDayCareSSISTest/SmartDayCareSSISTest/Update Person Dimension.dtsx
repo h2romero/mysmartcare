@@ -11,21 +11,11 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Update Person Dimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{2DA654FB-BF31-49F5-BCA4-C18BF63F77B5}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{D76A4755-FC05-45E5-A82A-695B0152CF97}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HECTORROMER4A45.smartcare-dw-Hector.user21]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B930A3E8-0A62-4ADF-A372-85C8EDC4F408}"
-      DTS:ObjectName="HECTORROMER4A45.smartcare-dw-Hector.user21">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HECTORROMER4A45;User ID=user2;Initial Catalog=smartcare-dw-Hector;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost]"
       DTS:CreationName="MSOLAP100"
@@ -124,56 +114,6 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=SmartDayCareDWTest;Provider=MSOLAP.6;Impersonation Level=Impersonate;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[smartcare-db1.cloudapp.net.DayCareDemo.hromero]"
-      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{E9E4DC8F-F490-465D-81C6-3B4015E3048C}"
-      DTS:ObjectName="smartcare-db1.cloudapp.net.DayCareDemo.hromero">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=smartcare-db1.cloudapp.net;User ID=hromero;Initial Catalog=DayCareDemo;Persist Security Info=True;Application Name=SSIS-Package-{E9E4DC8F-F490-465D-81C6-3B4015E3048C}smartcare-db1.cloudapp.net.DayCareDemo.hromero;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[smartcare-db1.cloudapp.net.DayCareDemo.hromero 1]"
-      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{1F030AD6-CF54-4451-AFBD-1A8955223DA9}"
-      DTS:ObjectName="smartcare-db1.cloudapp.net.DayCareDemo.hromero 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=smartcare-db1.cloudapp.net;User ID=hromero;Initial Catalog=DayCareDemo;Persist Security Info=True;Application Name=&quot;SSIS-Package-{1F030AD6-CF54-4451-AFBD-1A8955223DA9}smartcare-db1.cloudapp.net.DayCareDemo.hromero 1&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[smartcare-db1.cloudapp.net.DayCareDemo.hromero 2]"
-      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{9392915E-166E-47FC-B045-3BE6CF603601}"
-      DTS:ObjectName="smartcare-db1.cloudapp.net.DayCareDemo.hromero 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=smartcare-db1.cloudapp.net;User ID=hromero;Initial Catalog=DayCareDemo;Persist Security Info=True;Application Name=&quot;SSIS-Package-{9392915E-166E-47FC-B045-3BE6CF603601}smartcare-db1.cloudapp.net.DayCareDemo.hromero 2&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[smartcare-db1.cloudapp.net.DayCareDemo.hromero 3]"
-      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{E036EB5A-F205-4A12-B89C-EA13C5BC821E}"
-      DTS:ObjectName="smartcare-db1.cloudapp.net.DayCareDemo.hromero 3">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=smartcare-db1.cloudapp.net;User ID=hromero;Initial Catalog=DayCareDemo;Persist Security Info=True;Application Name=SSIS-Package-{E036EB5A-F205-4A12-B89C-EA13C5BC821E}smartcare-db1.cloudapp.net.DayCareDemo.hromero 3;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[smartcare-dw1.cloudapp.net.Staging.hromero1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{8170A263-9CD9-44FF-B064-A9FA0033DABD}"
-      DTS:ObjectName="smartcare-dw1.cloudapp.net.Staging.hromero1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=smartcare-dw1.cloudapp.net;User ID=hromero;Initial Catalog=Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -3422,7 +3362,7 @@ order by PersonID</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
           Id="Package\Import Person data"
@@ -3444,7 +3384,7 @@ order by PersonID</property>
           TopLeft="143,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="16.5,123"
               Start="0,0"
               End="16.5,115.5">
@@ -3478,7 +3418,7 @@ order by PersonID</property>
           TopLeft="131.5,121">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="11.5,66"
               Start="0,0"
               End="11.5,58.5">
@@ -3512,7 +3452,7 @@ order by PersonID</property>
           TopLeft="162.75,394">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,113"
               Start="0,0"
               End="0,105.5">
@@ -3548,7 +3488,7 @@ order by PersonID</property>
     design-time-name="Package\Import Person data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\Import Person data\Person data"
@@ -3562,7 +3502,7 @@ order by PersonID</property>
           TopLeft="366.5,175">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-18,150"
               Start="0,0"
               End="-18,142.5">
@@ -3588,9 +3528,7 @@ order by PersonID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
