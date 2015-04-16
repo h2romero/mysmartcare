@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SmartDayCareSSISTest", "SmartDayCareSSISTest\SmartDayCareSSISTest.dtproj", "{73A3BE25-E2B4-4961-8AE6-4D199DC7BA91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73A3BE25-E2B4-4961-8AE6-4D199DC7BA91}.Development|Default.ActiveCfg = Development
+		{73A3BE25-E2B4-4961-8AE6-4D199DC7BA91}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
