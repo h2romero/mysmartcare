@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Update Person Dimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="179"
-  DTS:VersionGUID="{2327296A-7F7A-46A3-A01D-8D818DB655A5}">
+  DTS:VersionBuild="180"
+  DTS:VersionGUID="{563B2F4C-2864-438D-B5F9-E29D7BC7567C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -127,7 +127,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB0KoGaoVi//nep1EWuISlVL48wbkQDXzzmq9dQ+qMg9QAAAAAOgAAAAAIAACAAAAA/J/5ir5N0Kb9u4CP89qp19EP9uRZi+1maqwyVzWZVLCAAAABmr3CcpEigI4eyEFym+Uyg3ST7Ohq/u95aWuhfe1yUk0AAAAD08AocLB1IV4F/Efzc3HacWCoOnTcYZc0LFslWoViWyUMSgZrhxYS8a1KLS+nItP7CPsX8ojw1E485hoH86cEc</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABaw9NmOGKaPwRLjRZ1nTq5RtJMJbYSizA7/aSU8pX37wAAAAAOgAAAAAIAACAAAACuS/CzPDk5v/VkZY+xmp3H8q61o6T1YXd8elm39Loa1yAAAACJw9yzssL0ptDYYPDCpogZFTydkpXTHjNQscwLmGPtlEAAAADJG+Uqc+YSBqRkC17T9qdVNx6vZscwt5zxoer7QF0+ToVgCw80ryPiutv92C8cXQvitCLSSBQeAKt/G2aMyBeS</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -142,7 +142,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAASNz5LXDWwWXkgz2Ebw/Xb2yuBOZSPjqweNggqvnqZHQAAAAAOgAAAAAIAACAAAAAXpXSNE16QDdYHjxtccIvjxM4emS+dVlosgvHSD5ZstiAAAAAIBNcX/qbyyUCyIsalHZ+mJ/YFz29UmPWAbfck5CLAgkAAAABtgazZB60VNMvdsgoIy/PFjIuyJmC8OZL/SRaM8umBCgGARLel2U97n6RM3UZBg6GZUfi8nYmuyGXApVijZKC9</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC2eIvA20ftJk2f2psPg5xK9jA8SIcGd+K2PyK++CvITgAAAAAOgAAAAAIAACAAAADqn9CeA6QP3uwKDlguKqd2CuVO2l5eT8lwPUIGvSzF/yAAAACLlbIEDZKkhkAMFtCAuBmpK2vfywb3ApAhBM60u+359kAAAACTjxKHLPgInm+HdVCWeohfLzRcGSDFmEISyrBQFXxyZuDALVYGEFG4jP778dgPRzVggCNWqhw0dd0TSlSNpbLt</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -157,7 +157,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACZ/aQcL+dnxeDA5Dh4GqsSrnue54wn6dkaNQ0EeJ7CHwAAAAAOgAAAAAIAACAAAAAGkvi6JEL+1q+3uMoWUoygpWJvVV6KzIH3hLnlcYI3HiAAAAA/sVQ67Y5UadldL3somkCrJMNffilTnPy4uZlyXEbfsEAAAADM5Snw3QqoSi6IN0AshxL6I/sQGjVPQQV8ikgB37Sx0XS3J8PLAPsyqRa07Z42z04ZQ4poqul0u1OgllhfGk1O</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACEo25VQAfg7phaSd7HHm1Sw/owbxhvEqGMZXx7CLX+RAAAAAAOgAAAAAIAACAAAACIv++Rr5PI8n5Y3LN7GYnFtrkt8q98gVytMdbkbkSy/yAAAADGOVeORz4g8l3U6vjl4OwelJEGdkun6A72h7tKFRu+fkAAAADHOB3BbZOlanZnQk87bEELNYNhj8rlMapqlurZwcpHh4uJ0K18QQ+KMUJv/Am3ZGCRc6TFHJPM/9ghHcsEyu4B</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1437,174 +1437,191 @@ Group by
           <components>
             <component
               refId="Package\Import Person data\Person data"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
               name="Person data"
               usesDispositions="true"
-              version="2">
+              version="4">
               <properties>
                 <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
                   dataType="System.String"
-                  description="The Destination database table name."
-                  expressionType="Notify"
-                  name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."StagePerson"</property>
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StagePerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
-                  expressionType="Notify"
-                  name="BatchSize">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
-                  expressionType="Notify"
-                  name="CommandTimeout">30</property>
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
-                  expressionType="Notify"
-                  name="UseBulkInsertWhenPossible">true</property>
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Import Person data\Person data.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.smartcare-staging-Hector]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.smartcare-staging-Hector]"
-                  description="Managed connection manager"
-                  name="IDbConnection" />
+                  refId="Package\Import Person data\Person data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input]"
+                  refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
-                  name="ADO NET Destination Input">
+                  name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[FirstName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[PersonId]"
+                      cachedDataType="guid"
+                      cachedName="PersonId"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                      lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[PersonId]" />
+                    <inputColumn
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[FirstName]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="FirstName"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[FirstName]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[FirstName]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[MiddleName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[MiddleName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="MiddleName"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[MiddleName]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[MiddleName]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[LastName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[LastName]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="LastName"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[LastName]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[LastName]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[PreferredName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[PreferredName]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="PreferredName"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[PreferredName]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[PreferredName]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[PreferredName]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[Ethnicity]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[Ethnicity]"
                       cachedDataType="i4"
                       cachedName="Ethnicity"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[Ethnicity]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[Ethnicity]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[Ethnicity]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[BirthDate]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[BirthDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="BirthDate"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[BirthDate]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[BirthDate]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[Gender]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[Gender]"
                       cachedDataType="i4"
                       cachedName="Gender"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[Gender]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[DateCreated]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[DateCreated]"
                       cachedDataType="dbTimeStamp"
                       cachedName="DateCreated"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[DateCreated]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[DateCreated]" />
                     <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[ChangeHash]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].Columns[ChangeHash]"
                       cachedDataType="bytes"
                       cachedLength="8000"
                       cachedName="ChangeHash"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[ChangeHash]"
+                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[ChangeHash]"
                       lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
-                    <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[EmailAddressString]"
-                      cachedDataType="nText"
-                      cachedName="EmailAddressString"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[Email]"
-                      lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[EmailAddressString]" />
-                    <inputColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].Columns[PersonId]"
-                      cachedDataType="guid"
-                      cachedName="PersonId"
-                      externalMetadataColumnId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[PersonID]"
-                      lineageId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output].Columns[PersonId]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[PersonID]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
                       dataType="guid"
                       name="PersonID" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[FirstName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
                       dataType="wstr"
                       length="100"
                       name="FirstName" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[MiddleName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
                       dataType="wstr"
                       length="50"
                       name="MiddleName" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[LastName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
                       dataType="wstr"
                       length="100"
                       name="LastName" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[PreferredName]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[PreferredName]"
                       dataType="wstr"
                       length="100"
                       name="PreferredName" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[Ethnicity]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[Ethnicity]"
                       dataType="i4"
                       name="Ethnicity" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[BirthDate]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
                       dataType="dbTimeStamp"
                       name="BirthDate" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
                       dataType="i4"
                       name="Gender" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[Email]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
                       dataType="wstr"
                       length="100"
                       name="Email" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[DateCreated]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
                       dataType="dbTimeStamp"
                       name="DateCreated" />
                     <externalMetadataColumn
-                      refId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input].ExternalColumns[ChangeHash]"
+                      refId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input].ExternalColumns[ChangeHash]"
                       dataType="bytes"
                       length="16"
                       name="ChangeHash" />
@@ -1613,22 +1630,22 @@ Group by
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Import Person data\Person data.Outputs[ADO NET Destination Error Output]"
+                  refId="Package\Import Person data\Person data.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="ADO NET Destination Error Output"
-                  synchronousInputId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input]">
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import Person data\Person data.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Import Person data\Person data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Import Person data\Person data.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Import Person data\Person data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Import Person data\Person data.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Import Person data\Person data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Import Person data\Person data.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Import Person data\Person data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1963,7 +1980,7 @@ FirstName
           <paths>
             <path
               refId="Package\Import Person data.Paths[OLE DB Source Output]"
-              endId="Package\Import Person data\Person data.Inputs[ADO NET Destination Input]"
+              endId="Package\Import Person data\Person data.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Import Person data\Person source data.Outputs[OLE DB Source Output]" />
           </paths>
@@ -10783,27 +10800,27 @@ Order by
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="135,42"
-          Id="Package\Import Person data\Person data"
-          TopLeft="281,325" />
-        <NodeLayout
           Size="169,42"
           Id="Package\Import Person data\Person source data"
           TopLeft="257,136" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Import Person data\Person data"
+          TopLeft="271,324" />
         <EdgeLayout
           Id="Package\Import Person data.Paths[OLE DB Source Output]"
-          TopLeft="345,178">
+          TopLeft="340,178">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,147"
+              EndConnector="0,146"
               Start="0,0"
-              End="0,139.5">
+              End="0,138.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,139.5" />
+                    End="0,138.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10815,14 +10832,6 @@ Order by
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Person data\Person data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Update DimPerson">
     <LayoutInfo>
@@ -12147,6 +12156,19 @@ Order by
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Person data\Person data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
