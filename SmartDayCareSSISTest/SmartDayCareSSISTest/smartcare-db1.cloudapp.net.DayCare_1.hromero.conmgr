@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="smartcare-db1.cloudapp.net.DayCare_1.hromero"
+  DTS:DTSID="{936C4484-7295-44CD-AF95-C6287EFAC951}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=smartcare-db1.cloudapp.net;User ID=hromero;Initial Catalog=DayCare_1;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAACAAAAAAAQZgAAAAEAACAAAACwuismoonnWQarQr8lhNf3mraBEc5zwHjK+p2yY9VuSgAAAAAOgAAAAAIAACAAAADDSG+CYqAemI6MAaVOqDKvsp+SNuh9cUWB8Z5EGsfbQYAAAACRWgQO1nthfgCuFwLL74cE5rpIaPHaPfdfTC2npDO01Jd9T39Wt6tqkiUnM2Ojqwh2woKapsrmCDTdhRLtUMQyO2nMGgJNh7aXtev8FhPbqGuDP6tDucqp97dbrPSM6HO726MVh7AzLjiw0rxjU4PSIQMTvQsvV3JqG23tWs5gc0AAAACKC10f1CZipD5y0xfpFH2UAI05DJjMXrLmEwYwmARApowDWNa90pbM/RvXOPwao13dr/fyAMwWlT6VqpBk94vU</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

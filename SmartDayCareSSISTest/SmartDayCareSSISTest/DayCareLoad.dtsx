@@ -1,0 +1,648 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/23/2015 10:55:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HECTORROMERC8AD"
+  DTS:CreatorName="HECTORROMERC8AD\hectorromero"
+  DTS:DTSID="{661FC10E-D0F1-4827-98A2-B000A7FD642A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DayCareLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{A430294D-B71E-4CC6-8302-6DDB711F4D68}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get Tenant Attributes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{60daf7c8-34b3-41f9-94b6-373eb831f56d}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Tenant Attributes">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SmartCare DB - DayCare1 - Tenants"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	Id
+	,TenantID
+	,Name
+	,IsDisabled
+	,DateCreated
+	,DateLastModified
+	,Flags
+	,IsDeleted
+	,TagString
+  From
+	Tenants (NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Connections[OleDbConnection]"
+                  connectionManagerID="{013BD0F8-DCE5-47C4-9056-8CAD8F1FFAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[smartcare-db1.cloudapp.net.DayCareDemo.hromero1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      name="TenantID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[IsDisabled]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[IsDisabled]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[IsDisabled]"
+                      name="IsDisabled"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      name="DateLastModified"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Flags]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[Flags]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Flags]"
+                      name="Flags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[IsDeleted]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[IsDeleted]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[IsDeleted]"
+                      name="IsDeleted"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[TagString]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[TagString]"
+                      length="1000"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[TagString]"
+                      name="TagString"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[IsDisabled]"
+                      dataType="bool"
+                      name="IsDisabled" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[Flags]"
+                      dataType="i8"
+                      name="Flags" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].ExternalColumns[TagString]"
+                      dataType="wstr"
+                      length="1000"
+                      name="TagString" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i8"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      dataType="guid"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      name="TenantID" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[IsDisabled]"
+                      dataType="bool"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[IsDisabled]"
+                      name="IsDisabled" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      name="DateLastModified" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[Flags]"
+                      dataType="i8"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[Flags]"
+                      name="Flags" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[IsDeleted]"
+                      dataType="bool"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[IsDeleted]"
+                      name="IsDeleted" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[TagString]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[TagString]"
+                      name="TagString" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SmartCare DW - SOR - f_Tenants"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[f_Tenants]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i8"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[TenantID]"
+                      cachedDataType="guid"
+                      cachedName="TenantID"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[IsDisabled]"
+                      cachedDataType="bool"
+                      cachedName="IsDisabled"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[IsDisabled]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[IsDisabled]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[DateLastModified]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateLastModified"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[DateLastModified]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[Flags]"
+                      cachedDataType="i8"
+                      cachedName="Flags"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[Flags]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[Flags]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[IsDeleted]"
+                      cachedDataType="bool"
+                      cachedName="IsDeleted"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[IsDeleted]" />
+                    <inputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].Columns[TagString]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="TagString"
+                      externalMetadataColumnId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[TagString]"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output].Columns[TagString]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[IsDisabled]"
+                      dataType="bool"
+                      name="IsDisabled" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[Flags]"
+                      dataType="i8"
+                      name="Flags" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
+                    <externalMetadataColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input].ExternalColumns[TagString]"
+                      dataType="wstr"
+                      length="1000"
+                      name="TagString" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Get Tenant Attributes.Paths[OLE DB Source Output]"
+              endId="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Initial Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e2cb7bb0-2fcc-4776-a77e-15a54402fb5d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Initial Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}"
+          SQLTask:SqlStatementSource="truncate table f_Tenants;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF259910-2DB9-4E33-A7D7-6502E676F577}"
+      DTS:From="Package\Truncate Initial Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get Tenant Attributes" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Get Tenant Attributes"
+          TopLeft="65.0833330787719,154.166667325298" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Truncate Initial Tables"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="153.541666539386,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.1666673252983"
+              Start="0,0"
+              End="0,44.6666673252983">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6666673252983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Get Tenant Attributes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants"
+          TopLeft="67.0000050415592,154.600000573397" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants"
+          TopLeft="63.8333383624748,43.2666672400633" />
+        <EdgeLayout
+          Id="Package\Get Tenant Attributes.Paths[OLE DB Source Output]"
+          TopLeft="186.916671702017,85.2666672400633">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3333333333337"
+              Start="0,0"
+              End="0,61.8333333333337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8333333333337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\Get Tenant Attributes"
+          FontInfo="{assembly:Null}"
+          Size="76,56"
+          Id="b0e46eb4-e68b-465c-abcc-518801482874"
+          TopLeft="75.8333383624748,90.6000005733971" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Tenant Attributes\SmartCare DB - DayCare1 - Tenants">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Tenant Attributes\SmartCare DW - SOR - f_Tenants">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
