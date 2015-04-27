@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Update Person Dimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="181"
-  DTS:VersionGUID="{D3C106BB-11AB-4305-930B-3F2FCE4A1BF2}">
+  DTS:VersionBuild="182"
+  DTS:VersionGUID="{542D5D87-7661-41CD-995C-2A9389969902}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -127,7 +127,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAARf2byUN7FWue6GNA69sv00k2FLLauDEqkH5gXnF/R8AAAAAAOgAAAAAIAACAAAADBpWjr67ujBnyw7tuqw8GY+++7PGnhecmto5n+7RdxcyAAAAAQSTmCcnBjQ5yeZiqmFxrNpWdz5tyzRudRtnW8dvtdJkAAAADeDs6DmpSfhWVc+J1L+BSIs+dJoAl3ngYwKKY+C+hczMUPz3wyE6nu2Cpo+eBjrbudpWlx4TdaOH5hOzSHeA0k</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAATSIAjqTLmqZBWhPRshLXXOdn3Zrn42Qv7CeF7u5U3swAAAAAOgAAAAAIAACAAAABC3RAEiv7lgaBCsx5/kL+79U5+rtBz64f0MtDgcbJMfyAAAADwa0BBXvjKMBgVa2mgxG8z/3lkeLRH+QdC6LSd5erHMEAAAAAekQwpXyfBIlSZkk2rTZTd55Js5kc7BD4oJ5RwK9xa1l2VjpWx+37hFW/Bzjt+stu6Pbv9qzVezP+uvaOfKQyq</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -142,7 +142,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABQLjiDKfoY2jgFwxy62QW5G8WDXn6ZzG5j67F/a4iiCAAAAAAOgAAAAAIAACAAAAC4SZO2kjkLurplHfU/GhqpfrKw4cJRAf6N8a8sCCysRCAAAACCtDRMRjSLq6uvjym7yZYPjozPXQVXwBNdXIRJpzDeK0AAAADWsNsDJpz2J7zz0AAeSW/J8B3tuXVQhuH9hniqAD6p/tnq7hcWj55yUQJCfFqSvB0LfH7W16+OTCsHoSH31T8k</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACc0Xnvs/3MxsE+jUDD4vSexFw9OMPKB/40gpQmkmTfSgAAAAAOgAAAAAIAACAAAAC/YqlcQiJHPVoKm1a07CNEEz4pGdO8yIh0kpahpAk64SAAAAAg+jQqrHQ5sct64wWwslYzUy9EY0ax3B30KCaikRwTN0AAAACJzdYSRy//Z7czl6H05YkIn+5iLcJBY1ko2aOlPx9+NapLLyEWtkbQfbXoDAMBjJYpe7HgjsPUUZXOxTUX4Aeu</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -157,7 +157,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAAGkd7ht9/+XyT0t6t+9q5rLaX2QIWNCXFccowp+FtQAAAAAAOgAAAAAIAACAAAACzOc0zR8/G2H2NeIMXQeFyv0KHJgqJTwxVRbj9TgqGvyAAAABCUm+MPE8J99+ze/U0ctC7Jv2442ifOoTlX67yqonmR0AAAAA3IOooVi2V12YTH90hHbcE2Y6rDIHKJDqWCFuQVsKGnr9k872Eh5TEPsh8qtTQkSyjNolVxMNoMctFSIOVEEZ4</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACtXdJP8tuC2lt16cXXiLF7+ZyAHFkDxzJ4PdKKgMnGnwAAAAAOgAAAAAIAACAAAACY/SGBMSysIiXdTUxP+8/5bMwi2NU0FL0vTRPv25Ib2yAAAACXOHHpvBNIw7L73d2IaLTQ2YyDitMurAUaM0mylz5nS0AAAADRjsiq5mdDXhh/NxEJRAVq/gheHPdlcVno/ABVJ2WNrE31RWxERIWBCJA6jhtW/WE0iU0Ken8eGi+6kgcdnaXd</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1996,7 +1996,7 @@ FirstName
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate StageAddresses"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2013,7 +2013,7 @@ FirstName
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate StagePerson table"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -10642,7 +10642,7 @@ Order by
     design-time-name="Package\Import Address data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="156,42"
           Id="Package\Import Address data\Data Conversion"
@@ -10698,9 +10698,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10734,9 +10732,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10770,9 +10766,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10794,9 +10788,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11764,7 +11756,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11798,7 +11792,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11832,7 +11828,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11902,7 +11900,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11936,7 +11936,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11998,7 +12000,7 @@ Order by
     design-time-name="Package\Update StagePersonAddress">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="130,42"
           Id="Package\Update StagePersonAddress\Merge Join"
@@ -12054,9 +12056,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12090,9 +12090,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12114,9 +12112,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12150,9 +12146,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12186,9 +12180,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

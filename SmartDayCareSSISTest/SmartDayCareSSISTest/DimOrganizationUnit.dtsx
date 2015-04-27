@@ -1,0 +1,1533 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/27/2015 12:24:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HECTORROMERC8AD"
+  DTS:CreatorName="HECTORROMERC8AD\hectorromero"
+  DTS:DTSID="{14AD6A04-1C74-4FD2-A8C7-F183E1155FC3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimOrganizationUnit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{B25072E4-6D4D-48D4-90D7-3954B583E229}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import Organization Unit data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7f015d09-6caa-4f6c-b4ed-2d76fe6408a6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Organization Unit data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import Organization Unit data\Organization Unit data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Organization Unit data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StageOrganizationUnit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Organization Unit data\Organization Unit data.Connections[OleDbConnection]"
+                  connectionManagerID="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].Columns[ChangeHash]"
+                      cachedDataType="bytes"
+                      cachedLength="8000"
+                      cachedName="ChangeHash"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[ChangeHash]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
+                    <inputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].Columns[TenantID]"
+                      cachedDataType="guid"
+                      cachedName="TenantID"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationUnitID]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[OUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[ChangeHash]"
+                      dataType="bytes"
+                      length="16"
+                      name="ChangeHash" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationUnitID]"
+                      dataType="guid"
+                      name="OrganizationUnitID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Organization Unit data\Organization Unit data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Organization Unit data\Organization Unit data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Organization Unit data\Organization Unit data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Organization Unit data\Organization Unit source data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Organization Unit source data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	OUID
+	,TenantID
+	,Name
+	,DateCreated
+	 ,HashBytes('md5',(select 
+							TenantID
+							,Name
+						from 
+							f_OUs 
+						where OUID=ou.OUID FOR XML AUTO)) AS ChangeHash
+From
+	f_OUs ou</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Organization Unit data\Organization Unit source data.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[ChangeHash]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[ChangeHash]"
+                      length="8000"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[ChangeHash]"
+                      name="ChangeHash"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      name="TenantID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[OUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[OUID]"
+                      name="OUID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[ChangeHash]"
+                      dataType="bytes"
+                      length="8000"
+                      name="ChangeHash" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      dataType="guid"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      name="TenantID" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      dataType="guid"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      name="OUID" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[ChangeHash]"
+                      dataType="bytes"
+                      length="8000"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[ChangeHash]"
+                      name="ChangeHash" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import Organization Unit data.Paths[OLE DB Source Output]"
+              endId="Package\Import Organization Unit data\Organization Unit data.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import Organization Unit data\Organization Unit source data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate StageOrganizationUnit table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4585a465-5449-4a15-95ed-d845e623d735}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate StageOrganizationUnit table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}"
+          SQLTask:SqlStatementSource="Truncate table StageOrganizationUnit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update HubOrganizationUnit"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{f812faa8-1ed0-4700-9355-3f512c8d3813}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update HubOrganizationUnit"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Update HubOrganizationUnit\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update HubOrganizationUnit\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion.Inputs[Data Conversion Input].Columns[OrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="OrganizationUnitID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Output].Columns[StageOrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Output].Columns[StageOrganizationUnitID]"
+                      name="StageOrganizationUnitID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubOrganizationUnit\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update HubOrganizationUnit\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion 1.Inputs[Data Conversion Input].Columns[OrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="OrganizationUnitID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Output].Columns[HubOrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Output].Columns[HubOrganizationUnitID]"
+                      name="HubOrganizationUnitID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="HubOrganizationUnit Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Inputs[Conditional Split Input].Columns[HubOrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="HubOrganizationUnitID"
+                      lineageId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[HubOrganizationUnitID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[NewRow]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NewRow"
+                  synchronousInputId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[HubOrganizationUnitID]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(HubOrganizationUnitID)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="HubOrganizationUnit source data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select OrganizationUnitID from HubOrganizationUnit Order by OrganizationUnitID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Connections[OleDbConnection]"
+                  connectionManagerID="{5BAB7D65-2D9F-45AD-AB82-A9D7EA57E932}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-dw-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].ExternalColumns[OrganizationUnitID]"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]"
+                      name="OrganizationUnitID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].ExternalColumns[OrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OrganizationUnitID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[OrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[OrganizationUnitID]"
+                      name="OrganizationUnitID" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Insert Into HubOrganizationUnit"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Insert Into HubOrganizationUnit(OrganizationUnitID,DWInsertDate,RecordSource) Values (?,GETDATE(),'dbo.OUs');</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Connections[OleDbConnection]"
+                  connectionManagerID="{5BAB7D65-2D9F-45AD-AB82-A9D7EA57E932}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-dw-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input].Columns[StageOrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StageOrganizationUnitID"
+                      externalMetadataColumnId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[StageOrganizationUnitID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubOrganizationUnit\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Left Input].Columns[OrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="OrganizationUnitID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]" />
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Left Input].Columns[StageOrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StageOrganizationUnitID"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Output].Columns[StageOrganizationUnitID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Right Input].Columns[OrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="OrganizationUnitID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]" />
+                    <inputColumn
+                      refId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Right Input].Columns[HubOrganizationUnitID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="HubOrganizationUnitID"
+                      lineageId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Output].Columns[HubOrganizationUnitID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[StageOrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[StageOrganizationUnitID]"
+                      name="StageOrganizationUnitID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Left Input].Columns[StageOrganizationUnitID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[HubOrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output].Columns[HubOrganizationUnitID]"
+                      name="HubOrganizationUnitID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Right Input].Columns[HubOrganizationUnitID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="StageOrganizationUnit source data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Convert(varchar(100),OrganizationUnitID) OrganizationUnitID
+  FROM StageOrganizationUnit
+order by OrganizationUnitID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Connections[OleDbConnection]"
+                  connectionManagerID="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].ExternalColumns[OrganizationUnitID]"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].Columns[OrganizationUnitID]"
+                      name="OrganizationUnitID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output].ExternalColumns[OrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OrganizationUnitID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[OrganizationUnitID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[OrganizationUnitID]"
+                      name="OrganizationUnitID" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Update HubOrganizationUnit.Paths[Data Conversion Output]"
+              endId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Left Input]"
+              name="Data Conversion Output"
+              startId="Package\Update HubOrganizationUnit\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Update HubOrganizationUnit.Paths[Data Conversion Output1]"
+              endId="Package\Update HubOrganizationUnit\Merge Join.Inputs[Merge Join Right Input]"
+              name="Data Conversion Output"
+              startId="Package\Update HubOrganizationUnit\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Update HubOrganizationUnit.Paths[Merge Join Output]"
+              endId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Update HubOrganizationUnit\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Update HubOrganizationUnit.Paths[NewRow]"
+              endId="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit.Inputs[OLE DB Command Input]"
+              name="NewRow"
+              startId="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split.Outputs[NewRow]" />
+            <path
+              refId="Package\Update HubOrganizationUnit.Paths[OLE DB Source Output]"
+              endId="Package\Update HubOrganizationUnit\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update HubOrganizationUnit\StageOrganizationUnit source data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Update HubOrganizationUnit.Paths[OLE DB Source Output1]"
+              endId="Package\Update HubOrganizationUnit\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update HubOrganizationUnit\HubOrganizationUnit source data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9493D673-83DD-49DE-8A77-C8426B99A81C}"
+      DTS:From="Package\Import Organization Unit data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update HubOrganizationUnit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{667f37e0-b4c5-4b8a-9267-93c23c736bf8}"
+      DTS:From="Package\Truncate StageOrganizationUnit table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Import Organization Unit data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Import Organization Unit data"
+          TopLeft="89,149" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Truncate StageOrganizationUnit table"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Update HubOrganizationUnit"
+          TopLeft="92,291" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="187.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.5,47"
+              Start="0,0"
+              End="11.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="7.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,23.5"
+                    Point2="11.5,23.5"
+                    Point3="11.5,27.5" />
+                  <mssgle:LineSegment
+                    End="11.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="198.75,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100"
+              Start="0,0"
+              End="0,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Organization Unit data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Import Organization Unit data\Organization Unit data"
+          TopLeft="270,401" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Import Organization Unit data\Organization Unit source data"
+          TopLeft="257,136" />
+        <EdgeLayout
+          Id="Package\Import Organization Unit data.Paths[OLE DB Source Output]"
+          TopLeft="364.5,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,223"
+              Start="0,0"
+              End="0,215.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,215.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Organization Unit data\Organization Unit data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Organization Unit data\Organization Unit source data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Update HubOrganizationUnit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Update HubOrganizationUnit\Data Conversion 1"
+          TopLeft="524,142" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Update HubOrganizationUnit\StageOrganizationUnit source data"
+          TopLeft="89,37" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Update HubOrganizationUnit\HubOrganizationUnit source data"
+          TopLeft="483,40" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Update HubOrganizationUnit\Data Conversion"
+          TopLeft="137.5,138.5" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Update HubOrganizationUnit\HubOrganizationUnit Conditional Split"
+          TopLeft="309,393" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Update HubOrganizationUnit\Merge Join"
+          TopLeft="364,268" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Update HubOrganizationUnit\Insert Into HubOrganizationUnit"
+          TopLeft="316,532" />
+        <EdgeLayout
+          Id="Package\Update HubOrganizationUnit.Paths[Data Conversion Output1]"
+          TopLeft="606.5,184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157.166666666667,84"
+              Start="0,0"
+              End="-157.166666666667,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7872340425532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.7872340425532"
+                    Point2="0,49.7872340425532"
+                    Point3="-4,49.7872340425532" />
+                  <mssgle:LineSegment
+                    End="-153.166666666667,49.7872340425532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.166666666667,49.7872340425532"
+                    Point2="-157.166666666667,49.7872340425532"
+                    Point3="-157.166666666667,53.7872340425532" />
+                  <mssgle:LineSegment
+                    End="-157.166666666667,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update HubOrganizationUnit.Paths[Data Conversion Output]"
+          TopLeft="215.5,180.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="213.5,87.5"
+              Start="0,0"
+              End="213.5,80">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.75"
+                    Point2="0,43.75"
+                    Point3="4,43.75" />
+                  <mssgle:LineSegment
+                    End="209.5,43.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="209.5,43.75"
+                    Point2="213.5,43.75"
+                    Point3="213.5,47.75" />
+                  <mssgle:LineSegment
+                    End="213.5,80" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update HubOrganizationUnit.Paths[OLE DB Source Output1]"
+          TopLeft="603.5,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update HubOrganizationUnit.Paths[OLE DB Source Output]"
+          TopLeft="212.75,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.5"
+              Start="0,0"
+              End="0,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update HubOrganizationUnit.Paths[Merge Join Output]"
+          TopLeft="429,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,83"
+              Start="0,0"
+              End="8,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="4,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,41.5"
+                    Point2="8,41.5"
+                    Point3="8,45.5" />
+                  <mssgle:LineSegment
+                    End="8,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update HubOrganizationUnit.Paths[NewRow]"
+          TopLeft="434,435">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97"
+              Start="0,0"
+              End="0,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.76404296875,40.0390625,39.5280859375,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
