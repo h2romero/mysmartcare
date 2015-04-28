@@ -11,12 +11,620 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{E686F99B-92D7-4F94-94B6-164AF568F1A5}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{071EF242-B709-44FB-AC35-2068E262CF56}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\f_Addresses"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7776098d-8287-4886-9373-4e37f5876e95}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="f_Addresses"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SmartCare DB - DayCare1 - Addresses"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select Id, [Guid] as AddressId, PersonID, OUID,
+         Address1, Address2, City, State, ZipCode, Latitude, Longitude,           DateCreated, DateLastModified
+from addresses with (nolock)
+where PersonID is not NULL or OUID is not NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Connections[OleDbConnection]"
+                  connectionManagerID="{D07ECCEC-5DB3-471F-8AB6-230A2CA62A10}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[smartcare-db1.cloudapp.net.DayCare_1.hromero 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[AddressId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[AddressId]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[AddressId]"
+                      name="AddressId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Address1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Address1]"
+                      length="50"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Address1]"
+                      name="Address1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Address2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Address2]"
+                      length="20"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Address2]"
+                      name="Address2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="50"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      length="5"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      name="ZipCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      name="PersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      name="DateLastModified"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[OUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[OUID]"
+                      name="OUID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[AddressId]"
+                      dataType="guid"
+                      name="AddressId" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Address1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address1" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Address2]"
+                      dataType="wstr"
+                      length="20"
+                      name="Address2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="5"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="r4"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="r4"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      dataType="guid"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i8"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[AddressId]"
+                      dataType="guid"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[AddressId]"
+                      name="AddressId" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      dataType="guid"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      name="PersonID" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      dataType="guid"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      name="OUID" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Address1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Address1]"
+                      name="Address1" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Address2]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Address2]"
+                      name="Address2" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="r4"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="r4"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      name="DateLastModified" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SmartCare DW - SOR - f_Addresses"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[f_Addresses]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[AddressId]"
+                      cachedDataType="guid"
+                      cachedName="AddressId"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressId]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[AddressId]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[Address1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Address1"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Address1]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Address1]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[Address2]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Address2"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Address2]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Address2]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="r4"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="r4"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[PersonID]"
+                      cachedDataType="guid"
+                      cachedName="PersonID"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[PersonID]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i8"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[DateLastModified]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateLastModified"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[DateLastModified]" />
+                    <inputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      externalMetadataColumnId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
+                      lineageId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output].Columns[OUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressId]"
+                      dataType="guid"
+                      name="AddressId" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Address1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address1" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Address2]"
+                      dataType="wstr"
+                      length="20"
+                      name="Address2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="5"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r4"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r4"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                      dataType="guid"
+                      name="PersonId" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                    <externalMetadataColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\f_Addresses.Paths[OLE DB Source Output]"
+              endId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\f_OUs"
       DTS:CreationName="Microsoft.Pipeline"
@@ -935,6 +1543,481 @@ where OUID is not NULL</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\f_PhoneNumbers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{72403917-5e7f-4107-99ed-79e2cb564885}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="f_PhoneNumbers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SmartCare DB - DayCare1 - PhoneNumbers"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select Id, [Guid] as PhoneId, PersonID, OUID,
+	Number, PhoneType, DateCreated, IsPrimary, DateLastModified
+from PhoneNumbers</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Connections[OleDbConnection]"
+                  connectionManagerID="{D07ECCEC-5DB3-471F-8AB6-230A2CA62A10}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[smartcare-db1.cloudapp.net.DayCare_1.hromero 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      name="PersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PhoneId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[PhoneId]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PhoneId]"
+                      name="PhoneId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      length="50"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[Number]"
+                      name="Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PhoneType]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[PhoneType]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PhoneType]"
+                      name="PhoneType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[IsPrimary]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[IsPrimary]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[IsPrimary]"
+                      name="IsPrimary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      name="DateLastModified"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[OUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[OUID]"
+                      name="OUID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      dataType="guid"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[PhoneId]"
+                      dataType="guid"
+                      name="PhoneId" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[PhoneType]"
+                      dataType="i4"
+                      name="PhoneType" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[IsPrimary]"
+                      dataType="bool"
+                      name="IsPrimary" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i8"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[PhoneId]"
+                      dataType="guid"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[PhoneId]"
+                      name="PhoneId" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      dataType="guid"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      name="PersonID" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      dataType="guid"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      name="OUID" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[Number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[Number]"
+                      name="Number" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[PhoneType]"
+                      dataType="i4"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[PhoneType]"
+                      name="PhoneType" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[IsPrimary]"
+                      dataType="bool"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[IsPrimary]"
+                      name="IsPrimary" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      name="DateLastModified" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SmartCare DW - SOR - f_PhoneNumbers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[f_PhoneNumbers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[PersonID]"
+                      cachedDataType="guid"
+                      cachedName="PersonID"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PersonID]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i8"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[PhoneId]"
+                      cachedDataType="guid"
+                      cachedName="PhoneId"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[PhoneId]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PhoneId]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Number"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[Number]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[Number]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[PhoneType]"
+                      cachedDataType="i4"
+                      cachedName="PhoneType"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[PhoneType]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[PhoneType]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[IsPrimary]"
+                      cachedDataType="bool"
+                      cachedName="IsPrimary"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[IsPrimary]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[IsPrimary]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[DateLastModified]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateLastModified"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[DateLastModified]" />
+                    <inputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      externalMetadataColumnId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output].Columns[OUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                      dataType="guid"
+                      name="PersonId" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[PhoneId]"
+                      dataType="guid"
+                      name="PhoneId" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[PhoneType]"
+                      dataType="i4"
+                      name="PhoneType" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[IsPrimary]"
+                      dataType="bool"
+                      name="IsPrimary" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                    <externalMetadataColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\f_PhoneNumbers.Paths[OLE DB Source Output]"
+              endId="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\f_Schools"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -1745,7 +2828,7 @@ From
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}"
-          SQLTask:SqlStatementSource="truncate table f_Tenants; truncate table f_Schools; truncate table  f_OUsAddresses;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table f_Addresses;&#xA;truncate table f_PhoneNumbers;&#xA;truncate table f_Tenants; &#xA;truncate table f_Schools;&#xA; truncate table  f_OUs;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1753,11 +2836,11 @@ From
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DF259910-2DB9-4E33-A7D7-6502E676F577}"
+      DTS:DTSID="{3DFADB03-6C8C-4B65-BC1C-4CE8A4F56133}"
       DTS:From="Package\Truncate Initial Tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\f_Tenants" />
+      DTS:To="Package\f_Addresses" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -1782,6 +2865,22 @@ From
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\f_OUsAddresses" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1704f395-1397-416f-be41-b958ebe31f38}"
+      DTS:From="Package\f_Addresses"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3 1"
+      DTS:To="Package\f_PhoneNumbers" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{795F201D-EDC7-4810-A7E6-DEA192A94DF8}"
+      DTS:From="Package\f_PhoneNumbers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\f_Tenants" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1798,44 +2897,22 @@ From
         <NodeLayout
           Size="126,42"
           Id="Package\f_Tenants"
-          TopLeft="87.0833330787719,156.166667325298" />
+          TopLeft="89.0833330787719,366.166667325298" />
         <NodeLayout
           Size="184,42"
           Id="Package\Truncate Initial Tables"
           TopLeft="60,60" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="151.041666539386,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.166667325298"
-              Start="0,0"
-              End="0,46.666667325298">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.666667325298" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="155,42"
           Id="Package\f_OUsAddresses"
-          TopLeft="98,473.166667325298" />
+          TopLeft="100,683.166667325298" />
         <NodeLayout
           Size="124,42"
           Id="Package\f_Schools"
-          TopLeft="95,255.166667325298" />
+          TopLeft="97,465.166667325298" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="153.541666539386,198.166667325298">
+          TopLeft="155.541666539386,408.166667325298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1858,10 +2935,10 @@ From
         <NodeLayout
           Size="108,42"
           Id="Package\f_OUs"
-          TopLeft="102,365.166667325298" />
+          TopLeft="104,575.166667325298" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="156.5,297.166667325298">
+          TopLeft="158.5,507.166667325298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1883,7 +2960,7 @@ From
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="156,407.166667325298">
+          TopLeft="158,617.166667325298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1907,6 +2984,104 @@ From
                     Point3="19.5,37" />
                   <mssgle:LineSegment
                     End="19.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,42"
+          Id="Package\f_Addresses"
+          TopLeft="81.4999998137355,143.166667325298" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\f_PhoneNumbers"
+          TopLeft="81,213.966667883198" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1]"
+          TopLeft="149.499999813735,185.166667325298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.0000001862645,28.8000005579"
+              Start="0,0"
+              End="11.0000001862645,21.3000005579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.40000027895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.40000027895"
+                    Point2="0,14.40000027895"
+                    Point3="4,14.40000027895" />
+                  <mssgle:LineSegment
+                    End="7.00000018626451,14.40000027895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.00000018626451,14.40000027895"
+                    Point2="11.0000001862645,14.40000027895"
+                    Point3="11.0000001862645,18.40000027895" />
+                  <mssgle:LineSegment
+                    End="11.0000001862645,21.3000005579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="150.749999906868,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.166667325298"
+              Start="0,0"
+              End="0,33.666667325298">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.666667325298" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="160.5,255.966667883198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.41666692122811,110.1999994421"
+              Start="0,0"
+              End="-8.41666692122811,102.6999994421">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.09999972105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.09999972105"
+                    Point2="0,55.09999972105"
+                    Point3="-4,55.09999972105" />
+                  <mssgle:LineSegment
+                    End="-4.41666692122811,55.09999972105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.41666692122811,55.09999972105"
+                    Point2="-8.41666692122811,55.09999972105"
+                    Point3="-8.41666692122811,59.09999972105" />
+                  <mssgle:LineSegment
+                    End="-8.41666692122811,102.6999994421" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2171,6 +3346,138 @@ From
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\f_OUs\SmartCare DW - SOR - f_OUs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\f_Addresses">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="259,42"
+          Id="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses"
+          TopLeft="394.666666666667,86" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\f_Addresses\SmartCare DW - SOR - f_Addresses"
+          TopLeft="403.333333333333,205.333333333333" />
+        <EdgeLayout
+          Id="Package\f_Addresses.Paths[OLE DB Source Output]"
+          TopLeft="525.333333333333,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.333333333333"
+              Start="0,0"
+              End="0,69.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_Addresses"
+          FontInfo="{assembly:Null}"
+          Size="76,56"
+          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
+          TopLeft="414.666666666667,134.666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_Addresses\SmartCare DW - SOR - f_Addresses">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\f_PhoneNumbers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="283,42"
+          Id="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers"
+          TopLeft="394.666666666667,86" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers"
+          TopLeft="403.333333333333,205.333333333333" />
+        <EdgeLayout
+          Id="Package\f_PhoneNumbers.Paths[OLE DB Source Output]"
+          TopLeft="537.25,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.333333333333"
+              Start="0,0"
+              End="0,69.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_PhoneNumbers"
+          FontInfo="{assembly:Null}"
+          Size="76,56"
+          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
+          TopLeft="414.666666666667,134.666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

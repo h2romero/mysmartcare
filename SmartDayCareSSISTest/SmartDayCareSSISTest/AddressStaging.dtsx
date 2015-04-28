@@ -1,0 +1,1651 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/27/2015 11:50:35 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HECTORROMERC8AD"
+  DTS:CreatorName="HECTORROMERC8AD\hectorromero"
+  DTS:DTSID="{77B94CE4-95C1-48CA-BF86-D8DAE37610F7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="AddressStaging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{EFC77BCF-B32C-4952-A964-0ED11AFAB71B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import Address data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3ad5dbfd-893d-48a0-b696-aad6664568a0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Address data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import Address data\Address data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Address data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StageAddress]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Address data\Address data.Connections[OleDbConnection]"
+                  connectionManagerID="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="r4"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[EffectiveDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EffectiveDate"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[EffectiveDate]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[AddressId]"
+                      cachedDataType="guid"
+                      cachedName="AddressId"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[AddressId]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[PersonID]"
+                      cachedDataType="guid"
+                      cachedName="PersonID"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[PersonID]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[FormattedAddress1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FormattedAddress1"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Address1]"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress1]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[FormattedAddress2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FormattedAddress2"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Address2]"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress2]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[FormattedCity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FormattedCity"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedCity]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[FormattedState]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FormattedState"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedState]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="r4"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[FormattedZipCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FormattedZipCode"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedZipCode]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      externalMetadataColumnId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationUnitID]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[OUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                      dataType="guid"
+                      name="AddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                      dataType="guid"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Address1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Address1" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Address2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Address2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      name="EffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationUnitID]"
+                      dataType="guid"
+                      name="OrganizationUnitID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Address data\Address data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Address data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Address data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Address data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Address data\Address source data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Address source data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	a.AddressId
+	,a.PersonID
+	,a. OUID
+	,a.Address1
+	,a.Address2
+	,a.City
+	,a.State
+	,a.ZipCode
+	,a.Latitude
+	,a.Longitude
+	,AddrLast.LatestDate EffectiveDate
+From
+	f_Addresses a (NOLOCK)
+	Join (
+					Select
+						AddressId
+						,PersonID
+						,max(isnull(DateLastModified,DateCreated)) LatestDate
+					From
+						f_Addresses (NOLOCK)
+					--Where
+					--	PersonID=('00255051-0714-4B98-8656-B12565F7C1C4')
+					Group by
+						AddressId,PersonID
+					
+		) AddrLast On AddrLast.AddressId=a.AddressId and AddrLast.AddressId = (Select max(AddressId) From f_Addresses Where PersonID=a.PersonID)
+
+Union
+
+Select
+	a.AddressId	
+	,a.PersonId
+	,a.OUID
+	,a.Address1
+	,a.Address2
+	,a.City
+	,a.State
+	,a.ZipCode
+	,a.Latitude
+	,a.Longitude
+	,AddrLast.LatestDate EffectiveDate
+From
+	f_Addresses a (NOLOCK)
+	Join (
+					Select
+						AddressId
+						,OUID
+						,max(isnull(DateLastModified,DateCreated)) LatestDate
+					From
+						f_Addresses (NOLOCK)
+					Group by
+						AddressId,OUID
+					
+		) AddrLast On AddrLast.AddressId=a.AddressId and AddrLast.AddressId = (Select max(AddressId) From f_Addresses Where OUID=a.OUID)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Address data\Address source data.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      name="PersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Address1]"
+                      length="50"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address1]"
+                      name="Address1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Address2]"
+                      length="20"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address2]"
+                      name="Address2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="50"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      length="5"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      name="ZipCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[EffectiveDate]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[EffectiveDate]"
+                      name="EffectiveDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[AddressId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[AddressId]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[AddressId]"
+                      name="AddressId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[OUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[OUID]"
+                      name="OUID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      dataType="guid"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Address1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address1" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Address2]"
+                      dataType="wstr"
+                      length="20"
+                      name="Address2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="5"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="r4"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="r4"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      name="EffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[AddressId]"
+                      dataType="guid"
+                      name="AddressId" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[AddressId]"
+                      dataType="guid"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[AddressId]"
+                      name="AddressId" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      dataType="guid"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      name="PersonID" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      dataType="guid"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      name="OUID" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Address1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Address1]"
+                      name="Address1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Address2]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Address2]"
+                      name="Address2" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="r4"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="r4"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[EffectiveDate]"
+                      name="EffectiveDate" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Address data\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input].Columns[Address1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Address1"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address1]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input].Columns[Address2]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Address2"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address2]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="City"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="ZipCode"
+                      lineageId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress1]"
+                      name="FormattedAddress1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
+                      name="FormattedAddress2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[Address2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedCity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedCity]"
+                      name="FormattedCity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[City]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedState]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedState]"
+                      name="FormattedState"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
+                      name="FormattedZipCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Address data\Address source data.Outputs[OLE DB Source Output].Columns[ZipCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Address data\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import Address data\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Address data\Data Conversion 1.Inputs[Data Conversion Input].Columns[Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="Number"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[Number]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import Address data\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedNumber]"
+                      name="FormattedNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import Address data\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Address data\Phone Number data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Phone Number data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StagePhoneNumber]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Address data\Phone Number data.Connections[OleDbConnection]"
+                  connectionManagerID="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[PhoneNumberID]"
+                      cachedDataType="guid"
+                      cachedName="PhoneNumberID"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberID]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PhoneNumberID]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[PersonID]"
+                      cachedDataType="guid"
+                      cachedName="PersonID"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PersonID]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[IsPrimary]"
+                      cachedDataType="bool"
+                      cachedName="IsPrimary"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[IsPrimary]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[IsPrimary]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[PhoneType]"
+                      cachedDataType="i4"
+                      cachedName="PhoneType"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[PhoneType]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PhoneType]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[EffectiveDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EffectiveDate"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[EffectiveDate]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[FormattedNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FormattedNumber"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[Number]"
+                      lineageId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedNumber]" />
+                    <inputColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationUnitID]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[OUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberID]"
+                      dataType="guid"
+                      name="PhoneNumberID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                      dataType="guid"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[IsPrimary]"
+                      dataType="bool"
+                      name="IsPrimary" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[PhoneType]"
+                      dataType="i4"
+                      name="PhoneType" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      name="EffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationUnitID]"
+                      dataType="guid"
+                      name="OrganizationUnitID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Address data\Phone Number data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Phone Number data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Phone Number data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Address data\Phone Number source data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Phone Number source data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	PhoneId PhoneNumberID
+	,PersonID
+	,OUID
+	,dbo.f_GetNumeric(Number) Number
+	,IsPrimary
+	,PhoneType
+	,max(isnull(DateLastModified,DateCreated)) EffectiveDate
+From
+	f_PhoneNumbers ph
+Where
+	PersonID is not null and	
+	(
+		(ph.PhoneId = (Select max(PhoneId) From f_PhoneNumbers Where PersonID=ph.PersonID) and Exists(Select 1 From f_PhoneNumbers Where PersonID=ph.PersonID and PhoneId&lt;&gt;ph.PhoneId and Number=ph.Number and IsPrimary=ph.IsPrimary and PhoneType=ph.PhoneType)) -- remove duplicate rows
+		or(Not Exists(Select 1 From f_PhoneNumbers Where PersonID=ph.PersonID and PhoneId&lt;&gt;ph.PhoneId and Number=ph.Number and IsPrimary=ph.IsPrimary and PhoneType=ph.PhoneType))	--leave multiple rows, no duplicates found
+	)
+Group by
+	PhoneId
+	,Number
+	,PersonID
+	,OUID
+	,IsPrimary
+	,PhoneType
+
+Union
+
+Select
+	PhoneId PhoneNumberID
+	,PersonID
+	,OUID
+	,dbo.f_GetNumeric(Number) Number
+	,IsPrimary
+	,PhoneType
+	,max(isnull(DateLastModified,DateCreated)) EffectiveDate
+From
+	f_PhoneNumbers ph
+Where
+	OUID is not null and
+	(
+		(ph.PhoneId = (Select max(PhoneId) From f_PhoneNumbers Where OUID=ph.OUID) and Exists(Select 1 From f_PhoneNumbers Where OUID=ph.OUID and PhoneId&lt;&gt;ph.PhoneId and Number=ph.Number and IsPrimary=ph.IsPrimary and PhoneType=ph.PhoneType)) -- remove duplicate rows
+		or(Not Exists(Select 1 From f_PhoneNumbers Where OUID=ph.OUID and PhoneId&lt;&gt;ph.PhoneId and Number=ph.Number and IsPrimary=ph.IsPrimary and PhoneType=ph.PhoneType))	--leave multiple rows, no duplicates found
+	)
+Group by
+	PhoneId
+	,Number
+	,PersonID
+	,OUID
+	,IsPrimary
+	,PhoneType</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Address data\Phone Number source data.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PhoneNumberID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberID]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PhoneNumberID]"
+                      name="PhoneNumberID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PersonID]"
+                      name="PersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      length="256"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[Number]"
+                      name="Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[IsPrimary]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[IsPrimary]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[IsPrimary]"
+                      name="IsPrimary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PhoneType]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[PhoneType]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[PhoneType]"
+                      name="PhoneType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[EffectiveDate]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[EffectiveDate]"
+                      name="EffectiveDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[OUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].Columns[OUID]"
+                      name="OUID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberID]"
+                      dataType="guid"
+                      name="PhoneNumberID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                      dataType="guid"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[IsPrimary]"
+                      dataType="bool"
+                      name="IsPrimary" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[PhoneType]"
+                      dataType="i4"
+                      name="PhoneType" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      name="EffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[PhoneNumberID]"
+                      dataType="guid"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[PhoneNumberID]"
+                      name="PhoneNumberID" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      dataType="guid"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                      name="PersonID" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      dataType="guid"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      name="OUID" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[Number]"
+                      name="Number" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[IsPrimary]"
+                      dataType="bool"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[IsPrimary]"
+                      name="IsPrimary" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[PhoneType]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[PhoneType]"
+                      name="PhoneType" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[EffectiveDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[EffectiveDate]"
+                      name="EffectiveDate" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import Address data.Paths[Data Conversion Output]"
+              endId="Package\Import Address data\Address data.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import Address data\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import Address data.Paths[Data Conversion Output1]"
+              endId="Package\Import Address data\Phone Number data.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import Address data\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import Address data.Paths[OLE DB Source Output]"
+              endId="Package\Import Address data\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import Address data\Address source data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Import Address data.Paths[OLE DB Source Output1]"
+              endId="Package\Import Address data\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import Address data\Phone Number source data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate StageAddresses"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{42dd2302-648a-4dc9-bc13-9047b1a8f4e5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate StageAddresses"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}"
+          SQLTask:SqlStatementSource="Truncate table StageAddress; &#xA;Truncate table StagePhoneNumber;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{22e6efd8-be7a-4d55-8701-afac89cacf6c}"
+      DTS:From="Package\Truncate StageAddresses"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:To="Package\Import Address data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Import Address data"
+          TopLeft="91,168" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Truncate StageAddresses"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="159,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,66"
+              Start="0,0"
+              End="20,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="16,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,33"
+                    Point2="20,33"
+                    Point3="20,37" />
+                  <mssgle:LineSegment
+                    End="20,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Address data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Import Address data\Data Conversion"
+          TopLeft="124,192" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Import Address data\Phone Number source data"
+          TopLeft="342,70" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Import Address data\Data Conversion 1"
+          TopLeft="379,181" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Import Address data\Address source data"
+          TopLeft="105,71" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Import Address data\Address data"
+          TopLeft="129,341" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Import Address data\Phone Number data"
+          TopLeft="386,340" />
+        <EdgeLayout
+          Id="Package\Import Address data.Paths[OLE DB Source Output1]"
+          TopLeft="445.5,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,69"
+              Start="0,0"
+              End="16,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="12,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,34.5"
+                    Point2="16,34.5"
+                    Point3="16,38.5" />
+                  <mssgle:LineSegment
+                    End="16,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.92765625,39.5,55.8553125,11.2236328125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Address data.Paths[OLE DB Source Output]"
+          TopLeft="192,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,79"
+              Start="0,0"
+              End="10,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="4,39.5" />
+                  <mssgle:LineSegment
+                    End="6,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,39.5"
+                    Point2="10,39.5"
+                    Point3="10,43.5" />
+                  <mssgle:LineSegment
+                    End="10,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.8837109375,44.5,55.767421875,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Address data.Paths[Data Conversion Output1]"
+          TopLeft="461.5,223">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,117"
+              Start="0,0"
+              End="11,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.5"
+                    Point2="0,58.5"
+                    Point3="4,58.5" />
+                  <mssgle:LineSegment
+                    End="7,58.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,58.5"
+                    Point2="11,58.5"
+                    Point3="11,62.5" />
+                  <mssgle:LineSegment
+                    End="11,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.42765625,63.5,55.8553125,11.2236328125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Address data.Paths[Data Conversion Output]"
+          TopLeft="200.5,234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,107"
+              Start="0,0"
+              End="0,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.8837109375,44.12841796875,55.767421875,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Address data\Phone Number source data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Address data\Address source data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Address data\Address data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Address data\Phone Number data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
