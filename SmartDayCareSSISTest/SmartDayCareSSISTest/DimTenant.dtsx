@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimTenant"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{D2825739-0496-48A1-A596-764DEB67D92C}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{188CCB12-FFA1-40A6-B1CF-E0FE4F008118}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -544,278 +544,6 @@ From
           version="1">
           <components>
             <component
-              refId="Package\Update DimTenant\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input].Columns[TenantID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="TenantID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
-                    <inputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input].Columns[ChangeHash]"
-                      cachedDataType="bytes"
-                      cachedLength="16"
-                      cachedName="ChangeHash"
-                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
-                    <inputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Name"
-                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input].Columns[Tags]"
-                      cachedDataType="wstr"
-                      cachedLength="1000"
-                      cachedName="Tags"
-                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Tags]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]"
-                      name="StageTenantID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageChangeHash]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageChangeHash]"
-                      name="StageChangeHash"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedName]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedName]"
-                      name="FormattedName"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[FormatttedTags]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="1000"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[FormatttedTags]"
-                      name="FormatttedTags"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Tags]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update DimTenant\Data Conversion 1"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update DimTenant\Data Conversion 1.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update DimTenant\Data Conversion 1.Inputs[Data Conversion Input].Columns[ChangeHash]"
-                      cachedDataType="bytes"
-                      cachedLength="16"
-                      cachedName="ChangeHash"
-                      lineageId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
-                    <inputColumn
-                      refId="Package\Update DimTenant\Data Conversion 1.Inputs[Data Conversion Input].Columns[TenantID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="TenantID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update DimTenant\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimChangeHash]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimChangeHash]"
-                      name="DimChangeHash"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimTenantID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimTenantID]"
-                      name="DimTenantID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update DimTenant\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Update DimTenant\DimTenant Conditional Split"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1072,6 +800,278 @@ From
                       refId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update DimTenant\Format Dim Tenant"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Format Dim Tenant"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update DimTenant\Format Dim Tenant.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update DimTenant\Format Dim Tenant.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="ChangeHash"
+                      lineageId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
+                    <inputColumn
+                      refId="Package\Update DimTenant\Format Dim Tenant.Inputs[Data Conversion Input].Columns[TenantID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenantID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update DimTenant\Format Dim Tenant.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output].Columns[DimChangeHash]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output].Columns[DimChangeHash]"
+                      name="DimChangeHash"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output].Columns[DimTenantID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output].Columns[DimTenantID]"
+                      name="DimTenantID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update DimTenant\Format Dim Tenant.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update DimTenant\Format Stage Tenant"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Format Stage Tenant"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input].Columns[TenantID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="TenantID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="ChangeHash"
+                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
+                    <inputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Name"
+                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input].Columns[Tags]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="Tags"
+                      lineageId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Tags]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[StageTenantID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[StageTenantID]"
+                      name="StageTenantID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[StageChangeHash]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[StageChangeHash]"
+                      name="StageChangeHash"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[FormattedName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[FormattedName]"
+                      name="FormattedName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[FormatttedTags]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1000"
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[FormatttedTags]"
+                      name="FormatttedTags"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[Tags]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1354,7 +1354,7 @@ From
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="StageTenantID"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]" />
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[StageTenantID]" />
                     <inputColumn
                       refId="Package\Update DimTenant\Merge Join.Inputs[Merge Join Left Input].Columns[IsDisabled]"
                       cachedDataType="bool"
@@ -1381,21 +1381,21 @@ From
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="StageChangeHash"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageChangeHash]" />
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[StageChangeHash]" />
                     <inputColumn
                       refId="Package\Update DimTenant\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedName"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedName]" />
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[FormattedName]" />
                     <inputColumn
                       refId="Package\Update DimTenant\Merge Join.Inputs[Merge Join Left Input].Columns[FormatttedTags]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="FormatttedTags"
-                      lineageId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output].Columns[FormatttedTags]" />
+                      lineageId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output].Columns[FormatttedTags]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1418,14 +1418,14 @@ From
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DimChangeHash"
-                      lineageId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimChangeHash]" />
+                      lineageId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output].Columns[DimChangeHash]" />
                     <inputColumn
                       refId="Package\Update DimTenant\Merge Join.Inputs[Merge Join Right Input].Columns[DimTenantID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="DimTenantID"
-                      lineageId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimTenantID]" />
+                      lineageId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output].Columns[DimTenantID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2084,12 +2084,12 @@ Order by
               refId="Package\Update DimTenant.Paths[Data Conversion Output]"
               endId="Package\Update DimTenant\Merge Join.Inputs[Merge Join Left Input]"
               name="Data Conversion Output"
-              startId="Package\Update DimTenant\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Update DimTenant\Format Stage Tenant.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update DimTenant.Paths[Data Conversion Output1]"
               endId="Package\Update DimTenant\Merge Join.Inputs[Merge Join Right Input]"
               name="Data Conversion Output"
-              startId="Package\Update DimTenant\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\Update DimTenant\Format Dim Tenant.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update DimTenant.Paths[Merge Join Output]"
               endId="Package\Update DimTenant\DimTenant Conditional Split.Inputs[Conditional Split Input]"
@@ -2102,12 +2102,12 @@ Order by
               startId="Package\Update DimTenant\DimTenant Conditional Split.Outputs[NewRow]" />
             <path
               refId="Package\Update DimTenant.Paths[OLE DB Source Output]"
-              endId="Package\Update DimTenant\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Update DimTenant\Format Stage Tenant.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update DimTenant\StageTenant source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update DimTenant.Paths[OLE DB Source Output1]"
-              endId="Package\Update DimTenant\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\Update DimTenant\Format Dim Tenant.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update DimTenant\DimTenant source data.Outputs[OLE DB Source Output]" />
             <path
@@ -2134,99 +2134,19 @@ Order by
           version="1">
           <components>
             <component
-              refId="Package\Update HubTenant\Data Conversion"
+              refId="Package\Update HubTenant\Format Hub TenantID"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Data Conversion"
+              name="Format Hub TenantID"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Update HubTenant\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\Update HubTenant\Format Hub TenantID.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update HubTenant\Data Conversion.Inputs[Data Conversion Input].Columns[TenantID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="TenantID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Update HubTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update HubTenant\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]"
-                      name="StageTenantID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update HubTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update HubTenant\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update HubTenant\Data Conversion 1"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update HubTenant\Data Conversion 1.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update HubTenant\Data Conversion 1.Inputs[Data Conversion Input].Columns[TenantID]"
+                      refId="Package\Update HubTenant\Format Hub TenantID.Inputs[Data Conversion Input].Columns[TenantID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
@@ -2239,19 +2159,19 @@ Order by
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Output]"
+                  refId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Update HubTenant\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update HubTenant\Format Hub TenantID.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[HubTenantID]"
+                      refId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Output].Columns[HubTenantID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[HubTenantID]"
+                      lineageId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Output].Columns[HubTenantID]"
                       name="HubTenantID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2270,22 +2190,102 @@ Order by
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  refId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update HubTenant\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update HubTenant\Format Hub TenantID.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update HubTenant\Format Stage TenantID"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Format Stage TenantID"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update HubTenant\Format Stage TenantID.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update HubTenant\Format Stage TenantID.Inputs[Data Conversion Input].Columns[TenantID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="TenantID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update HubTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update HubTenant\Format Stage TenantID.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Output].Columns[StageTenantID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Output].Columns[StageTenantID]"
+                      name="StageTenantID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update HubTenant\StageTenant source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update HubTenant\Format Stage TenantID.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2643,7 +2643,7 @@ Order by
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="StageTenantID"
-                      lineageId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]" />
+                      lineageId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Output].Columns[StageTenantID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2666,7 +2666,7 @@ Order by
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="HubTenantID"
-                      lineageId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Output].Columns[HubTenantID]" />
+                      lineageId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Output].Columns[HubTenantID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2833,12 +2833,12 @@ order by TenantID</property>
               refId="Package\Update HubTenant.Paths[Data Conversion Output]"
               endId="Package\Update HubTenant\Merge Join.Inputs[Merge Join Left Input]"
               name="Data Conversion Output"
-              startId="Package\Update HubTenant\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Update HubTenant\Format Stage TenantID.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update HubTenant.Paths[Data Conversion Output1]"
               endId="Package\Update HubTenant\Merge Join.Inputs[Merge Join Right Input]"
               name="Data Conversion Output"
-              startId="Package\Update HubTenant\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\Update HubTenant\Format Hub TenantID.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update HubTenant.Paths[Merge Join Output]"
               endId="Package\Update HubTenant\HubTenant Conditional Split.Inputs[Conditional Split Input]"
@@ -2851,12 +2851,12 @@ order by TenantID</property>
               startId="Package\Update HubTenant\HubTenant Conditional Split.Outputs[NewRow]" />
             <path
               refId="Package\Update HubTenant.Paths[OLE DB Source Output]"
-              endId="Package\Update HubTenant\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Update HubTenant\Format Stage TenantID.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update HubTenant\StageTenant source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update HubTenant.Paths[OLE DB Source Output1]"
-              endId="Package\Update HubTenant\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\Update HubTenant\Format Hub TenantID.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update HubTenant\HubTenant source data.Outputs[OLE DB Source Output]" />
           </paths>
@@ -3096,8 +3096,8 @@ order by TenantID</property>
           Id="Package\Update DimTenant\StageTenant source data"
           TopLeft="102,39" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\Update DimTenant\Data Conversion"
+          Size="179,42"
+          Id="Package\Update DimTenant\Format Stage Tenant"
           TopLeft="128,138" />
         <NodeLayout
           Size="184,42"
@@ -3105,18 +3105,30 @@ order by TenantID</property>
           TopLeft="446,625" />
         <EdgeLayout
           Id="Package\Update DimTenant.Paths[OLE DB Source Output]"
-          TopLeft="203.25,81">
+          TopLeft="200.5,81">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57"
+              EndConnector="17,57"
               Start="0,0"
-              End="0,49.5">
+              End="17,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.5" />
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="13,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,28.5"
+                    Point2="17,28.5"
+                    Point3="17,32.5" />
+                  <mssgle:LineSegment
+                    End="17,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3131,13 +3143,13 @@ order by TenantID</property>
           TopLeft="323,271" />
         <EdgeLayout
           Id="Package\Update DimTenant.Paths[Data Conversion Output]"
-          TopLeft="206,180">
+          TopLeft="217.5,180">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="161.666666666667,91"
+              EndConnector="150.166666666667,91"
               Start="0,0"
-              End="161.666666666667,83.5">
+              End="150.166666666667,83.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3148,13 +3160,13 @@ order by TenantID</property>
                     Point2="0,53.936170212766"
                     Point3="4,53.936170212766" />
                   <mssgle:LineSegment
-                    End="157.666666666667,53.936170212766" />
+                    End="146.166666666667,53.936170212766" />
                   <mssgle:CubicBezierSegment
-                    Point1="157.666666666667,53.936170212766"
-                    Point2="161.666666666667,53.936170212766"
-                    Point3="161.666666666667,57.936170212766" />
+                    Point1="146.166666666667,53.936170212766"
+                    Point2="150.166666666667,53.936170212766"
+                    Point3="150.166666666667,57.936170212766" />
                   <mssgle:LineSegment
-                    End="161.666666666667,83.5" />
+                    End="150.166666666667,83.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3164,12 +3176,12 @@ order by TenantID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="165,42"
-          Id="Package\Update DimTenant\Data Conversion 1"
+          Size="171,42"
+          Id="Package\Update DimTenant\Format Dim Tenant"
           TopLeft="514.5,133.5" />
         <EdgeLayout
           Id="Package\Update DimTenant.Paths[OLE DB Source Output1]"
-          TopLeft="595.75,84">
+          TopLeft="597.25,84">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3191,13 +3203,13 @@ order by TenantID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update DimTenant.Paths[Data Conversion Output1]"
-          TopLeft="597,175.5">
+          TopLeft="600,175.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-188.666666666667,95.5"
+              EndConnector="-191.666666666667,95.5"
               Start="0,0"
-              End="-188.666666666667,88">
+              End="-191.666666666667,88">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3208,13 +3220,13 @@ order by TenantID</property>
                     Point2="0,56.6033434650456"
                     Point3="-4,56.6033434650456" />
                   <mssgle:LineSegment
-                    End="-184.666666666667,56.6033434650456" />
+                    End="-187.666666666667,56.6033434650456" />
                   <mssgle:CubicBezierSegment
-                    Point1="-184.666666666667,56.6033434650456"
-                    Point2="-188.666666666667,56.6033434650456"
-                    Point3="-188.666666666667,60.6033434650456" />
+                    Point1="-187.666666666667,56.6033434650456"
+                    Point2="-191.666666666667,56.6033434650456"
+                    Point3="-191.666666666667,60.6033434650456" />
                   <mssgle:LineSegment
-                    End="-188.666666666667,88" />
+                    End="-191.666666666667,88" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3366,8 +3378,8 @@ order by TenantID</property>
           Id="Package\Update HubTenant\StageTenant source data"
           TopLeft="89,37" />
         <NodeLayout
-          Size="165,42"
-          Id="Package\Update HubTenant\Data Conversion 1"
+          Size="182,42"
+          Id="Package\Update HubTenant\Format Hub TenantID"
           TopLeft="509,141" />
         <NodeLayout
           Size="185,42"
@@ -3378,8 +3390,8 @@ order by TenantID</property>
           Id="Package\Update HubTenant\HubTenant Conditional Split"
           TopLeft="309,393" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\Update HubTenant\Data Conversion"
+          Size="190,42"
+          Id="Package\Update HubTenant\Format Stage TenantID"
           TopLeft="131,145" />
         <NodeLayout
           Size="130,42"
@@ -3425,13 +3437,13 @@ order by TenantID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update HubTenant.Paths[Data Conversion Output1]"
-          TopLeft="591.5,183">
+          TopLeft="600,183">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-208.166666666667,94"
+              EndConnector="-216.666666666667,94"
               Start="0,0"
-              End="-208.166666666667,86.5">
+              End="-216.666666666667,86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3442,13 +3454,13 @@ order by TenantID</property>
                     Point2="0,55.7142857142857"
                     Point3="-4,55.7142857142857" />
                   <mssgle:LineSegment
-                    End="-204.166666666667,55.7142857142857" />
+                    End="-212.666666666667,55.7142857142857" />
                   <mssgle:CubicBezierSegment
-                    Point1="-204.166666666667,55.7142857142857"
-                    Point2="-208.166666666667,55.7142857142857"
-                    Point3="-208.166666666667,59.7142857142857" />
+                    Point1="-212.666666666667,55.7142857142857"
+                    Point2="-216.666666666667,55.7142857142857"
+                    Point3="-216.666666666667,59.7142857142857" />
                   <mssgle:LineSegment
-                    End="-208.166666666667,86.5" />
+                    End="-216.666666666667,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3459,30 +3471,30 @@ order by TenantID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update HubTenant.Paths[Data Conversion Output]"
-          TopLeft="209,187">
+          TopLeft="226,187">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="154,90"
+              EndConnector="116.666666666667,90"
               Start="0,0"
-              End="154,82.5">
+              End="116.666666666667,82.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41" />
+                    End="0,49.3434650455927" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41"
-                    Point2="0,45"
-                    Point3="4,45" />
+                    Point1="0,49.3434650455927"
+                    Point2="0,53.3434650455927"
+                    Point3="4,53.3434650455927" />
                   <mssgle:LineSegment
-                    End="150,45" />
+                    End="112.666666666667,53.3434650455927" />
                   <mssgle:CubicBezierSegment
-                    Point1="150,45"
-                    Point2="154,45"
-                    Point3="154,49" />
+                    Point1="112.666666666667,53.3434650455927"
+                    Point2="116.666666666667,53.3434650455927"
+                    Point3="116.666666666667,57.3434650455927" />
                   <mssgle:LineSegment
-                    End="154,82.5" />
+                    End="116.666666666667,82.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3497,9 +3509,9 @@ order by TenantID</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14,59"
+              EndConnector="22.5,59"
               Start="0,0"
-              End="14,51.5">
+              End="22.5,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3510,13 +3522,13 @@ order by TenantID</property>
                     Point2="0,29.5"
                     Point3="4,29.5" />
                   <mssgle:LineSegment
-                    End="10,29.5" />
+                    End="18.5,29.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="10,29.5"
-                    Point2="14,29.5"
-                    Point3="14,33.5" />
+                    Point1="18.5,29.5"
+                    Point2="22.5,29.5"
+                    Point3="22.5,33.5" />
                   <mssgle:LineSegment
-                    End="14,51.5" />
+                    End="22.5,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3531,9 +3543,9 @@ order by TenantID</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21.5,66"
+              EndConnector="38.5,66"
               Start="0,0"
-              End="21.5,58.5">
+              End="38.5,58.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3544,13 +3556,13 @@ order by TenantID</property>
                     Point2="0,33"
                     Point3="4,33" />
                   <mssgle:LineSegment
-                    End="17.5,33" />
+                    End="34.5,33" />
                   <mssgle:CubicBezierSegment
-                    Point1="17.5,33"
-                    Point2="21.5,33"
-                    Point3="21.5,37" />
+                    Point1="34.5,33"
+                    Point2="38.5,33"
+                    Point3="38.5,37" />
                   <mssgle:LineSegment
-                    End="21.5,58.5" />
+                    End="38.5,58.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

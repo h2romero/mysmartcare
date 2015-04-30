@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimSchool"
   DTS:PackageType="5"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{96AB9DCB-0F86-4DA2-94BC-014949B51EF6}">
+  DTS:VersionBuild="112"
+  DTS:VersionGUID="{E8B6FED7-5694-4E86-A0C0-CA544F99CB7A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -952,304 +952,6 @@ From
           version="1">
           <components>
             <component
-              refId="Package\Update DimSchool\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input].Columns[ChangeHash]"
-                      cachedDataType="bytes"
-                      cachedLength="16"
-                      cachedName="ChangeHash"
-                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Name"
-                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input].Columns[SchoolID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="SchoolID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input].Columns[TenantID]"
-                      cachedDataType="guid"
-                      cachedName="TenantID"
-                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input].Columns[OUID]"
-                      cachedDataType="guid"
-                      cachedName="OUID"
-                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[OUID]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageChangeHash]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageChangeHash]"
-                      name="StageChangeHash"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedName]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedName]"
-                      name="FormattedName"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[Name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageSchoolID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageSchoolID]"
-                      name="StageSchoolID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]"
-                      name="StageTenantID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageOUID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageOUID]"
-                      name="StageOUID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[OUID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update DimSchool\Data Conversion 1"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update DimSchool\Data Conversion 1.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion 1.Inputs[Data Conversion Input].Columns[ChangeHash]"
-                      cachedDataType="bytes"
-                      cachedLength="16"
-                      cachedName="ChangeHash"
-                      lineageId="Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
-                    <inputColumn
-                      refId="Package\Update DimSchool\Data Conversion 1.Inputs[Data Conversion Input].Columns[SchoolID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="SchoolID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update DimSchool\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimChangeHash]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimChangeHash]"
-                      name="DimChangeHash"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimSchoolID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimSchoolID]"
-                      name="DimSchoolID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update DimSchool\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Update DimSchool\DimSchool Conditional Split"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1518,6 +1220,304 @@ From
               </outputs>
             </component>
             <component
+              refId="Package\Update DimSchool\Format Dim School"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Format Dim School"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update DimSchool\Format Dim School.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Dim School.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="ChangeHash"
+                      lineageId="Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Dim School.Inputs[Data Conversion Input].Columns[SchoolID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SchoolID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update DimSchool\Format Dim School.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output].Columns[DimChangeHash]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output].Columns[DimChangeHash]"
+                      name="DimChangeHash"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output].Columns[DimSchoolID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output].Columns[DimSchoolID]"
+                      name="DimSchoolID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update DimSchool\Format Dim School.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update DimSchool\Format Stage School"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Format Stage School"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="ChangeHash"
+                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Name"
+                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input].Columns[SchoolID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SchoolID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input].Columns[TenantID]"
+                      cachedDataType="guid"
+                      cachedName="TenantID"
+                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      lineageId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[OUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageChangeHash]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageChangeHash]"
+                      name="StageChangeHash"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[FormattedName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[FormattedName]"
+                      name="FormattedName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageSchoolID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageSchoolID]"
+                      name="StageSchoolID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageTenantID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageTenantID]"
+                      name="StageTenantID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[TenantID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageOUID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageOUID]"
+                      name="StageOUID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output].Columns[OUID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Update DimSchool\Insert Into DimSchool"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -1720,14 +1720,14 @@ From
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="StageSchoolID"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageSchoolID]" />
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageSchoolID]" />
                     <inputColumn
                       refId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedName"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedName]" />
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[FormattedName]" />
                     <inputColumn
                       refId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Left Input].Columns[DateCreated]"
                       cachedDataType="dbTimeStamp"
@@ -1739,21 +1739,21 @@ From
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="StageChangeHash"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageChangeHash]" />
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageChangeHash]" />
                     <inputColumn
                       refId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Left Input].Columns[StageTenantID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="StageTenantID"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageTenantID]" />
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageTenantID]" />
                     <inputColumn
                       refId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Left Input].Columns[StageOUID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="StageOUID"
-                      lineageId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output].Columns[StageOUID]" />
+                      lineageId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output].Columns[StageOUID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1776,14 +1776,14 @@ From
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DimChangeHash"
-                      lineageId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimChangeHash]" />
+                      lineageId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output].Columns[DimChangeHash]" />
                     <inputColumn
                       refId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Right Input].Columns[DimSchoolID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="DimSchoolID"
-                      lineageId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output].Columns[DimSchoolID]" />
+                      lineageId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output].Columns[DimSchoolID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2288,12 +2288,12 @@ Order by
               refId="Package\Update DimSchool.Paths[Data Conversion Output]"
               endId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Left Input]"
               name="Data Conversion Output"
-              startId="Package\Update DimSchool\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Update DimSchool\Format Stage School.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update DimSchool.Paths[Data Conversion Output1]"
               endId="Package\Update DimSchool\Merge Join.Inputs[Merge Join Right Input]"
               name="Data Conversion Output"
-              startId="Package\Update DimSchool\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\Update DimSchool\Format Dim School.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update DimSchool.Paths[Merge Join Output]"
               endId="Package\Update DimSchool\DimSchool Conditional Split.Inputs[Conditional Split Input]"
@@ -2306,12 +2306,12 @@ Order by
               startId="Package\Update DimSchool\DimSchool Conditional Split.Outputs[NewRow]" />
             <path
               refId="Package\Update DimSchool.Paths[OLE DB Source Output]"
-              endId="Package\Update DimSchool\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\Update DimSchool\Format Dim School.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update DimSchool\DimSchool source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update DimSchool.Paths[OLE DB Source Output1]"
-              endId="Package\Update DimSchool\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Update DimSchool\Format Stage School.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update DimSchool\StageSchool source data.Outputs[OLE DB Source Output]" />
             <path
@@ -7059,242 +7059,19 @@ order by SchoolID</property>
           version="1">
           <components>
             <component
-              refId="Package\Update SatSchoolAddress\Data Conversion"
+              refId="Package\Update SatSchoolAddress\Format Sat Address"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Data Conversion"
+              name="Format Sat Address"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\Update SatSchoolAddress\Format Sat Address.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input].Columns[ChangeHash]"
-                      cachedDataType="bytes"
-                      cachedLength="16"
-                      cachedName="ChangeHash"
-                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
-                    <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input].Columns[Address1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Address1"
-                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address1]" />
-                    <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input].Columns[Address2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Address2"
-                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address2]" />
-                    <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input].Columns[City]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="City"
-                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[City]" />
-                    <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input].Columns[State]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="State"
-                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[State]" />
-                    <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input].Columns[ZipCode]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="ZipCode"
-                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ZipCode]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[StageSchoolAddressChangeHash]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[StageSchoolAddressChangeHash]"
-                      name="StageSchoolAddressChangeHash"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress1]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress1]"
-                      name="FormattedAddress1"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address1]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
-                      name="FormattedAddress2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address2]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedCity]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedCity]"
-                      name="FormattedCity"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[City]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedState]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedState]"
-                      name="FormattedState"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[State]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
-                      name="FormattedZipCode"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ZipCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update SatSchoolAddress\Data Conversion 1"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update SatSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      refId="Package\Update SatSchoolAddress\Format Sat Address.Inputs[Data Conversion Input].Columns[ChangeHash]"
                       cachedDataType="bytes"
                       cachedLength="16"
                       cachedName="ChangeHash"
@@ -7305,19 +7082,19 @@ order by SchoolID</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output]"
+                  refId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Update SatSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update SatSchoolAddress\Format Sat Address.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[SatSchoolAddressChangeHash]"
+                      refId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Output].Columns[SatSchoolAddressChangeHash]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="50"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[SatSchoolAddressChangeHash]"
+                      lineageId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Output].Columns[SatSchoolAddressChangeHash]"
                       name="SatSchoolAddressChangeHash"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -7336,22 +7113,245 @@ order by SchoolID</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  refId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update SatSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update SatSchoolAddress\Format Sat Address.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update SatSchoolAddress\Format Stage Address"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Format Stage Address"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="ChangeHash"
+                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
+                    <inputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input].Columns[Address1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Address1"
+                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address1]" />
+                    <inputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input].Columns[Address2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Address2"
+                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address2]" />
+                    <inputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="State"
+                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input].Columns[ZipCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ZipCode"
+                      lineageId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[StageSchoolAddressChangeHash]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[StageSchoolAddressChangeHash]"
+                      name="StageSchoolAddressChangeHash"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ChangeHash]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedAddress1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedAddress1]"
+                      name="FormattedAddress1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
+                      name="FormattedAddress2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[Address2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedCity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedCity]"
+                      name="FormattedCity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[City]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedState]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedState]"
+                      name="FormattedState"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
+                      name="FormattedZipCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output].Columns[ZipCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -7693,35 +7693,35 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedAddress1"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress1]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedAddress1]" />
                     <inputColumn
                       refId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedAddress2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedAddress2"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedAddress2]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedAddress2]" />
                     <inputColumn
                       refId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedCity]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedCity"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedCity]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedCity]" />
                     <inputColumn
                       refId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedState]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedState"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedState]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedState]" />
                     <inputColumn
                       refId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedZipCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedZipCode"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[FormattedZipCode]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[FormattedZipCode]" />
                     <inputColumn
                       refId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[PrimaryPhoneNumber]"
                       cachedDataType="r8"
@@ -7743,7 +7743,7 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="StageSchoolAddressChangeHash"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output].Columns[StageSchoolAddressChangeHash]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output].Columns[StageSchoolAddressChangeHash]" />
                     <inputColumn
                       refId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[EffectiveDate]"
                       cachedDataType="dbTimeStamp"
@@ -7769,7 +7769,7 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="SatSchoolAddressChangeHash"
-                      lineageId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[SatSchoolAddressChangeHash]" />
+                      lineageId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Output].Columns[SatSchoolAddressChangeHash]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8857,12 +8857,12 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               refId="Package\Update SatSchoolAddress.Paths[Data Conversion Output]"
               endId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Left Input]"
               name="Data Conversion Output"
-              startId="Package\Update SatSchoolAddress\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Update SatSchoolAddress\Format Stage Address.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update SatSchoolAddress.Paths[Data Conversion Output1]"
               endId="Package\Update SatSchoolAddress\Merge Join.Inputs[Merge Join Right Input]"
               name="Data Conversion Output"
-              startId="Package\Update SatSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\Update SatSchoolAddress\Format Sat Address.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update SatSchoolAddress.Paths[Merge Join Output]"
               endId="Package\Update SatSchoolAddress\SatSchool Conditional Split.Inputs[Conditional Split Input]"
@@ -8875,12 +8875,12 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               startId="Package\Update SatSchoolAddress\SatSchool Conditional Split.Outputs[NewRow]" />
             <path
               refId="Package\Update SatSchoolAddress.Paths[OLE DB Source Output]"
-              endId="Package\Update SatSchoolAddress\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Update SatSchoolAddress\Format Stage Address.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update SatSchoolAddress\StageSchoolAddress source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update SatSchoolAddress.Paths[OLE DB Source Output1]"
-              endId="Package\Update SatSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\Update SatSchoolAddress\Format Sat Address.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update SatSchoolAddress\SatSchoolAddress source data.Outputs[OLE DB Source Output]" />
             <path
@@ -8907,60 +8907,60 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
           version="1">
           <components>
             <component
-              refId="Package\Update StageSchoolAddress\Data Conversion 1"
+              refId="Package\Update StageSchoolAddress\Format Address"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Data Conversion 1"
+              name="Format Address"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]"
+                  refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[ZipCode]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[ZipCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="ZipCode"
                       lineageId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output].Columns[ZipCode]" />
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[ChangeHash]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[ChangeHash]"
                       cachedDataType="bytes"
                       cachedLength="8000"
                       cachedName="ChangeHash"
                       lineageId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output].Columns[ChangeHash]" />
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[Address1]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[Address1]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Address1"
                       lineageId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output].Columns[Address1]" />
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[Address2]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[Address2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Address2"
                       lineageId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output].Columns[Address2]" />
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[City]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[City]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="City"
                       lineageId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output].Columns[City]" />
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[State]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[State]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="State"
                       lineageId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output].Columns[State]" />
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input].Columns[SchoolID]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input].Columns[SchoolID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
@@ -8973,19 +8973,19 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output]"
+                  refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedChangeHash]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedChangeHash]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="50"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedChangeHash]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedChangeHash]"
                       name="FormattedChangeHash"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9001,13 +9001,13 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedSchoolID]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedSchoolID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedSchoolID]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedSchoolID]"
                       name="FormattedSchoolID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9023,13 +9023,13 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedZipCode]"
                       name="FormattedZipCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9045,13 +9045,13 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[Formatted Address1]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[Formatted Address1]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[Formatted Address1]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[Formatted Address1]"
                       name="Formatted Address1"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9067,13 +9067,13 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedAddress2]"
                       name="FormattedAddress2"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9089,13 +9089,13 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedCity]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedCity]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedCity]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedCity]"
                       name="FormattedCity"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9111,13 +9111,13 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedState]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedState]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedState]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedState]"
                       name="FormattedState"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9136,22 +9136,22 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -9160,44 +9160,44 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               </outputs>
             </component>
             <component
-              refId="Package\Update StageSchoolAddress\Data Conversion 2"
+              refId="Package\Update StageSchoolAddress\Format School"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Data Conversion 2"
+              name="Format School"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Update StageSchoolAddress\Data Conversion 2.Inputs[Data Conversion Input]"
+                  refId="Package\Update StageSchoolAddress\Format School.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 2.Inputs[Data Conversion Input].Columns[SchoolID]"
+                      refId="Package\Update StageSchoolAddress\Format School.Inputs[Data Conversion Input].Columns[SchoolID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="SchoolID"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Output]"
+                  refId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Update StageSchoolAddress\Data Conversion 2.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update StageSchoolAddress\Format School.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Output].Columns[HubSchoolID]"
+                      refId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Output].Columns[HubSchoolID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Output].Columns[HubSchoolID]"
+                      lineageId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Output].Columns[HubSchoolID]"
                       name="HubSchoolID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -9205,7 +9205,7 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolID]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -9216,22 +9216,22 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Error Output]"
+                  refId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update StageSchoolAddress\Data Conversion 2.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Update StageSchoolAddress\Format School.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -9240,11 +9240,11 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               </outputs>
             </component>
             <component
-              refId="Package\Update StageSchoolAddress\HubPerson source data"
+              refId="Package\Update StageSchoolAddress\HubSchool source data"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="HubPerson source data"
+              name="HubSchool source data"
               usesDispositions="true"
               version="7">
               <properties>
@@ -9289,7 +9289,7 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               </properties>
               <connections>
                 <connection
-                  refId="Package\Update StageSchoolAddress\HubPerson source data.Connections[OleDbConnection]"
+                  refId="Package\Update StageSchoolAddress\HubSchool source data.Connections[OleDbConnection]"
                   connectionManagerID="{13BBB9A1-51A0-4C8A-B4CB-503E9002646E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-dw-Hector1 1]"
                   description="The OLE DB runtime connection used to access the database."
@@ -9297,73 +9297,73 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
               </connections>
               <outputs>
                 <output
-                  refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output]"
+                  refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output]"
                   isSorted="true"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
+                      externalMetadataColumnId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
                       name="SchoolID"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolKey]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolKey]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolKey]"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolKey]"
+                      externalMetadataColumnId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolKey]"
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolKey]"
                       name="SchoolKey"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="SchoolID" />
                     <externalMetadataColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolKey]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolKey]"
                       dataType="i4"
                       name="SchoolKey" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[SchoolID]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[SchoolID]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[SchoolID]"
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[SchoolID]"
                       name="SchoolID" />
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[SchoolKey]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[SchoolKey]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[SchoolKey]"
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[SchoolKey]"
                       name="SchoolKey" />
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -9417,49 +9417,49 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Formatted Address1"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[Formatted Address1]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[Formatted Address1]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedAddress2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedAddress2"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedAddress2]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedAddress2]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedCity]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedCity"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedCity]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedCity]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedState]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedState"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedState]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedState]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedZipCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedZipCode"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedZipCode]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedZipCode]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedSchoolID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="FormattedSchoolID"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedSchoolID]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedSchoolID]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[FormattedChangeHash]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="FormattedChangeHash"
-                      lineageId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output].Columns[FormattedChangeHash]" />
+                      lineageId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output].Columns[FormattedChangeHash]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input].Columns[PrimaryPhoneNumber]"
                       cachedDataType="r8"
@@ -9495,12 +9495,12 @@ Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),'dbo.People,dbo.Addresses,dbo.Addresses',?
                       cachedLength="100"
                       cachedName="SchoolID"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
                     <inputColumn
                       refId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Right Input].Columns[SchoolKey]"
                       cachedDataType="i4"
                       cachedName="SchoolKey"
-                      lineageId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output].Columns[SchoolKey]" />
+                      lineageId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output].Columns[SchoolKey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10351,12 +10351,12 @@ Order by
               refId="Package\Update StageSchoolAddress.Paths[Data Conversion Output]"
               endId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Left Input]"
               name="Data Conversion Output"
-              startId="Package\Update StageSchoolAddress\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\Update StageSchoolAddress\Format Address.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update StageSchoolAddress.Paths[Data Conversion Output1]"
               endId="Package\Update StageSchoolAddress\Merge Join.Inputs[Merge Join Right Input]"
               name="Data Conversion Output"
-              startId="Package\Update StageSchoolAddress\Data Conversion 2.Outputs[Data Conversion Output]" />
+              startId="Package\Update StageSchoolAddress\Format School.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Update StageSchoolAddress.Paths[Merge Join Output]"
               endId="Package\Update StageSchoolAddress\Update StageSchoolAddress data.Inputs[OLE DB Command Input]"
@@ -10364,14 +10364,14 @@ Order by
               startId="Package\Update StageSchoolAddress\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\Update StageSchoolAddress.Paths[OLE DB Source Output]"
-              endId="Package\Update StageSchoolAddress\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\Update StageSchoolAddress\Format Address.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Update StageSchoolAddress\StageAddress and StagePhone source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update StageSchoolAddress.Paths[OLE DB Source Output1]"
-              endId="Package\Update StageSchoolAddress\Data Conversion 2.Inputs[Data Conversion Input]"
+              endId="Package\Update StageSchoolAddress\Format School.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Update StageSchoolAddress\HubPerson source data.Outputs[OLE DB Source Output]" />
+              startId="Package\Update StageSchoolAddress\HubSchool source data.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -10911,8 +10911,8 @@ Order by
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="165,42"
-          Id="Package\Update DimSchool\Data Conversion 1"
+          Size="168,42"
+          Id="Package\Update DimSchool\Format Dim School"
           TopLeft="522,134" />
         <EdgeLayout
           Id="Package\Update DimSchool.Paths[OLE DB Source Output]"
@@ -10920,9 +10920,9 @@ Order by
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11,50"
+              EndConnector="12.5,50"
               Start="0,0"
-              End="11,42.5">
+              End="12.5,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -10933,13 +10933,13 @@ Order by
                     Point2="0,25"
                     Point3="4,25" />
                   <mssgle:LineSegment
-                    End="7,25" />
+                    End="8.5,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="7,25"
-                    Point2="11,25"
-                    Point3="11,29" />
+                    Point1="8.5,25"
+                    Point2="12.5,25"
+                    Point3="12.5,29" />
                   <mssgle:LineSegment
-                    End="11,42.5" />
+                    End="12.5,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10949,8 +10949,8 @@ Order by
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="156,42"
-          Id="Package\Update DimSchool\Data Conversion"
+          Size="176,42"
+          Id="Package\Update DimSchool\Format Stage School"
           TopLeft="140,128" />
         <EdgeLayout
           Id="Package\Update DimSchool.Paths[OLE DB Source Output1]"
@@ -10958,9 +10958,9 @@ Order by
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.5,47"
+              EndConnector="28.5,47"
               Start="0,0"
-              End="18.5,39.5">
+              End="28.5,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -10971,13 +10971,13 @@ Order by
                     Point2="0,23.5"
                     Point3="4,23.5" />
                   <mssgle:LineSegment
-                    End="14.5,23.5" />
+                    End="24.5,23.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.5,23.5"
-                    Point2="18.5,23.5"
-                    Point3="18.5,27.5" />
+                    Point1="24.5,23.5"
+                    Point2="28.5,23.5"
+                    Point3="28.5,27.5" />
                   <mssgle:LineSegment
-                    End="18.5,39.5" />
+                    End="28.5,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10992,13 +10992,13 @@ Order by
           TopLeft="329,237" />
         <EdgeLayout
           Id="Package\Update DimSchool.Paths[Data Conversion Output]"
-          TopLeft="218,170">
+          TopLeft="228,170">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="155.666666666667,67"
+              EndConnector="145.666666666667,67"
               Start="0,0"
-              End="155.666666666667,59.5">
+              End="145.666666666667,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -11009,13 +11009,13 @@ Order by
                     Point2="0,39.7112462006079"
                     Point3="4,39.7112462006079" />
                   <mssgle:LineSegment
-                    End="151.666666666667,39.7112462006079" />
+                    End="141.666666666667,39.7112462006079" />
                   <mssgle:CubicBezierSegment
-                    Point1="151.666666666667,39.7112462006079"
-                    Point2="155.666666666667,39.7112462006079"
-                    Point3="155.666666666667,43.7112462006079" />
+                    Point1="141.666666666667,39.7112462006079"
+                    Point2="145.666666666667,39.7112462006079"
+                    Point3="145.666666666667,43.7112462006079" />
                   <mssgle:LineSegment
-                    End="155.666666666667,59.5" />
+                    End="145.666666666667,59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11026,13 +11026,13 @@ Order by
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update DimSchool.Paths[Data Conversion Output1]"
-          TopLeft="604.5,176">
+          TopLeft="606,176">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-190.166666666667,61"
+              EndConnector="-191.666666666667,61"
               Start="0,0"
-              End="-190.166666666667,53.5">
+              End="-191.666666666667,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -11043,13 +11043,13 @@ Order by
                     Point2="0,36.1550151975684"
                     Point3="-4,36.1550151975684" />
                   <mssgle:LineSegment
-                    End="-186.166666666667,36.1550151975684" />
+                    End="-187.666666666667,36.1550151975684" />
                   <mssgle:CubicBezierSegment
-                    Point1="-186.166666666667,36.1550151975684"
-                    Point2="-190.166666666667,36.1550151975684"
-                    Point3="-190.166666666667,40.1550151975684" />
+                    Point1="-187.666666666667,36.1550151975684"
+                    Point2="-191.666666666667,36.1550151975684"
+                    Point3="-191.666666666667,40.1550151975684" />
                   <mssgle:LineSegment
-                    End="-190.166666666667,53.5" />
+                    End="-191.666666666667,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12271,8 +12271,8 @@ Order by
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
-          Id="Package\Update SatSchoolAddress\Data Conversion 1"
+          Size="171,42"
+          Id="Package\Update SatSchoolAddress\Format Sat Address"
           TopLeft="459,134" />
         <NodeLayout
           Size="232,42"
@@ -12287,8 +12287,8 @@ Order by
           Id="Package\Update SatSchoolAddress\SatSchoolAddress source data"
           TopLeft="419,33" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\Update SatSchoolAddress\Data Conversion"
+          Size="183,42"
+          Id="Package\Update SatSchoolAddress\Format Stage Address"
           TopLeft="169.5,136.5" />
         <EdgeLayout
           Id="Package\Update SatSchoolAddress.Paths[OLE DB Source Output1]"
@@ -12296,9 +12296,9 @@ Order by
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12.5,59"
+              EndConnector="15.5,59"
               Start="0,0"
-              End="12.5,51.5">
+              End="15.5,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12309,13 +12309,13 @@ Order by
                     Point2="0,29.5"
                     Point3="4,29.5" />
                   <mssgle:LineSegment
-                    End="8.5,29.5" />
+                    End="11.5,29.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="8.5,29.5"
-                    Point2="12.5,29.5"
-                    Point3="12.5,33.5" />
+                    Point1="11.5,29.5"
+                    Point2="15.5,29.5"
+                    Point3="15.5,33.5" />
                   <mssgle:LineSegment
-                    End="12.5,51.5" />
+                    End="15.5,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12330,9 +12330,9 @@ Order by
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.5,60.5"
+              EndConnector="25,60.5"
               Start="0,0"
-              End="11.5,53">
+              End="25,53">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12343,13 +12343,13 @@ Order by
                     Point2="0,30.25"
                     Point3="4,30.25" />
                   <mssgle:LineSegment
-                    End="7.5,30.25" />
+                    End="21,30.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="7.5,30.25"
-                    Point2="11.5,30.25"
-                    Point3="11.5,34.25" />
+                    Point1="21,30.25"
+                    Point2="25,30.25"
+                    Point3="25,34.25" />
                   <mssgle:LineSegment
-                    End="11.5,53" />
+                    End="25,53" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12364,30 +12364,30 @@ Order by
           TopLeft="340,250" />
         <EdgeLayout
           Id="Package\Update SatSchoolAddress.Paths[Data Conversion Output]"
-          TopLeft="247.5,178.5">
+          TopLeft="261,178.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="157.5,71.5"
+              EndConnector="123.666666666667,71.5"
               Start="0,0"
-              End="157.5,64">
+              End="123.666666666667,64">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.75" />
+                    End="0,38.3784194528875" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.75"
-                    Point2="0,35.75"
-                    Point3="4,35.75" />
+                    Point1="0,38.3784194528875"
+                    Point2="0,42.3784194528875"
+                    Point3="4,42.3784194528875" />
                   <mssgle:LineSegment
-                    End="153.5,35.75" />
+                    End="119.666666666667,42.3784194528875" />
                   <mssgle:CubicBezierSegment
-                    Point1="153.5,35.75"
-                    Point2="157.5,35.75"
-                    Point3="157.5,39.75" />
+                    Point1="119.666666666667,42.3784194528875"
+                    Point2="123.666666666667,42.3784194528875"
+                    Point3="123.666666666667,46.3784194528875" />
                   <mssgle:LineSegment
-                    End="157.5,64" />
+                    End="123.666666666667,64" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12398,13 +12398,13 @@ Order by
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update SatSchoolAddress.Paths[Data Conversion Output1]"
-          TopLeft="541.5,176">
+          TopLeft="544.5,176">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-116.166666666667,74"
+              EndConnector="-119.166666666667,74"
               Start="0,0"
-              End="-116.166666666667,66.5">
+              End="-119.166666666667,66.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12415,13 +12415,13 @@ Order by
                     Point2="0,43.8601823708207"
                     Point3="-4,43.8601823708207" />
                   <mssgle:LineSegment
-                    End="-112.166666666667,43.8601823708207" />
+                    End="-115.166666666667,43.8601823708207" />
                   <mssgle:CubicBezierSegment
-                    Point1="-112.166666666667,43.8601823708207"
-                    Point2="-116.166666666667,43.8601823708207"
-                    Point3="-116.166666666667,47.8601823708207" />
+                    Point1="-115.166666666667,43.8601823708207"
+                    Point2="-119.166666666667,43.8601823708207"
+                    Point3="-119.166666666667,47.8601823708207" />
                   <mssgle:LineSegment
-                    End="-116.166666666667,66.5" />
+                    End="-119.166666666667,66.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12573,16 +12573,16 @@ Order by
           Id="Package\Update StageSchoolAddress\StageAddress and StagePhone source data"
           TopLeft="93,51" />
         <NodeLayout
-          Size="165,42"
-          Id="Package\Update StageSchoolAddress\Data Conversion 1"
+          Size="153,42"
+          Id="Package\Update StageSchoolAddress\Format Address"
           TopLeft="184,146" />
         <NodeLayout
-          Size="188,42"
-          Id="Package\Update StageSchoolAddress\HubPerson source data"
+          Size="187,42"
+          Id="Package\Update StageSchoolAddress\HubSchool source data"
           TopLeft="474,48" />
         <NodeLayout
-          Size="165,42"
-          Id="Package\Update StageSchoolAddress\Data Conversion 2"
+          Size="146,42"
+          Id="Package\Update StageSchoolAddress\Format School"
           TopLeft="488,147" />
         <NodeLayout
           Size="235,42"
@@ -12590,7 +12590,7 @@ Order by
           TopLeft="320,424" />
         <EdgeLayout
           Id="Package\Update StageSchoolAddress.Paths[OLE DB Source Output1]"
-          TopLeft="569.25,90">
+          TopLeft="564.25,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -12616,9 +12616,9 @@ Order by
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33,53"
+              EndConnector="27,53"
               Start="0,0"
-              End="33,45.5">
+              End="27,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12629,13 +12629,13 @@ Order by
                     Point2="0,26.5"
                     Point3="4,26.5" />
                   <mssgle:LineSegment
-                    End="29,26.5" />
+                    End="23,26.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="29,26.5"
-                    Point2="33,26.5"
-                    Point3="33,30.5" />
+                    Point1="23,26.5"
+                    Point2="27,26.5"
+                    Point3="27,30.5" />
                   <mssgle:LineSegment
-                    End="33,45.5" />
+                    End="27,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12650,13 +12650,13 @@ Order by
           TopLeft="349,290" />
         <EdgeLayout
           Id="Package\Update StageSchoolAddress.Paths[Data Conversion Output]"
-          TopLeft="266.5,188">
+          TopLeft="260.5,188">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="127.166666666667,102"
+              EndConnector="133.166666666667,102"
               Start="0,0"
-              End="127.166666666667,94.5">
+              End="133.166666666667,94.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12667,13 +12667,13 @@ Order by
                     Point2="0,60.4559270516717"
                     Point3="4,60.4559270516717" />
                   <mssgle:LineSegment
-                    End="123.166666666667,60.4559270516717" />
+                    End="129.166666666667,60.4559270516717" />
                   <mssgle:CubicBezierSegment
-                    Point1="123.166666666667,60.4559270516717"
-                    Point2="127.166666666667,60.4559270516717"
-                    Point3="127.166666666667,64.4559270516717" />
+                    Point1="129.166666666667,60.4559270516717"
+                    Point2="133.166666666667,60.4559270516717"
+                    Point3="133.166666666667,64.4559270516717" />
                   <mssgle:LineSegment
-                    End="127.166666666667,94.5" />
+                    End="133.166666666667,94.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12684,13 +12684,13 @@ Order by
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update StageSchoolAddress.Paths[Data Conversion Output1]"
-          TopLeft="570.5,189">
+          TopLeft="561,189">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-136.166666666667,101"
+              EndConnector="-126.666666666667,101"
               Start="0,0"
-              End="-136.166666666667,93.5">
+              End="-126.666666666667,93.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12701,13 +12701,13 @@ Order by
                     Point2="0,59.8632218844985"
                     Point3="-4,59.8632218844985" />
                   <mssgle:LineSegment
-                    End="-132.166666666667,59.8632218844985" />
+                    End="-122.666666666667,59.8632218844985" />
                   <mssgle:CubicBezierSegment
-                    Point1="-132.166666666667,59.8632218844985"
-                    Point2="-136.166666666667,59.8632218844985"
-                    Point3="-136.166666666667,63.8632218844985" />
+                    Point1="-122.666666666667,59.8632218844985"
+                    Point2="-126.666666666667,59.8632218844985"
+                    Point3="-126.666666666667,63.8632218844985" />
                   <mssgle:LineSegment
-                    End="-136.166666666667,93.5" />
+                    End="-126.666666666667,93.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12762,7 +12762,7 @@ Order by
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update StageSchoolAddress\HubPerson source data">
+    design-time-name="Package\Update StageSchoolAddress\HubSchool source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
