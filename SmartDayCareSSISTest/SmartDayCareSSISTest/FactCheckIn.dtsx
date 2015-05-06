@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCheckIn"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{8CDF7DC8-40ED-4F0A-8680-CC43FAB4BB8B}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{749C7B2A-6913-4256-82F8-5D85EA47E8DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -207,6 +207,12 @@
                       cachedName="CheckInDate"
                       externalMetadataColumnId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[CheckInDate]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]" />
+                    <inputColumn
+                      refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].Columns[CheckInID]"
+                      cachedDataType="guid"
+                      cachedName="CheckInID"
+                      externalMetadataColumnId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[CheckInID]"
+                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -261,6 +267,14 @@
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[TransportPersonID]"
                       dataType="guid"
                       name="TransportPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[CheckInKey]"
+                      dataType="i8"
+                      name="CheckInKey" />
+                    <externalMetadataColumn
+                      refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[CheckInID]"
+                      dataType="guid"
+                      name="CheckInID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -315,7 +329,7 @@
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select top 1000
-	chk.Id
+	chk.ChildCheckInOutID CheckInID
 	,NULL ClassID
 	,chk.ChildID ChildID
 	,chk.OUID OUID
@@ -338,7 +352,7 @@ Where
 Union
 
 Select
-	chk.Id
+	chk.ClassCheckInOutID
 	--,chk.ClassID
 	,cls.Id ClassID
 	,chk.PersonID ChildID
@@ -362,7 +376,7 @@ Where
 	chk.IsCheckOut=0
 
 Order by
-	CheckInDateTime</property>
+	CheckInDateTime, CheckInID</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -406,15 +420,6 @@ Order by
                       externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
                       name="DateCreated"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[Id]"
-                      dataType="i8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[Id]"
-                      name="Id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]"
@@ -534,6 +539,15 @@ Order by
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]"
                       name="CheckInDate"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInID]"
+                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]"
+                      name="CheckInID"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -541,10 +555,6 @@ Order by
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
                       dataType="dbTimeStamp"
                       name="DateCreated" />
-                    <externalMetadataColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      dataType="i8"
-                      name="Id" />
                     <externalMetadataColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
                       dataType="i8"
@@ -597,6 +607,10 @@ Order by
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDate]"
                       dataType="dbDate"
                       name="CheckInDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInID]"
+                      dataType="guid"
+                      name="CheckInID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -605,10 +619,10 @@ Order by
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      dataType="i8"
-                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      name="Id" />
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[CheckInID]"
+                      dataType="guid"
+                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[CheckInID]"
+                      name="CheckInID" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[ClassID]"
                       dataType="i8"
@@ -845,7 +859,8 @@ Order by
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
-	ClassID
+	CheckInKey
+	,ClassID
 	,ChildID
 	,Convert(varchar(100),OUID) OUID
 	,CheckInDateTime
@@ -860,7 +875,7 @@ Order by
 From
 	StageCheckIn (NOLOCK)
 Order by
-	CheckInDateTime</property>
+	CheckInKey</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -934,7 +949,6 @@ Order by
                       externalMetadataColumnId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDateTime]"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDateTime]"
                       name="CheckInDateTime"
-                      sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]"
@@ -1018,6 +1032,16 @@ Order by
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[TransportPersonID]"
                       name="TransportPersonID"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInKey]"
+                      lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInKey]"
+                      name="CheckInKey"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1081,6 +1105,10 @@ Order by
                       dataType="str"
                       length="100"
                       name="TransportPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInKey]"
+                      dataType="i8"
+                      name="CheckInKey" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1088,6 +1116,11 @@ Order by
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Error Output].Columns[CheckInKey]"
+                      dataType="i8"
+                      lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Error Output].Columns[CheckInKey]"
+                      name="CheckInKey" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Error Output].Columns[ClassID]"
                       dataType="i8"
@@ -1439,7 +1472,7 @@ Order by
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[FactCheckInKey]"
-                      cachedDataType="i4"
+                      cachedDataType="i8"
                       cachedName="FactCheckInKey"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]" />
                     <inputColumn
@@ -1517,6 +1550,12 @@ Order by
                       cachedDataType="i4"
                       cachedName="TenantKey"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1564,13 +1603,13 @@ Order by
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckTypeKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckTypeKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactChildKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} &amp;&amp; (#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]})</property>
+                      name="Expression">#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckTypeKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckTypeKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactChildKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} &amp;&amp; (#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">CheckTypeKey == FactCheckTypeKey &amp;&amp; ChildKey == FactChildKey &amp;&amp; ClassKey != ClassKey &amp;&amp; (CreatedByPersonKey != FactCreatedByPersonKey || DataCaptureKey != FactDataCaptureKey || OrganizationUnitKey != FactOrganizationUnitKey || SchoolKey != FactSchoolKey || TenantKey != FactTenantKey)</property>
+                      name="FriendlyExpression">CheckInKey == FactCheckInKey &amp;&amp; CheckTypeKey == FactCheckTypeKey &amp;&amp; ChildKey == FactChildKey &amp;&amp; ClassKey == ClassKey &amp;&amp; (CreatedByPersonKey != FactCreatedByPersonKey || DataCaptureKey != FactDataCaptureKey || OrganizationUnitKey != FactOrganizationUnitKey || SchoolKey != FactSchoolKey || TenantKey != FactTenantKey)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1642,7 +1681,7 @@ Order by
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select CheckInKey, CheckInDateTime, CheckTypeKey, ChildKey, ClassKey, CreatedByPersonKey, DataCaptureKey, OrganizationUnitKey, SchoolKey, TenantKey, TransportPersonKey  
-from FactCheckIn Order by CheckInDateTime</property>
+from FactCheckIn Order by CheckInKey</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1687,16 +1726,16 @@ from FactCheckIn Order by CheckInDateTime</property>
                       externalMetadataColumnId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDateTime]"
                       lineageId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckInDateTime]"
                       name="FactCheckInDateTime"
-                      sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckInKey]"
-                      dataType="i4"
+                      dataType="i8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInKey]"
                       lineageId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckInKey]"
                       name="FactCheckInKey"
+                      sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckTypeKey]"
@@ -1788,7 +1827,7 @@ from FactCheckIn Order by CheckInDateTime</property>
                       name="CheckInDateTime" />
                     <externalMetadataColumn
                       refId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInKey]"
-                      dataType="i4"
+                      dataType="i8"
                       name="CheckInKey" />
                     <externalMetadataColumn
                       refId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].ExternalColumns[CheckTypeKey]"
@@ -1845,7 +1884,7 @@ from FactCheckIn Order by CheckInDateTime</property>
                       name="CheckTypeKey" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Error Output].Columns[CheckInKey]"
-                      dataType="i4"
+                      dataType="i8"
                       lineageId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Error Output].Columns[CheckInKey]"
                       name="CheckInKey" />
                     <outputColumn
@@ -1962,7 +2001,7 @@ where [refTable].[CalendarDate] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\238:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInKey]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2280,7 +2319,7 @@ where [refTable].[CheckType] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\266:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInKey]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2440,7 +2479,7 @@ where [refTable].[ChildID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\593:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Error Output].Columns[CheckInKey]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2598,7 +2637,7 @@ where [refTable].[ClassID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\2071:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2755,7 +2794,7 @@ where [refTable].[PersonID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\3733:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2914,7 +2953,7 @@ where [refTable].[OrganizationUnitID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\4001:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3074,7 +3113,7 @@ where [refTable].[SchoolID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\3995:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3233,7 +3272,7 @@ where [refTable].[TenantID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\4321:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn.Paths[Lookup Match Output6]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3393,7 +3432,7 @@ where [refTable].[PersonID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrTransportPersonID]};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\937:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3539,7 +3578,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Insert Into FactCheckIn.Inputs[OLE DB Command Input].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Update FactCheckIn\Insert Into FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInDateTime]" />
                     <inputColumn
@@ -3835,7 +3873,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -3957,6 +3994,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -4194,7 +4245,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -4316,6 +4366,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -4532,8 +4596,7 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
-                      name="CheckInDateTime"
-                      sortKeyPosition="1" />
+                      name="CheckInDateTime" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInDate]"
                       dataType="dbDate"
@@ -4584,6 +4647,12 @@ where [refTable].[PersonID] = ?</property>
                       length="100"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[TransportPersonID]"
                       name="TransportPersonID" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      dataType="i8"
+                      lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      name="CheckInKey"
+                      sortKeyPosition="1" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInDateKey]"
                       dataType="i4"
@@ -4725,7 +4794,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -4847,6 +4915,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -5097,7 +5179,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 2].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -5219,6 +5300,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 2].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -5448,8 +5543,7 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
-                      name="CheckInDateTime"
-                      sortKeyPosition="1" />
+                      name="CheckInDateTime" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInDate]"
                       dataType="dbDate"
@@ -5500,6 +5594,12 @@ where [refTable].[PersonID] = ?</property>
                       length="100"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[TransportPersonID]"
                       name="TransportPersonID" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      dataType="i8"
+                      lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      name="CheckInKey"
+                      sortKeyPosition="1" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInDateKey]"
                       dataType="i4"
@@ -5622,10 +5722,15 @@ where [refTable].[PersonID] = ?</property>
                   name="Merge Join Left Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Left Input].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]" />
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Left Input].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]" />
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Left Input].Columns[DataCaptureKey]"
@@ -5691,16 +5796,16 @@ where [refTable].[PersonID] = ?</property>
                   name="Merge Join Right Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Right Input].Columns[FactCheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="FactCheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckInKey]" />
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Right Input].Columns[FactCheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FactCheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckInDateTime]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Right Input].Columns[FactCheckInKey]"
-                      cachedDataType="i4"
-                      cachedName="FactCheckInKey"
-                      lineageId="Package\Update FactCheckIn\FactCheckIn source data.Outputs[OLE DB Source Output].Columns[FactCheckInKey]" />
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Right Input].Columns[FactCheckTypeKey]"
                       cachedDataType="i4"
@@ -5771,7 +5876,7 @@ where [refTable].[PersonID] = ?</property>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]"
-                      dataType="i4"
+                      dataType="i8"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]"
                       name="FactCheckInKey">
                       <properties>
@@ -5903,8 +6008,7 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInDateTime]"
-                      name="CheckInDateTime"
-                      sortKeyPosition="1">
+                      name="CheckInDateTime">
                       <properties>
                         <property
                           containsID="true"
@@ -5924,6 +6028,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Left Input].Columns[DataCaptureKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]"
+                      dataType="i8"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]"
+                      name="CheckInKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Update FactCheckIn\Merge Join.Inputs[Merge Join Left Input].Columns[CheckInKey]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -6118,7 +6236,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -6240,6 +6357,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -6516,7 +6647,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 2].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -6638,6 +6768,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 2].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -6893,8 +7037,7 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
-                      name="CheckInDateTime"
-                      sortKeyPosition="1" />
+                      name="CheckInDateTime" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInDate]"
                       dataType="dbDate"
@@ -6945,6 +7088,12 @@ where [refTable].[PersonID] = ?</property>
                       length="100"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[TransportPersonID]"
                       name="TransportPersonID" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      dataType="i8"
+                      lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      name="CheckInKey"
+                      sortKeyPosition="1" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInDateKey]"
                       dataType="i4"
@@ -7101,7 +7250,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -7223,6 +7371,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -7525,7 +7687,6 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2].Columns[CheckInDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CheckInDateTime"
-                      cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInDateTime]">
                       <properties>
                         <property
@@ -7647,6 +7808,20 @@ where [refTable].[PersonID] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[TransportPersonID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[CheckInKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -7928,8 +8103,7 @@ where [refTable].[PersonID] = ?</property>
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInDateTime]"
-                      name="CheckInDateTime"
-                      sortKeyPosition="1" />
+                      name="CheckInDateTime" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInDate]"
                       dataType="dbDate"
@@ -7980,6 +8154,12 @@ where [refTable].[PersonID] = ?</property>
                       length="100"
                       lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[TransportPersonID]"
                       name="TransportPersonID" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      dataType="i8"
+                      lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInKey]"
+                      name="CheckInKey"
+                      sortKeyPosition="1" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[CheckInDateKey]"
                       dataType="i4"
@@ -8477,9 +8657,7 @@ where [refTable].[PersonID] = ?</property>
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update FactCheckIn
-	Set ChildKey = ?
-		,ClassKey = ?
-		,CreatedByPersonKey = ?
+	Set CreatedByPersonKey = ?
 		,DataCaptureKey = ?
 		,OrganizationUnitKey = ?
 		,SchoolKey = ?
@@ -8511,59 +8689,48 @@ where [refTable].[PersonID] = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[ChildKey]"
-                      cachedDataType="i4"
-                      cachedName="ChildKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[ClassKey]"
-                      cachedDataType="i4"
-                      cachedName="ClassKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[CreatedByPersonKey]"
-                      cachedDataType="i4"
-                      cachedName="CreatedByPersonKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[DataCaptureKey]"
-                      cachedDataType="i4"
-                      cachedName="DataCaptureKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[OrganizationUnitKey]"
-                      cachedDataType="i4"
-                      cachedName="OrganizationUnitKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[SchoolKey]"
-                      cachedDataType="i4"
-                      cachedName="SchoolKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[TenantKey]"
-                      cachedDataType="i4"
-                      cachedName="TenantKey"
+                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[CheckInKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckInKey"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]" />
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]" />
                     <inputColumn
                       refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[TransportPersonKey]"
                       cachedDataType="i4"
                       cachedName="TransportPersonKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TransportPersonKey]" />
                     <inputColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[FactCheckInKey]"
+                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[TenantKey]"
                       cachedDataType="i4"
-                      cachedName="FactCheckInKey"
-                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]" />
+                      cachedName="TenantKey"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[SchoolKey]"
+                      cachedDataType="i4"
+                      cachedName="SchoolKey"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[OrganizationUnitKey]"
+                      cachedDataType="i4"
+                      cachedName="OrganizationUnitKey"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[DataCaptureKey]"
+                      cachedDataType="i4"
+                      cachedName="DataCaptureKey"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].Columns[CreatedByPersonKey]"
+                      cachedDataType="i4"
+                      cachedName="CreatedByPersonKey"
+                      externalMetadataColumnId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8635,30 +8802,8 @@ where [refTable].[PersonID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      dataType="i4"
+                      dataType="i8"
                       name="Param_6">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      dataType="i4"
-                      name="Param_7">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Update FactCheckIn\Update FactCheckIn.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      dataType="i4"
-                      name="Param_8">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -8704,20 +8849,15 @@ where [refTable].[PersonID] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Update FactCheckIn.Paths[Data Conversion Output1]"
+              refId="Package\Update FactCheckIn.Paths[Data Conversion Output]"
               endId="Package\Update FactCheckIn\Get CheckInTimeKey.Inputs[Lookup Input]"
               name="Data Conversion Output"
               startId="Package\Update FactCheckIn\Time Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Update FactCheckIn.Paths[Data Conversion Output]"
+              refId="Package\Update FactCheckIn.Paths[Data Conversion Output1]"
               endId="Package\Update FactCheckIn\Time Conversion.Inputs[Data Conversion Input]"
               name="Data Conversion Output"
               startId="Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Derived Column Output3]"
-              endId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2]"
-              name="Derived Column Output"
-              startId="Package\Update FactCheckIn\Mismatched TransportPersonID.Outputs[Derived Column Output]" />
             <path
               refId="Package\Update FactCheckIn.Paths[Derived Column Output]"
               endId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2]"
@@ -8729,70 +8869,70 @@ where [refTable].[PersonID] = ?</property>
               name="Derived Column Output"
               startId="Package\Update FactCheckIn\Mismatched SchoolID.Outputs[Derived Column Output]" />
             <path
+              refId="Package\Update FactCheckIn.Paths[Derived Column Output3]"
+              endId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2]"
+              name="Derived Column Output"
+              startId="Package\Update FactCheckIn\Mismatched TransportPersonID.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Update FactCheckIn.Paths[Derived Column Output1]"
               endId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 2]"
               name="Derived Column Output"
               startId="Package\Update FactCheckIn\Mismatched CreatedByPersonID.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output3]"
-              endId="Package\Update FactCheckIn\Get ClassKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get ChildKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output7]"
-              endId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get CreatedByPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output5]"
-              endId="Package\Update FactCheckIn\Get TransportPersonKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get TenantKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output9]"
-              endId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get TransportPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output2]"
-              endId="Package\Update FactCheckIn\Get ChildKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get CheckTypeKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output6]"
-              endId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get ClassKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output1]"
-              endId="Package\Update FactCheckIn\Convert to String.Inputs[Data Conversion Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get CheckInDateKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output8]"
-              endId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckIn\Get SchoolKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Update FactCheckIn.Paths[Lookup Match Output4]"
               endId="Package\Update FactCheckIn\Get SchoolKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Update FactCheckIn\Get OrganizationUnitKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Update FactCheckIn.Paths[Lookup Match Output]"
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output5]"
               endId="Package\Update FactCheckIn\Get CheckTypeKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Update FactCheckIn\Get CheckInTimeKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output7]"
+              endId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get CreatedByPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output2]"
+              endId="Package\Update FactCheckIn\Get ChildKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get CheckTypeKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output9]"
+              endId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get TransportPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output1]"
+              endId="Package\Update FactCheckIn\Get TransportPersonKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get TenantKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output6]"
+              endId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get ClassKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output]"
+              endId="Package\Update FactCheckIn\Get ClassKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get ChildKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output8]"
+              endId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get SchoolKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup Match Output3]"
+              endId="Package\Update FactCheckIn\Convert to String.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckIn\Get CheckInDateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Update FactCheckIn.Paths[Lookup No Match Output]"
               endId="Package\Update FactCheckIn\Mismatched CreatedByPersonID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
               startId="Package\Update FactCheckIn\Get CreatedByPersonKey.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Update FactCheckIn.Paths[Lookup No Match Output1]"
-              endId="Package\Update FactCheckIn\Mismatched ClassID.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\Update FactCheckIn\Get ClassKey.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Update FactCheckIn.Paths[Lookup No Match Output2]"
               endId="Package\Update FactCheckIn\Mismatched SchoolID.Inputs[Derived Column Input]"
@@ -8803,6 +8943,11 @@ where [refTable].[PersonID] = ?</property>
               endId="Package\Update FactCheckIn\Mismatched TransportPersonID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
               startId="Package\Update FactCheckIn\Get TransportPersonKey.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Update FactCheckIn.Paths[Lookup No Match Output1]"
+              endId="Package\Update FactCheckIn\Mismatched ClassID.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Update FactCheckIn\Get ClassKey.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Update FactCheckIn.Paths[Merge Join Output]"
               endId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input]"
@@ -8884,10 +9029,6 @@ where [refTable].[PersonID] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="174,42"
-          Id="Package\Update FactCheckIn"
-          TopLeft="213,395" />
-        <NodeLayout
           Size="180,42"
           Id="Package\Import Check In data"
           TopLeft="214,288" />
@@ -8895,6 +9036,10 @@ where [refTable].[PersonID] = ?</property>
           Size="209,42"
           Id="Package\Truncate StagePerson table"
           TopLeft="192,180" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Update FactCheckIn"
+          TopLeft="213,395" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="300.25,222">
@@ -8943,460 +9088,179 @@ where [refTable].[PersonID] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Import Check In data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Import Check In data\Format time"
+          TopLeft="276,249" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Import Check In data\Check In data"
+          TopLeft="274,380" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Import Check In data\Check In source data"
+          TopLeft="257,136" />
+        <EdgeLayout
+          Id="Package\Import Check In data.Paths[OLE DB Source Output]"
+          TopLeft="345.25,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Check In data.Paths[Data Conversion Output]"
+          TopLeft="345,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Check In data\Check In data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Check In data\Check In source data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Update FactCheckIn">
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="176,42"
-          Id="Package\Update FactCheckIn\Get CheckInDateKey"
-          TopLeft="163,92" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Update FactCheckIn\Get CheckInTimeKey"
-          TopLeft="167,261" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Update FactCheckIn\Get CheckTypeKey"
-          TopLeft="166,348" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output]"
-          TopLeft="252.5,303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Update FactCheckIn\Convert to String"
-          TopLeft="194,177" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output1]"
-          TopLeft="251,134">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="22.5,43"
-              Start="0,0"
-              End="22.5,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="4,21.5" />
-                  <mssgle:LineSegment
-                    End="18.5,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,21.5"
-                    Point2="22.5,21.5"
-                    Point3="22.5,25.5" />
-                  <mssgle:LineSegment
-                    End="22.5,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-36.94138671875,26.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Update FactCheckIn\Get ChildKey"
-          TopLeft="200,429" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output2]"
-          TopLeft="249.5,390">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20,39"
-              Start="0,0"
-              End="20,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="16,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16,19.5"
-                    Point2="20,19.5"
-                    Point3="20,23.5" />
-                  <mssgle:LineSegment
-                    End="20,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-38.19138671875,24.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="140,42"
           Id="Package\Update FactCheckIn\Get ClassKey"
           TopLeft="198,512" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output3]"
-          TopLeft="268.75,471">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41"
-              Start="0,0"
-              End="0,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="147,42"
-          Id="Package\Update FactCheckIn\Get SchoolKey"
-          TopLeft="163,958" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Update FactCheckIn\Insert Into FactCheckIn"
-          TopLeft="349,1675" />
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Update FactCheckIn\FactCheckIn source data"
-          TopLeft="533,1344" />
+          Size="216,42"
+          Id="Package\Update FactCheckIn\FactCheckIn Conditional Split"
+          TopLeft="295,1531" />
         <NodeLayout
           Size="174,42"
           Id="Package\Update FactCheckIn\Update FactCheckIn"
           TopLeft="61,1671" />
         <NodeLayout
-          Size="149,42"
-          Id="Package\Update FactCheckIn\Get TenantKey"
-          TopLeft="130,1125" />
+          Size="176,42"
+          Id="Package\Update FactCheckIn\Get CheckInDateKey"
+          TopLeft="163,92" />
         <NodeLayout
-          Size="229,42"
-          Id="Package\Update FactCheckIn\Mismatched CreatedByPersonID"
-          TopLeft="496,706" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Update FactCheckIn\Get CreatedByPersonKey"
-          TopLeft="158,699" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output]"
-          TopLeft="354,723.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="142,0"
-              Start="0,0"
-              End="134.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="134.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="11.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Update FactCheckIn\Get OrganizationUnitKey"
-          TopLeft="135,871" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output4]"
-          TopLeft="234.25,913">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="147,42"
+          Id="Package\Update FactCheckIn\Get SchoolKey"
+          TopLeft="163,958" />
         <NodeLayout
           Size="157,42"
           Id="Package\Update FactCheckIn\Time Conversion"
           TopLeft="488,239" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Data Conversion Output]"
-          TopLeft="353,198">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="135,56.3333333333333"
-              Start="0,0"
-              End="127.5,56.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="74.0275229357798,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="74.0275229357798,0"
-                    Point2="78.0275229357798,0"
-                    Point3="78.0275229357798,4" />
-                  <mssgle:LineSegment
-                    End="78.0275229357798,52.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="78.0275229357798,52.3333333333333"
-                    Point2="78.0275229357798,56.3333333333333"
-                    Point3="82.0275229357798,56.3333333333333" />
-                  <mssgle:LineSegment
-                    End="127.5,56.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Data Conversion Output1]"
-          TopLeft="488,265.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-144,16.3333333333333"
-              Start="0,0"
-              End="-136.5,16.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-56.7706422018348,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-56.7706422018348,0"
-                    Point2="-60.7706422018348,0"
-                    Point3="-60.7706422018348,4" />
-                  <mssgle:LineSegment
-                    End="-60.7706422018348,12.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-60.7706422018348,12.3333333333333"
-                    Point2="-60.7706422018348,16.3333333333333"
-                    Point3="-64.7706422018348,16.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-136.5,16.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="173,42"
-          Id="Package\Update FactCheckIn\Mismatched ClassID"
-          TopLeft="450,515" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output1]"
-          TopLeft="338,534.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="112,0"
-              Start="0,0"
-              End="104.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="104.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-3.55638671875,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="139,42"
+          Id="Package\Update FactCheckIn\Get ChildKey"
+          TopLeft="200,429" />
         <NodeLayout
-          Size="206,42"
-          Id="Package\Update FactCheckIn\Class Check In source data"
-          TopLeft="148,2" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[OLE DB Source Output]"
-          TopLeft="251,44">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Update FactCheckIn\Mismatched SchoolID"
-          TopLeft="482,957" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output2]"
-          TopLeft="310,978.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="172,0"
-              Start="0,0"
-              End="164.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="164.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="26.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="190,42"
+          Id="Package\Update FactCheckIn\Insert Into FactCheckIn"
+          TopLeft="349,1675" />
         <NodeLayout
           Size="227,42"
           Id="Package\Update FactCheckIn\Mismatched TransportPersonID"
           TopLeft="456,1208" />
         <NodeLayout
+          Size="159,42"
+          Id="Package\Update FactCheckIn\Convert to String"
+          TopLeft="194,177" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Update FactCheckIn\Mismatched SchoolID"
+          TopLeft="482,957" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Update FactCheckIn\Get OrganizationUnitKey"
+          TopLeft="135,871" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Update FactCheckIn\Mismatched CreatedByPersonID"
+          TopLeft="496,706" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Update FactCheckIn\Get CheckTypeKey"
+          TopLeft="166,348" />
+        <NodeLayout
           Size="193,42"
           Id="Package\Update FactCheckIn\Get TransportPersonKey"
           TopLeft="129,1207" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output5]"
-          TopLeft="204.5,1167">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21,40"
-              Start="0,0"
-              End="21,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="17,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17,20"
-                    Point2="21,20"
-                    Point3="21,24" />
-                  <mssgle:LineSegment
-                    End="21,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.69138671875,25,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output3]"
-          TopLeft="322,1228.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="134,0"
-              Start="0,0"
-              End="126.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="126.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="7.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="216,42"
-          Id="Package\Update FactCheckIn\FactCheckIn Conditional Split"
-          TopLeft="295,1531" />
+          Size="173,42"
+          Id="Package\Update FactCheckIn\Mismatched ClassID"
+          TopLeft="450,515" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Update FactCheckIn\FactCheckIn source data"
+          TopLeft="533,1344" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Update FactCheckIn\Get CreatedByPersonKey"
+          TopLeft="158,699" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Update FactCheckIn\Get CheckInTimeKey"
+          TopLeft="167,261" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Update FactCheckIn\Get TenantKey"
+          TopLeft="130,1125" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Update FactCheckIn\Class Check In source data"
+          TopLeft="148,2" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[UpdateRow]"
           TopLeft="403,1573">
@@ -9434,6 +9298,28 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[OLE DB Source Output]"
+          TopLeft="251,44">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[NewRow]"
           TopLeft="440.833333333333,1573">
           <EdgeLayout.Curve>
@@ -9457,43 +9343,387 @@ where [refTable].[PersonID] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Update FactCheckIn\Merge ClassKey"
-          TopLeft="320,599" />
         <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output6]"
-          TopLeft="268,554">
+          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output3]"
+          TopLeft="322,1228.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128.5,45"
+              EndConnector="134,0"
               Start="0,0"
-              End="128.5,37.5">
+              End="126.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="4,22.5" />
-                  <mssgle:LineSegment
-                    End="124.5,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.5,22.5"
-                    Point2="128.5,22.5"
-                    Point3="128.5,26.5" />
-                  <mssgle:LineSegment
-                    End="128.5,37.5" />
+                    End="126.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="16.05861328125,27.5,96.3827734375,11.609375"
+              BoundingBox="7.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output2]"
+          TopLeft="310,978.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="172,0"
+              Start="0,0"
+              End="164.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="164.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output1]"
+          TopLeft="338,534.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112,0"
+              Start="0,0"
+              End="104.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="104.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.55638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup No Match Output]"
+          TopLeft="354,723.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142,0"
+              Start="0,0"
+              End="134.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="134.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output5]"
+          TopLeft="252.5,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output4]"
+          TopLeft="234.25,913">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-57.0600390625,10.75,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output3]"
+          TopLeft="251,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5,43"
+              Start="0,0"
+              End="22.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="18.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,21.5"
+                    Point2="22.5,21.5"
+                    Point3="22.5,25.5" />
+                  <mssgle:LineSegment
+                    End="22.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-36.94138671875,26.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output2]"
+          TopLeft="249.5,390">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,39"
+              Start="0,0"
+              End="20,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="16,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,19.5"
+                    Point2="20,19.5"
+                    Point3="20,23.5" />
+                  <mssgle:LineSegment
+                    End="20,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.19138671875,24.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output1]"
+          TopLeft="204.5,1167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,40"
+              Start="0,0"
+              End="21,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="17,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,20"
+                    Point2="21,20"
+                    Point3="21,24" />
+                  <mssgle:LineSegment
+                    End="21,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.69138671875,25,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output]"
+          TopLeft="268.75,471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,10.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Data Conversion Output1]"
+          TopLeft="353,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,56.3333333333333"
+              Start="0,0"
+              End="127.5,56.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.0275229357798,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.0275229357798,0"
+                    Point2="78.0275229357798,0"
+                    Point3="78.0275229357798,4" />
+                  <mssgle:LineSegment
+                    End="78.0275229357798,52.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.0275229357798,52.3333333333333"
+                    Point2="78.0275229357798,56.3333333333333"
+                    Point3="82.0275229357798,56.3333333333333" />
+                  <mssgle:LineSegment
+                    End="127.5,56.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Data Conversion Output]"
+          TopLeft="488,265.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144,16.3333333333333"
+              Start="0,0"
+              End="-136.5,16.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-56.7706422018348,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.7706422018348,0"
+                    Point2="-60.7706422018348,0"
+                    Point3="-60.7706422018348,4" />
+                  <mssgle:LineSegment
+                    End="-60.7706422018348,12.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.7706422018348,12.3333333333333"
+                    Point2="-60.7706422018348,16.3333333333333"
+                    Point3="-64.7706422018348,16.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-136.5,16.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Update FactCheckIn\Merge ClassKey"
+          TopLeft="325,608" />
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output6]"
+          TopLeft="268,554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.5,54"
+              Start="0,0"
+              End="133.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="129.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129.5,27"
+                    Point2="133.5,27"
+                    Point3="133.5,31" />
+                  <mssgle:LineSegment
+                    End="133.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="18.55861328125,32,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9503,26 +9733,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-115.833333333333,42"
+              EndConnector="-110.833333333333,51"
               Start="0,0"
-              End="-115.833333333333,34.5">
+              End="-110.833333333333,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.9391979301423" />
+                    End="0,26.2833117723156" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.9391979301423"
-                    Point2="0,24.9391979301423"
-                    Point3="-4,24.9391979301423" />
+                    Point1="0,26.2833117723156"
+                    Point2="0,30.2833117723156"
+                    Point3="-4,30.2833117723156" />
                   <mssgle:LineSegment
-                    End="-111.833333333333,24.9391979301423" />
+                    End="-106.833333333333,30.2833117723156" />
                   <mssgle:CubicBezierSegment
-                    Point1="-111.833333333333,24.9391979301423"
-                    Point2="-115.833333333333,24.9391979301423"
-                    Point3="-115.833333333333,28.9391979301423" />
+                    Point1="-106.833333333333,30.2833117723156"
+                    Point2="-110.833333333333,30.2833117723156"
+                    Point3="-110.833333333333,34.2833117723156" />
                   <mssgle:LineSegment
-                    End="-115.833333333333,34.5" />
+                    End="-110.833333333333,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9533,30 +9763,30 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 1]"
-          TopLeft="396.5,641">
+          TopLeft="401.5,650">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-140.5,58"
+              EndConnector="-145.5,49"
               Start="0,0"
-              End="-140.5,50.5">
+              End="-145.5,41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25" />
+                    End="0,20.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="-4,29" />
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
                   <mssgle:LineSegment
-                    End="-136.5,29" />
+                    End="-141.5,24.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-136.5,29"
-                    Point2="-140.5,29"
-                    Point3="-140.5,33" />
+                    Point1="-141.5,24.5"
+                    Point2="-145.5,24.5"
+                    Point3="-145.5,28.5" />
                   <mssgle:LineSegment
-                    End="-140.5,50.5" />
+                    End="-145.5,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9568,16 +9798,16 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="209,42"
           Id="Package\Update FactCheckIn\Merge CreatedByPersonKey"
-          TopLeft="327,791" />
+          TopLeft="314,791" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Lookup Match Output7]"
           TopLeft="256,741">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="175.5,50"
+              EndConnector="162.5,50"
               Start="0,0"
-              End="175.5,42.5">
+              End="162.5,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9588,20 +9818,20 @@ where [refTable].[PersonID] = ?</property>
                     Point2="0,25"
                     Point3="4,25" />
                   <mssgle:LineSegment
-                    End="171.5,25" />
+                    End="158.5,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="171.5,25"
-                    Point2="175.5,25"
-                    Point3="175.5,29" />
+                    Point1="158.5,25"
+                    Point2="162.5,25"
+                    Point3="162.5,29" />
                   <mssgle:LineSegment
-                    End="175.5,42.5" />
+                    End="162.5,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="39.55861328125,30,96.3827734375,11.609375"
+              BoundingBox="33.05861328125,30,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9611,9 +9841,9 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-145.5,43"
+              EndConnector="-158.5,43"
               Start="0,0"
-              End="-145.5,35.5">
+              End="-158.5,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9624,13 +9854,13 @@ where [refTable].[PersonID] = ?</property>
                     Point2="0,25.6039886039886"
                     Point3="-4,25.6039886039886" />
                   <mssgle:LineSegment
-                    End="-141.5,25.6039886039886" />
+                    End="-154.5,25.6039886039886" />
                   <mssgle:CubicBezierSegment
-                    Point1="-141.5,25.6039886039886"
-                    Point2="-145.5,25.6039886039886"
-                    Point3="-145.5,29.6039886039886" />
+                    Point1="-154.5,25.6039886039886"
+                    Point2="-158.5,25.6039886039886"
+                    Point3="-158.5,29.6039886039886" />
                   <mssgle:LineSegment
-                    End="-145.5,35.5" />
+                    End="-158.5,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9641,13 +9871,13 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 11]"
-          TopLeft="431.5,833">
+          TopLeft="418.5,833">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-199.5,38"
+              EndConnector="-186.5,38"
               Start="0,0"
-              End="-199.5,30.5">
+              End="-186.5,30.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9658,58 +9888,60 @@ where [refTable].[PersonID] = ?</property>
                     Point2="0,19"
                     Point3="-4,19" />
                   <mssgle:LineSegment
-                    End="-195.5,19" />
+                    End="-182.5,19" />
                   <mssgle:CubicBezierSegment
-                    Point1="-195.5,19"
-                    Point2="-199.5,19"
-                    Point3="-199.5,23" />
+                    Point1="-182.5,19"
+                    Point2="-186.5,19"
+                    Point3="-186.5,23" />
                   <mssgle:LineSegment
-                    End="-199.5,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Update FactCheckIn\Merge SchoolKey"
-          TopLeft="310,1047" />
-        <EdgeLayout
-          Id="Package\Update FactCheckIn.Paths[Lookup Match Output8]"
-          TopLeft="236.5,1000">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="153.5,47"
-              Start="0,0"
-              End="153.5,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
-                  <mssgle:LineSegment
-                    End="149.5,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="149.5,23.5"
-                    Point2="153.5,23.5"
-                    Point3="153.5,27.5" />
-                  <mssgle:LineSegment
-                    End="153.5,39.5" />
+                    End="-186.5,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="28.55861328125,28.5,96.3827734375,11.609375"
+              BoundingBox="-101.25,24,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Update FactCheckIn\Merge SchoolKey"
+          TopLeft="320,1051" />
+        <EdgeLayout
+          Id="Package\Update FactCheckIn.Paths[Lookup Match Output8]"
+          TopLeft="236.5,1000">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163.5,51"
+              Start="0,0"
+              End="163.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="159.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="159.5,25.5"
+                    Point2="163.5,25.5"
+                    Point3="163.5,29.5" />
+                  <mssgle:LineSegment
+                    End="163.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="33.55861328125,30.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9719,26 +9951,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-156.666666666667,48"
+              EndConnector="-146.666666666667,52"
               Start="0,0"
-              End="-156.666666666667,40.5">
+              End="-146.666666666667,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5148514851485" />
+                    End="0,26.8910891089109" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.5148514851485"
-                    Point2="0,28.5148514851485"
-                    Point3="-4,28.5148514851485" />
+                    Point1="0,26.8910891089109"
+                    Point2="0,30.8910891089109"
+                    Point3="-4,30.8910891089109" />
                   <mssgle:LineSegment
-                    End="-152.666666666667,28.5148514851485" />
+                    End="-142.666666666667,30.8910891089109" />
                   <mssgle:CubicBezierSegment
-                    Point1="-152.666666666667,28.5148514851485"
-                    Point2="-156.666666666667,28.5148514851485"
-                    Point3="-156.666666666667,32.5148514851485" />
+                    Point1="-142.666666666667,30.8910891089109"
+                    Point2="-146.666666666667,30.8910891089109"
+                    Point3="-146.666666666667,34.8910891089109" />
                   <mssgle:LineSegment
-                    End="-156.666666666667,40.5" />
+                    End="-146.666666666667,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9749,30 +9981,30 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 12]"
-          TopLeft="390,1089">
+          TopLeft="400,1093">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-185.5,36"
+              EndConnector="-195.5,32"
               Start="0,0"
-              End="-185.5,28.5">
+              End="-195.5,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14" />
+                    End="0,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="-4,18" />
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
                   <mssgle:LineSegment
-                    End="-181.5,18" />
+                    End="-191.5,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="-181.5,18"
-                    Point2="-185.5,18"
-                    Point3="-185.5,22" />
+                    Point1="-191.5,16"
+                    Point2="-195.5,16"
+                    Point3="-195.5,20" />
                   <mssgle:LineSegment
-                    End="-185.5,28.5" />
+                    End="-195.5,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9784,40 +10016,40 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="206,42"
           Id="Package\Update FactCheckIn\Merge TransportPersonKey"
-          TopLeft="282,1293" />
+          TopLeft="281,1296" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Lookup Match Output9]"
           TopLeft="225.5,1249">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="159.5,44"
+              EndConnector="158.5,47"
               Start="0,0"
-              End="159.5,36.5">
+              End="158.5,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18" />
+                    End="0,19.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18"
-                    Point2="0,22"
-                    Point3="4,22" />
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
                   <mssgle:LineSegment
-                    End="155.5,22" />
+                    End="154.5,23.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="155.5,22"
-                    Point2="159.5,22"
-                    Point3="159.5,26" />
+                    Point1="154.5,23.5"
+                    Point2="158.5,23.5"
+                    Point3="158.5,27.5" />
                   <mssgle:LineSegment
-                    End="159.5,36.5" />
+                    End="158.5,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="31.55861328125,27,96.3827734375,11.609375"
+              BoundingBox="31.05861328125,28.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9827,26 +10059,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-151.5,43"
+              EndConnector="-152.5,46"
               Start="0,0"
-              End="-151.5,35.5">
+              End="-152.5,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.6011560693642" />
+                    End="0,23.3872832369942" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.6011560693642"
-                    Point2="0,25.6011560693642"
-                    Point3="-4,25.6011560693642" />
+                    Point1="0,23.3872832369942"
+                    Point2="0,27.3872832369942"
+                    Point3="-4,27.3872832369942" />
                   <mssgle:LineSegment
-                    End="-147.5,25.6011560693642" />
+                    End="-148.5,27.3872832369942" />
                   <mssgle:CubicBezierSegment
-                    Point1="-147.5,25.6011560693642"
-                    Point2="-151.5,25.6011560693642"
-                    Point3="-151.5,29.6011560693642" />
+                    Point1="-148.5,27.3872832369942"
+                    Point2="-152.5,27.3872832369942"
+                    Point3="-152.5,31.3872832369942" />
                   <mssgle:LineSegment
-                    End="-151.5,35.5" />
+                    End="-152.5,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9858,21 +10090,33 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="130,42"
           Id="Package\Update FactCheckIn\Merge Join"
-          TopLeft="348,1438" />
+          TopLeft="409,1428" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 13]"
-          TopLeft="388.833333333333,1335">
+          TopLeft="384,1338">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,103"
+              EndConnector="90,90"
               Start="0,0"
-              End="0,95.5">
+              End="90,82.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,95.5" />
+                    End="0,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41"
+                    Point2="0,45"
+                    Point3="4,45" />
+                  <mssgle:LineSegment
+                    End="86,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86,45"
+                    Point2="90,45"
+                    Point3="90,49" />
+                  <mssgle:LineSegment
+                    End="90,82.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9887,26 +10131,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-197.166666666667,52"
+              EndConnector="-136.166666666667,42"
               Start="0,0"
-              End="-197.166666666667,44.5">
+              End="-136.166666666667,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.8206686930091" />
+                    End="0,20.8936170212766" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.8206686930091"
-                    Point2="0,30.8206686930091"
-                    Point3="-4,30.8206686930091" />
+                    Point1="0,20.8936170212766"
+                    Point2="0,24.8936170212766"
+                    Point3="-4,24.8936170212766" />
                   <mssgle:LineSegment
-                    End="-193.166666666667,30.8206686930091" />
+                    End="-132.166666666667,24.8936170212766" />
                   <mssgle:CubicBezierSegment
-                    Point1="-193.166666666667,30.8206686930091"
-                    Point2="-197.166666666667,30.8206686930091"
-                    Point3="-197.166666666667,34.8206686930091" />
+                    Point1="-132.166666666667,24.8936170212766"
+                    Point2="-136.166666666667,24.8936170212766"
+                    Point3="-136.166666666667,28.8936170212766" />
                   <mssgle:LineSegment
-                    End="-197.166666666667,44.5" />
+                    End="-136.166666666667,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9917,30 +10161,30 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Join Output]"
-          TopLeft="413,1480">
+          TopLeft="474,1470">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10,51"
+              EndConnector="-71,61"
               Start="0,0"
-              End="-10,43.5">
+              End="-71,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,26.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="-4,25.5" />
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
                   <mssgle:LineSegment
-                    End="-6,25.5" />
+                    End="-67,30.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6,25.5"
-                    Point2="-10,25.5"
-                    Point3="-10,29.5" />
+                    Point1="-67,30.5"
+                    Point2="-71,30.5"
+                    Point3="-71,34.5" />
                   <mssgle:LineSegment
-                    End="-10,43.5" />
+                    End="-71,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9953,48 +10197,22 @@ where [refTable].[PersonID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get CheckInDateKey">
+    design-time-name="Package\Update FactCheckIn\Get TenantKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get CheckInTimeKey">
+    design-time-name="Package\Update FactCheckIn\Get CreatedByPersonKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimTime]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10004,7 +10222,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10014,7 +10232,53 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update FactCheckIn\Get TransportPersonKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[HubPerson]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update FactCheckIn\Get OrganizationUnitKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[HubOrganizationUnit]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10027,7 +10291,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10037,7 +10301,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10045,35 +10309,25 @@ where [refTable].[PersonID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get ClassKey">
+    design-time-name="Package\Update FactCheckIn\Get CheckInDateKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[HubClass]</Value>
+          type="q3:string">[dbo].[DimDate]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get SchoolKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10086,159 +10340,64 @@ where [refTable].[PersonID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get TenantKey">
+    design-time-name="Package\Update FactCheckIn\Get SchoolKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get CreatedByPersonKey">
+    design-time-name="Package\Update FactCheckIn\Get ClassKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get OrganizationUnitKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[HubOrganizationUnit]</Value>
+          type="q3:string">[dbo].[HubClass]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Import Check In data">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Import Check In data\Check In source data"
-          TopLeft="257,136" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Import Check In data\Format time"
-          TopLeft="276,249" />
-        <EdgeLayout
-          Id="Package\Import Check In data.Paths[OLE DB Source Output]"
-          TopLeft="345.25,178">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71"
-              Start="0,0"
-              End="0,63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Import Check In data\Check In data"
-          TopLeft="274,380" />
-        <EdgeLayout
-          Id="Package\Import Check In data.Paths[Data Conversion Output]"
-          TopLeft="345,291">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,89"
-              Start="0,0"
-              End="0,81.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Check In data\Check In source data">
+    design-time-name="Package\Update FactCheckIn\Get CheckInTimeKey">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
       </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Check In data\Check In data">
-    <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimTime]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Update FactCheckIn\Class Check In source data">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckIn\Get TransportPersonKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[HubPerson]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
