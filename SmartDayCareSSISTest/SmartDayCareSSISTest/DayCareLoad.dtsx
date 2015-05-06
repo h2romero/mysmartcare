@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{B8374286-7B38-434F-B397-219D68713CAF}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{9F7C93C1-507A-4E46-9808-8D1FDBD16C32}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -621,6 +621,513 @@ where PersonID is not NULL or OUID is not NULL</property>
               endId="Package\f_Addresses\SmartCare DW - SOR - f_Addresses.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\f_ChildCheckInOuts"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{02228b08-5fe2-4a77-88d5-261f74f1f8e5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="f_ChildCheckInOuts">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SmartCare DB - DayCare1 - ChildCheckInOuts"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	Id
+	,ChildID
+	,PickUpDropOffPersonID
+	,OUID
+	,RegisteredTime
+	,CaptureMethod
+	,IsCheckOut
+	,TenantID
+	,DateCreated
+	,CreatedByID
+From
+	ChildCheckInOuts (NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Connections[OleDbConnection]"
+                  connectionManagerID="{D07ECCEC-5DB3-471F-8AB6-230A2CA62A10}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[smartcare-db1.cloudapp.net.DayCare_1.hromero 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      name="TenantID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[OUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[OUID]"
+                      name="OUID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[RegisteredTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[RegisteredTime]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[RegisteredTime]"
+                      name="RegisteredTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[IsCheckOut]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[IsCheckOut]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[IsCheckOut]"
+                      name="IsCheckOut"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[CreatedByID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[CreatedByID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[CreatedByID]"
+                      name="CreatedByID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[CaptureMethod]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[CaptureMethod]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[CaptureMethod]"
+                      name="CaptureMethod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[ChildID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[ChildID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[ChildID]"
+                      name="ChildID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[PickUpDropOffPersonID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[PickUpDropOffPersonID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[PickUpDropOffPersonID]"
+                      name="PickUpDropOffPersonID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[RegisteredTime]"
+                      dataType="dbTimeStamp"
+                      name="RegisteredTime" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[IsCheckOut]"
+                      dataType="bool"
+                      name="IsCheckOut" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[CreatedByID]"
+                      dataType="guid"
+                      name="CreatedByID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[CaptureMethod]"
+                      dataType="i4"
+                      name="CaptureMethod" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[ChildID]"
+                      dataType="guid"
+                      name="ChildID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].ExternalColumns[PickUpDropOffPersonID]"
+                      dataType="guid"
+                      name="PickUpDropOffPersonID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i8"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[ChildID]"
+                      dataType="guid"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[ChildID]"
+                      name="ChildID" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[PickUpDropOffPersonID]"
+                      dataType="guid"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[PickUpDropOffPersonID]"
+                      name="PickUpDropOffPersonID" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      dataType="guid"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[OUID]"
+                      name="OUID" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[RegisteredTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[RegisteredTime]"
+                      name="RegisteredTime" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[CaptureMethod]"
+                      dataType="i4"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[CaptureMethod]"
+                      name="CaptureMethod" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[IsCheckOut]"
+                      dataType="bool"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[IsCheckOut]"
+                      name="IsCheckOut" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      dataType="guid"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      name="TenantID" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[CreatedByID]"
+                      dataType="guid"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[CreatedByID]"
+                      name="CreatedByID" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SmartCare DW - SOR - f_ChildCheckInOuts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[f_ChildCheckInOuts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i8"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[TenantID]"
+                      cachedDataType="guid"
+                      cachedName="TenantID"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[OUID]"
+                      cachedDataType="guid"
+                      cachedName="OUID"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[OUID]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[RegisteredTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RegisteredTime"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredTime]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[RegisteredTime]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[IsCheckOut]"
+                      cachedDataType="bool"
+                      cachedName="IsCheckOut"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[IsCheckOut]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[IsCheckOut]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[CreatedByID]"
+                      cachedDataType="guid"
+                      cachedName="CreatedByID"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[CreatedByID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[CreatedByID]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[CaptureMethod]"
+                      cachedDataType="i4"
+                      cachedName="CaptureMethod"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[CaptureMethod]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[CaptureMethod]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[ChildID]"
+                      cachedDataType="guid"
+                      cachedName="ChildID"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[ChildID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[ChildID]" />
+                    <inputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].Columns[PickUpDropOffPersonID]"
+                      cachedDataType="guid"
+                      cachedName="PickUpDropOffPersonID"
+                      externalMetadataColumnId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[PickUpDropOffPersonID]"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output].Columns[PickUpDropOffPersonID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
+                      dataType="guid"
+                      name="OUID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredTime]"
+                      dataType="dbTimeStamp"
+                      name="RegisteredTime" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[IsCheckOut]"
+                      dataType="bool"
+                      name="IsCheckOut" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[CreatedByID]"
+                      dataType="guid"
+                      name="CreatedByID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[CaptureMethod]"
+                      dataType="i4"
+                      name="CaptureMethod" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[ChildID]"
+                      dataType="guid"
+                      name="ChildID" />
+                    <externalMetadataColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input].ExternalColumns[PickUpDropOffPersonID]"
+                      dataType="guid"
+                      name="PickUpDropOffPersonID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\f_ChildCheckInOuts.Paths[OLE DB Source Output]"
+              endId="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2814,7 +3321,7 @@ From
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}"
-          SQLTask:SqlStatementSource="truncate table f_Addresses;&#xA;truncate table f_PhoneNumbers;&#xA;truncate table f_Tenants; &#xA;truncate table f_Schools;&#xA; truncate table  f_OUs;&#xA;truncate table f_ClassCheckInOuts;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table f_Addresses;&#xA;truncate table f_PhoneNumbers;&#xA;truncate table f_Tenants; &#xA;truncate table f_Schools;&#xA; truncate table  f_OUs;&#xA;truncate table f_ClassCheckInOuts;&#xA;truncate table f_ChildCheckInOuts;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2867,6 +3374,14 @@ From
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\f_Tenants" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{FAF1EDCE-FFE8-4E37-B3B1-0FCDED7D35B4}"
+      DTS:From="Package\f_ClassCheckInOuts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\f_ChildCheckInOuts" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2881,29 +3396,37 @@ From
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="136,42"
-          Id="Package\f_Addresses"
-          TopLeft="81.4999998137355,143.166667325298" />
+          Size="171,42"
+          Id="Package\f_ChildCheckInOuts"
+          TopLeft="88,745" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\f_OUs"
-          TopLeft="104,575.166667325298" />
+          Size="172,42"
+          Id="Package\f_ClassCheckInOuts"
+          TopLeft="83,663.166667325298" />
         <NodeLayout
-          Size="159,42"
-          Id="Package\f_PhoneNumbers"
-          TopLeft="81,213.966667883198" />
-        <NodeLayout
-          Size="124,42"
-          Id="Package\f_Schools"
-          TopLeft="97,465.166667325298" />
+          Size="184,42"
+          Id="Package\Truncate Initial Tables"
+          TopLeft="60,60" />
         <NodeLayout
           Size="126,42"
           Id="Package\f_Tenants"
           TopLeft="89.0833330787719,366.166667325298" />
         <NodeLayout
-          Size="184,42"
-          Id="Package\Truncate Initial Tables"
-          TopLeft="60,60" />
+          Size="124,42"
+          Id="Package\f_Schools"
+          TopLeft="97,465.166667325298" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\f_PhoneNumbers"
+          TopLeft="81,213.966667883198" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\f_OUs"
+          TopLeft="104,575.166667325298" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\f_Addresses"
+          TopLeft="81.4999998137355,143.166667325298" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="150.749999906868,102">
@@ -3038,10 +3561,6 @@ From
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,42"
-          Id="Package\f_ClassCheckInOuts"
-          TopLeft="83,663.166667325298" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="158,617.166667325298">
@@ -3076,36 +3595,58 @@ From
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\f_Addresses">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="259,42"
-          Id="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses"
-          TopLeft="394.666666666667,86" />
-        <NodeLayout
-          Size="246,42"
-          Id="Package\f_Addresses\SmartCare DW - SOR - f_Addresses"
-          TopLeft="403.333333333333,205.333333333333" />
         <EdgeLayout
-          Id="Package\f_Addresses.Paths[OLE DB Source Output]"
-          TopLeft="525.333333333333,128">
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="171.25,705.166667325298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.333333333333"
+              EndConnector="0,39.833332674702"
               Start="0,0"
-              End="0,69.833333333333">
+              End="0,32.333332674702">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.833333333333" />
+                    End="0,32.333332674702" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\f_ChildCheckInOuts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="295,42"
+          Id="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts"
+          TopLeft="63.8333383624748,43.2666672400633" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts"
+          TopLeft="67.0000050415592,154.600000573397" />
+        <EdgeLayout
+          Id="Package\f_ChildCheckInOuts.Paths[OLE DB Source Output]"
+          TopLeft="209.666671702017,85.2666672400633">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3333333333337"
+              Start="0,0"
+              End="0,61.8333333333337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8333333333337" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3116,16 +3657,16 @@ From
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_Addresses"
+          ParentId="Package\f_ChildCheckInOuts"
           FontInfo="{assembly:Null}"
           Size="76,56"
-          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
-          TopLeft="414.666666666667,134.666666666667" />
+          Id="b0e46eb4-e68b-465c-abcc-518801482874"
+          TopLeft="75.8333383624748,90.6000005733971" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses">
+    design-time-name="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3133,7 +3674,7 @@ From
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\f_Addresses\SmartCare DW - SOR - f_Addresses">
+    design-time-name="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3146,21 +3687,21 @@ From
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\f_OUs">
+    design-time-name="Package\f_ClassCheckInOuts">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="231,42"
-          Id="Package\f_OUs\SmartCare DB - DayCare1 - OUs"
+          Size="296,42"
+          Id="Package\f_ClassCheckInOuts\SmartCare DB - DayCare1 - ClassCheckInOuts"
           TopLeft="63.8333383624748,43.2666672400633" />
         <NodeLayout
-          Size="218,42"
-          Id="Package\f_OUs\SmartCare DW - SOR - f_OUs"
+          Size="283,42"
+          Id="Package\f_ClassCheckInOuts\SmartCare DW - SOR - f_ClassCheckInOuts"
           TopLeft="67.0000050415592,154.600000573397" />
         <EdgeLayout
-          Id="Package\f_OUs.Paths[OLE DB Source Output]"
-          TopLeft="177.666671702017,85.2666672400633">
+          Id="Package\f_ClassCheckInOuts.Paths[OLE DB Source Output]"
+          TopLeft="210.166671702017,85.2666672400633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3184,7 +3725,7 @@ From
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_OUs"
+          ParentId="Package\f_ClassCheckInOuts"
           FontInfo="{assembly:Null}"
           Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
@@ -3192,54 +3733,33 @@ From
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_OUs\SmartCare DB - DayCare1 - OUs">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_OUs\SmartCare DW - SOR - f_OUs">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\f_PhoneNumbers">
+    design-time-name="Package\f_Tenants">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="270,42"
-          Id="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers"
-          TopLeft="403.333333333333,205.333333333333" />
+          Size="249,42"
+          Id="Package\f_Tenants\SmartCare DB - DayCare1 - Tenants"
+          TopLeft="63.8333383624748,43.2666672400633" />
         <NodeLayout
-          Size="283,42"
-          Id="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers"
-          TopLeft="394.666666666667,86" />
+          Size="237,42"
+          Id="Package\f_Tenants\SmartCare DW - SOR - f_Tenants"
+          TopLeft="67.0000050415592,154.600000573397" />
         <EdgeLayout
-          Id="Package\f_PhoneNumbers.Paths[OLE DB Source Output]"
-          TopLeft="537.25,128">
+          Id="Package\f_Tenants.Paths[OLE DB Source Output]"
+          TopLeft="186.916671702017,85.2666672400633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.333333333333"
+              EndConnector="0,69.3333333333337"
               Start="0,0"
-              End="0,69.833333333333">
+              End="0,61.8333333333337">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.833333333333" />
+                    End="0,61.8333333333337" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3252,35 +3772,14 @@ From
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_PhoneNumbers"
+          ParentId="Package\f_Tenants"
           FontInfo="{assembly:Null}"
           Size="76,NaN"
-          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
-          TopLeft="414.666666666667,134.666666666667" />
+          Id="b0e46eb4-e68b-465c-abcc-518801482874"
+          TopLeft="75.8333383624748,90.6000005733971" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\f_Schools">
     <LayoutInfo>
@@ -3328,43 +3827,69 @@ From
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_Schools\SmartCare DB - DayCare1 - Schools">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_Schools\SmartCare DW - SOR - f_Schools">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\f_Tenants">
+    design-time-name="Package\f_PhoneNumbers">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="237,42"
-          Id="Package\f_Tenants\SmartCare DW - SOR - f_Tenants"
-          TopLeft="67.0000050415592,154.600000573397" />
+          Size="283,42"
+          Id="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers"
+          TopLeft="394.666666666667,86" />
         <NodeLayout
-          Size="249,42"
-          Id="Package\f_Tenants\SmartCare DB - DayCare1 - Tenants"
-          TopLeft="63.8333383624748,43.2666672400633" />
+          Size="270,42"
+          Id="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers"
+          TopLeft="403.333333333333,205.333333333333" />
         <EdgeLayout
-          Id="Package\f_Tenants.Paths[OLE DB Source Output]"
-          TopLeft="186.916671702017,85.2666672400633">
+          Id="Package\f_PhoneNumbers.Paths[OLE DB Source Output]"
+          TopLeft="537.25,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.333333333333"
+              Start="0,0"
+              End="0,69.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_PhoneNumbers"
+          FontInfo="{assembly:Null}"
+          Size="76,NaN"
+          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
+          TopLeft="414.666666666667,134.666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\f_OUs">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\f_OUs\SmartCare DB - DayCare1 - OUs"
+          TopLeft="63.8333383624748,43.2666672400633" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\f_OUs\SmartCare DW - SOR - f_OUs"
+          TopLeft="67.0000050415592,154.600000573397" />
+        <EdgeLayout
+          Id="Package\f_OUs.Paths[OLE DB Source Output]"
+          TopLeft="177.666671702017,85.2666672400633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3388,7 +3913,7 @@ From
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_Tenants"
+          ParentId="Package\f_OUs"
           FontInfo="{assembly:Null}"
           Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
@@ -3396,92 +3921,52 @@ From
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_Tenants\SmartCare DB - DayCare1 - Tenants">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_Tenants\SmartCare DW - SOR - f_Tenants">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\f_ClassCheckInOuts">
+    design-time-name="Package\f_Addresses">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="296,42"
-          Id="Package\f_ClassCheckInOuts\SmartCare DB - DayCare1 - ClassCheckInOuts"
-          TopLeft="63.8333383624748,43.2666672400633" />
+          Size="259,42"
+          Id="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses"
+          TopLeft="394.666666666667,86" />
         <NodeLayout
-          Size="283,42"
-          Id="Package\f_ClassCheckInOuts\SmartCare DW - SOR - f_ClassCheckInOuts"
-          TopLeft="67.0000050415592,154.600000573397" />
+          Size="246,42"
+          Id="Package\f_Addresses\SmartCare DW - SOR - f_Addresses"
+          TopLeft="403.333333333333,205.333333333333" />
         <EdgeLayout
-          Id="Package\f_ClassCheckInOuts.Paths[OLE DB Source Output]"
-          TopLeft="210.166671702017,85.2666672400633">
+          Id="Package\f_Addresses.Paths[OLE DB Source Output]"
+          TopLeft="525.333333333333,128">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69.3333333333337"
+              EndConnector="0,77.333333333333"
               Start="0,0"
-              End="0,61.8333333333337">
+              End="0,69.833333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.8333333333337" />
+                    End="0,69.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_ClassCheckInOuts"
+          ParentId="Package\f_Addresses"
           FontInfo="{assembly:Null}"
-          Size="76,56"
-          Id="b0e46eb4-e68b-465c-abcc-518801482874"
-          TopLeft="75.8333383624748,90.6000005733971" />
+          Size="76,NaN"
+          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
+          TopLeft="414.666666666667,134.666666666667" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_ClassCheckInOuts\SmartCare DB - DayCare1 - ClassCheckInOuts">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_ClassCheckInOuts\SmartCare DW - SOR - f_ClassCheckInOuts">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
