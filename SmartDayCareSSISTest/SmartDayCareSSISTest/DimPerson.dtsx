@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimPerson"
   DTS:PackageType="5"
-  DTS:VersionBuild="191"
-  DTS:VersionGUID="{983CF7C1-6EE8-4EF3-BB8B-5BBBC35FC2A9}">
+  DTS:VersionBuild="192"
+  DTS:VersionGUID="{4B793AFB-F3E7-4C80-8840-C8CA736E9FAF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -127,7 +127,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAJVkuUUIaOzxKJ5FxR/wBN7FgPIr4X6N33sg4aTsSPQgAAAAAOgAAAAAIAACAAAAD6v3icL5ojDS0Y8s9Hnog960Djbo+oolU2+mg0b3qBKCAAAABAbG/m+/Fdir0uGJWY0n9tOPjhDZmSw8DfhF9V3Ploi0AAAADkeoj0KN1WVP3Ct+9FR1Bs/jpdqrgYxJlJTV9pIV2Mav3vddShHMRNi9xcmUx+elp527bxcnu4fqzirPy3fflu</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACLC2H6ZpXALfvrW8Hku+sKy+Hkdz02PrtYs4K663JWJgAAAAAOgAAAAAIAACAAAACo5aalMnjGpm6nIl18IF7CRZHMVRdruXtFL6AaDASlGyAAAAC07QvwuBQl5qu/PGb+oPPhYD69nO87rYWJxf53xCgIFUAAAADzc8/gBFY/+YYe6QFCI1jqAAqDOCmYqCMB8GSOhZT40LlOm3BWiwY2GJcCt+tqpwTDJfFJNm5T1MFIpysCm33G</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -142,7 +142,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC8cOmYuZ15K+rGooa6iDaAB+sAy+oSv4MWhkHAZZFq3AAAAAAOgAAAAAIAACAAAACcW0cfoTyJ9+ORFMz6/d4NlvCO4ZWmVc/i1q/R10Q80CAAAAAiFN/3xseUP2YHnJqTx/lG/bMTQSBM/QzuHoPjp5/i+kAAAADOAvUVae2kmmVlpu/xAilGsJvjRCaMOZjTaQ6Z2hRwPZ9cU+GOt8K6dBq9TbppT9drbipuvpoVlSAcU+ObtIzU</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC+N3suvePYiYLdssxUnsy8G2y3R4PJ2RiXD4O0cUWnPwAAAAAOgAAAAAIAACAAAABI2x7IwXB39O7VG7h8+13bIP9SdIivDNlhoRq1IILVJyAAAADIUQXLOTSUWyvxolu4IYpjzsWQiwkca3liqtOsNnVQtUAAAABbITbJO/CyPlhvpvxQwQQRcDaLeWm5laVr/K7jrf7djHiBy/Jrn89AUBnSrvmJiAk/5T+leNwozIZHL+pzuHZA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -157,7 +157,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACC9kDfFgocIHgUa6ZiRjzUPOFrB6JLbNRwbpDP0+HZUQAAAAAOgAAAAAIAACAAAAAiSh6gJ6WPGq9EB0WRqWngsuDT030ZUBvwkPwHuxSSEyAAAADrGV1aqWxFnoCMG2hbcTyYM63XTKYieV9hH/TZZoGaTkAAAACN8ZwFuJQ7/qFwK3ri5GZVM/L7Xzm8b1xaOnwGU164g0kho1qIWy8+uuz8defMqPknWaAp55wYqjDbgwN3iMW+</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAXdHVzA41CSjnbYThuHOQLMaUT6hnmMPsD+TvsKH+JqQAAAAAOgAAAAAIAACAAAADkI8GxaiUkPSllv3Iu8g9oKW/YUv/YjMStrmC/WgAbEyAAAADfshQ8vW4bQSNmw3iXdduzJGQ2+9BUZxBkBlBuf3fFR0AAAAAjnWRB+Bn6BYFE326qMZ3p6hDB9p/Qd09afENLByMT4Yni0LKJ2Z0EWm4ZddkaOUsG57jyY6emPJIv6ck9LzY0</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -9276,7 +9276,7 @@ Order by
     design-time-name="Package\Import Person data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="169,42"
           Id="Package\Import Person data\Person source data"
@@ -9304,9 +9304,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9669,7 +9667,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9739,7 +9739,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9809,7 +9811,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9843,7 +9847,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10184,7 +10190,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10218,7 +10226,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10252,7 +10262,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10322,7 +10334,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10356,7 +10370,9 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
