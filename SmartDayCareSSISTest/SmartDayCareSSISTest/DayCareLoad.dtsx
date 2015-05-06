@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{329762B7-F73C-4DDB-868F-B378755ADB7F}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{4960C1AA-52AB-4A40-AE70-930449A6ACA6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3454,6 +3454,10 @@ From
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="136,42"
+          Id="Package\f_Addresses"
+          TopLeft="81.4999998137355,143.166667325298" />
+        <NodeLayout
           Size="171,42"
           Id="Package\f_ChildCheckInOuts"
           TopLeft="88,745" />
@@ -3461,86 +3465,26 @@ From
           Size="172,42"
           Id="Package\f_ClassCheckInOuts"
           TopLeft="83,663.166667325298" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="171.25,705.166667325298">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.833332674702"
-              Start="0,0"
-              End="0,32.333332674702">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.333332674702" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="184,42"
-          Id="Package\Truncate Initial Tables"
-          TopLeft="60,60" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\f_Tenants"
-          TopLeft="89.0833330787719,366.166667325298" />
-        <NodeLayout
-          Size="124,42"
-          Id="Package\f_Schools"
-          TopLeft="97,465.166667325298" />
+          Size="108,42"
+          Id="Package\f_OUs"
+          TopLeft="104,575.166667325298" />
         <NodeLayout
           Size="159,42"
           Id="Package\f_PhoneNumbers"
           TopLeft="81,213.966667883198" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\f_OUs"
-          TopLeft="104,575.166667325298" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="158,617.166667325298">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11,46"
-              Start="0,0"
-              End="11,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="4,23" />
-                  <mssgle:LineSegment
-                    End="7,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7,23"
-                    Point2="11,23"
-                    Point3="11,27" />
-                  <mssgle:LineSegment
-                    End="11,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="124,42"
+          Id="Package\f_Schools"
+          TopLeft="97,465.166667325298" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\f_Addresses"
-          TopLeft="81.4999998137355,143.166667325298" />
+          Size="126,42"
+          Id="Package\f_Tenants"
+          TopLeft="89.0833330787719,366.166667325298" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Truncate Initial Tables"
+          TopLeft="60,60" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="150.749999906868,102">
@@ -3599,6 +3543,40 @@ From
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="158,617.166667325298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,46"
+              Start="0,0"
+              End="11,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="7,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,23"
+                    Point2="11,23"
+                    Point3="11,27" />
+                  <mssgle:LineSegment
+                    End="11,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3675,22 +3653,91 @@ From
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="171.25,705.166667325298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.833332674702"
+              Start="0,0"
+              End="0,32.333332674702">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.333332674702" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\f_Addresses">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="259,42"
+          Id="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses"
+          TopLeft="394.666666666667,86" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\f_Addresses\SmartCare DW - SOR - f_Addresses"
+          TopLeft="403.333333333333,205.333333333333" />
+        <EdgeLayout
+          Id="Package\f_Addresses.Paths[OLE DB Source Output]"
+          TopLeft="525.333333333333,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.333333333333"
+              Start="0,0"
+              End="0,69.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_Addresses"
+          FontInfo="{assembly:Null}"
+          Size="76,NaN"
+          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
+          TopLeft="414.666666666667,134.666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\f_ChildCheckInOuts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="282,42"
-          Id="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts"
-          TopLeft="67.0000050415592,154.600000573397" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="295,42"
           Id="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts"
           TopLeft="63.8333383624748,43.2666672400633" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\f_ChildCheckInOuts\SmartCare DW - SOR - f_ChildCheckInOuts"
+          TopLeft="67.0000050415592,154.600000573397" />
         <EdgeLayout
           Id="Package\f_ChildCheckInOuts.Paths[OLE DB Source Output]"
           TopLeft="209.666671702017,85.2666672400633">
@@ -3710,14 +3757,16 @@ From
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
           ParentId="Package\f_ChildCheckInOuts"
           FontInfo="{assembly:Null}"
-          Size="76,56"
+          Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
           TopLeft="75.8333383624748,90.6000005733971" />
       </GraphLayout>
@@ -3750,13 +3799,13 @@ From
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="283,42"
-          Id="Package\f_ClassCheckInOuts\SmartCare DW - SOR - f_ClassCheckInOuts"
-          TopLeft="67.0000050415592,154.600000573397" />
-        <NodeLayout
           Size="296,42"
           Id="Package\f_ClassCheckInOuts\SmartCare DB - DayCare1 - ClassCheckInOuts"
           TopLeft="63.8333383624748,43.2666672400633" />
+        <NodeLayout
+          Size="283,42"
+          Id="Package\f_ClassCheckInOuts\SmartCare DW - SOR - f_ClassCheckInOuts"
+          TopLeft="67.0000050415592,154.600000573397" />
         <EdgeLayout
           Id="Package\f_ClassCheckInOuts.Paths[OLE DB Source Output]"
           TopLeft="210.166671702017,85.2666672400633">
@@ -3811,21 +3860,21 @@ From
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\f_Tenants">
+    design-time-name="Package\f_OUs">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="249,42"
-          Id="Package\f_Tenants\SmartCare DB - DayCare1 - Tenants"
+          Size="231,42"
+          Id="Package\f_OUs\SmartCare DB - DayCare1 - OUs"
           TopLeft="63.8333383624748,43.2666672400633" />
         <NodeLayout
-          Size="237,42"
-          Id="Package\f_Tenants\SmartCare DW - SOR - f_Tenants"
+          Size="218,42"
+          Id="Package\f_OUs\SmartCare DW - SOR - f_OUs"
           TopLeft="67.0000050415592,154.600000573397" />
         <EdgeLayout
-          Id="Package\f_Tenants.Paths[OLE DB Source Output]"
-          TopLeft="186.916671702017,85.2666672400633">
+          Id="Package\f_OUs.Paths[OLE DB Source Output]"
+          TopLeft="177.666671702017,85.2666672400633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3849,11 +3898,58 @@ From
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_Tenants"
+          ParentId="Package\f_OUs"
           FontInfo="{assembly:Null}"
           Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
           TopLeft="75.8333383624748,90.6000005733971" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\f_PhoneNumbers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="270,42"
+          Id="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers"
+          TopLeft="403.333333333333,205.333333333333" />
+        <NodeLayout
+          Size="283,42"
+          Id="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers"
+          TopLeft="394.666666666667,86" />
+        <EdgeLayout
+          Id="Package\f_PhoneNumbers.Paths[OLE DB Source Output]"
+          TopLeft="537.25,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.333333333333"
+              Start="0,0"
+              End="0,69.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_PhoneNumbers"
+          FontInfo="{assembly:Null}"
+          Size="76,NaN"
+          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
+          TopLeft="414.666666666667,134.666666666667" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3905,68 +4001,21 @@ From
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\f_PhoneNumbers">
+    design-time-name="Package\f_Tenants">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="283,42"
-          Id="Package\f_PhoneNumbers\SmartCare DB - DayCare1 - PhoneNumbers"
-          TopLeft="394.666666666667,86" />
-        <NodeLayout
-          Size="270,42"
-          Id="Package\f_PhoneNumbers\SmartCare DW - SOR - f_PhoneNumbers"
-          TopLeft="403.333333333333,205.333333333333" />
-        <EdgeLayout
-          Id="Package\f_PhoneNumbers.Paths[OLE DB Source Output]"
-          TopLeft="537.25,128">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,77.333333333333"
-              Start="0,0"
-              End="0,69.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Full Load&#xA;"
-          ParentId="Package\f_PhoneNumbers"
-          FontInfo="{assembly:Null}"
-          Size="76,NaN"
-          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
-          TopLeft="414.666666666667,134.666666666667" />
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\f_OUs">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="231,42"
-          Id="Package\f_OUs\SmartCare DB - DayCare1 - OUs"
-          TopLeft="63.8333383624748,43.2666672400633" />
-        <NodeLayout
-          Size="218,42"
-          Id="Package\f_OUs\SmartCare DW - SOR - f_OUs"
+          Size="237,42"
+          Id="Package\f_Tenants\SmartCare DW - SOR - f_Tenants"
           TopLeft="67.0000050415592,154.600000573397" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\f_Tenants\SmartCare DB - DayCare1 - Tenants"
+          TopLeft="63.8333383624748,43.2666672400633" />
         <EdgeLayout
-          Id="Package\f_OUs.Paths[OLE DB Source Output]"
-          TopLeft="177.666671702017,85.2666672400633">
+          Id="Package\f_Tenants.Paths[OLE DB Source Output]"
+          TopLeft="186.916671702017,85.2666672400633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3990,58 +4039,11 @@ From
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
-          ParentId="Package\f_OUs"
+          ParentId="Package\f_Tenants"
           FontInfo="{assembly:Null}"
           Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
           TopLeft="75.8333383624748,90.6000005733971" />
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\f_Addresses">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="259,42"
-          Id="Package\f_Addresses\SmartCare DB - DayCare1 - Addresses"
-          TopLeft="394.666666666667,86" />
-        <NodeLayout
-          Size="246,42"
-          Id="Package\f_Addresses\SmartCare DW - SOR - f_Addresses"
-          TopLeft="403.333333333333,205.333333333333" />
-        <EdgeLayout
-          Id="Package\f_Addresses.Paths[OLE DB Source Output]"
-          TopLeft="525.333333333333,128">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,77.333333333333"
-              Start="0,0"
-              End="0,69.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Full Load&#xA;"
-          ParentId="Package\f_Addresses"
-          FontInfo="{assembly:Null}"
-          Size="76,NaN"
-          Id="2ba129b5-455e-4f8b-b9b1-5cf28442e5ba"
-          TopLeft="414.666666666667,134.666666666667" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

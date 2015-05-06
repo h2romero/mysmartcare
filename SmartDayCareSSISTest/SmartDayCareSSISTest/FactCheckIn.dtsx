@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCheckIn"
   DTS:PackageType="5"
-  DTS:VersionBuild="95"
-  DTS:VersionGUID="{749C7B2A-6913-4256-82F8-5D85EA47E8DE}">
+  DTS:VersionBuild="97"
+  DTS:VersionGUID="{4A311D03-1C3E-46C0-AFC2-D68E026CC458}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -127,7 +127,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       externalMetadataColumnId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[ClassID]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]" />
@@ -139,9 +139,7 @@
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[ChildID]" />
                     <inputColumn
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].Columns[OUID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
+                      cachedDataType="guid"
                       cachedName="OUID"
                       externalMetadataColumnId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[OUID]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[OUID]" />
@@ -167,9 +165,7 @@
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[DataCaptureKey]" />
                     <inputColumn
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].Columns[TenantID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
+                      cachedDataType="guid"
                       cachedName="TenantID"
                       externalMetadataColumnId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[TenantID]" />
@@ -189,9 +185,7 @@
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckType]" />
                     <inputColumn
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].Columns[SchoolID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
+                      cachedDataType="guid"
                       cachedName="SchoolID"
                       externalMetadataColumnId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[SchoolID]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[SchoolID]" />
@@ -218,7 +212,7 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       name="ClassID" />
                     <externalMetadataColumn
                       refId="Package\Import Check In data\Check In data.Inputs[OLE DB Destination Input].ExternalColumns[ChildID]"
@@ -354,7 +348,7 @@ Union
 Select
 	chk.ClassCheckInOutID
 	--,chk.ClassID
-	,cls.Id ClassID
+	,chk.ClassID
 	,chk.PersonID ChildID
 	,chk.OUID OUID
 	,chk.RegisteredTime CheckInDateTime
@@ -369,8 +363,7 @@ Select
 	,NULL TransportPersonID
 From
 	f_ClassCheckInOuts chk (NOLOCK)
-	Join f_Classes cls (NOLOCK) On chk.ClassID=cls.Guid
-	Join f_Children child (NOLOCK) On chk.PersonID=child.ChildId	-- Only take children. Leaving out employees for now.
+	Join f_Children child (NOLOCK) On chk.PersonID=child.Guid	-- Only take children. Leaving out employees for now.
 	Left Join f_Schools s (NOLOCK) On chk.OUID=s.OUID
 Where
 	chk.IsCheckOut=0
@@ -413,17 +406,17 @@ Order by
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
-                      dataType="dbTimeStamp"
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]"
+                      dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
-                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
-                      name="DateCreated"
+                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInID]"
+                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]"
+                      name="CheckInID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
@@ -441,12 +434,10 @@ Order by
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[OUID]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[OUID]"
-                      length="100"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[OUID]"
                       name="OUID"
                       truncationRowDisposition="FailComponent" />
@@ -458,6 +449,15 @@ Order by
                       externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDateTime]"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDateTime]"
                       name="CheckInDateTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDate]"
+                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]"
+                      name="CheckInDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInTime]"
@@ -481,14 +481,21 @@ Order by
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[TenantID]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
-                      length="100"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[TenantID]"
                       name="TenantID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CreatedByID]"
@@ -512,12 +519,10 @@ Order by
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
-                      length="100"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
                       name="SchoolID"
                       truncationRowDisposition="FailComponent" />
@@ -530,34 +535,16 @@ Order by
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[TransportPersonID]"
                       name="TransportPersonID"
                       truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDate]"
-                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInDate]"
-                      name="CheckInDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInID]"
-                      lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].Columns[CheckInID]"
-                      name="CheckInID"
-                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
-                      dataType="dbTimeStamp"
-                      name="DateCreated" />
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInID]"
+                      dataType="guid"
+                      name="CheckInID" />
                     <externalMetadataColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       name="ClassID" />
                     <externalMetadataColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ChildID]"
@@ -572,6 +559,10 @@ Order by
                       dataType="dbTimeStamp"
                       name="CheckInDateTime" />
                     <externalMetadataColumn
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDate]"
+                      dataType="dbDate"
+                      name="CheckInDate" />
+                    <externalMetadataColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInTime]"
                       codePage="1252"
                       dataType="str"
@@ -585,6 +576,10 @@ Order by
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
                       dataType="guid"
                       name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
                     <externalMetadataColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CreatedByID]"
                       dataType="guid"
@@ -603,14 +598,6 @@ Order by
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[TransportPersonID]"
                       dataType="guid"
                       name="TransportPersonID" />
-                    <externalMetadataColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInDate]"
-                      dataType="dbDate"
-                      name="CheckInDate" />
-                    <externalMetadataColumn
-                      refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Output].ExternalColumns[CheckInID]"
-                      dataType="guid"
-                      name="CheckInID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -625,7 +612,7 @@ Order by
                       name="CheckInID" />
                     <outputColumn
                       refId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       lineageId="Package\Import Check In data\Check In source data.Outputs[OLE DB Source Error Output].Columns[ClassID]"
                       name="ClassID" />
                     <outputColumn
@@ -914,7 +901,7 @@ Order by
                   <outputColumns>
                     <outputColumn
                       refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
@@ -1047,7 +1034,7 @@ Order by
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       name="ClassID" />
                     <externalMetadataColumn
                       refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].ExternalColumns[ChildID]"
@@ -1123,7 +1110,7 @@ Order by
                       name="CheckInKey" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Error Output].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Error Output].Columns[ClassID]"
                       name="ClassID" />
                     <outputColumn
@@ -1267,6 +1254,11 @@ Order by
                       cachedLength="100"
                       cachedName="TransportPersonID"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[TransportPersonID]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\Convert to String.Inputs[Data Conversion Input].Columns[ClassID]"
+                      cachedDataType="guid"
+                      cachedName="ClassID"
+                      lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1424,6 +1416,28 @@ Order by
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[TransportPersonID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output].Columns[StrClassID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output].Columns[StrClassID]"
+                      name="StrClassID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2594,14 +2608,14 @@ where [refTable].[ChildID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[HubClass]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[HubClassGuidTemp]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[HubClass]) [refTable]
-where [refTable].[ClassID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[HubClassGuidTemp]) [refTable]
+where [refTable].[GuidClassID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -2632,12 +2646,12 @@ where [refTable].[ClassID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClassKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ClassID" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DWInsertDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RecordSource" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClassKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ClassID" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GuidClassID" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DWInsertDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RecordSource" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output].Columns[StrClassID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2661,15 +2675,17 @@ where [refTable].[ClassID] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update FactCheckIn\Get ClassKey.Inputs[Lookup Input].Columns[ClassID]"
-                      cachedDataType="i8"
-                      cachedName="ClassID"
-                      lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]">
+                      refId="Package\Update FactCheckIn\Get ClassKey.Inputs[Lookup Input].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output].Columns[StrClassID]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ClassID</property>
+                          name="JoinToReferenceColumn">GuidClassID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -2794,7 +2810,7 @@ where [refTable].[PersonID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1]};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\1216:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2953,7 +2969,7 @@ where [refTable].[OrganizationUnitID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2]};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\1217:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3113,7 +3129,7 @@ where [refTable].[SchoolID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1]};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\1218:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3272,7 +3288,7 @@ where [refTable].[TenantID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckIn.Paths[Lookup Match Output6]};</property>
+                  name="ParameterMap">#{Package\Update FactCheckIn\1219:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3830,7 +3846,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]">
                       <properties>
@@ -4127,6 +4143,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 1].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -4202,7 +4233,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Class Check In source data.Outputs[OLE DB Source Output].Columns[ClassID]">
                       <properties>
@@ -4499,6 +4530,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Convert to String.Outputs[Data Conversion Output].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Inputs[Merge Input 2].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -4577,7 +4623,7 @@ where [refTable].[PersonID] = ?</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[ClassID]"
                       name="ClassID" />
                     <outputColumn
@@ -4706,6 +4752,13 @@ where [refTable].[PersonID] = ?</property>
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrTransportPersonID]"
                       name="StrTransportPersonID" />
                     <outputColumn
+                      refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      name="StrClassID" />
+                    <outputColumn
                       refId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[Copy of StrCheckInTime]"
                       codePage="1252"
                       dataType="str"
@@ -4751,7 +4804,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[ClassID]">
                       <properties>
@@ -5048,6 +5101,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 1].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -5136,7 +5204,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 2].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[ClassID]">
                       <properties>
@@ -5433,6 +5501,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 2].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Merge ClassKey.Outputs[Merge Output 1].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Inputs[Merge Input 2].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -5524,7 +5607,7 @@ where [refTable].[PersonID] = ?</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[ClassID]"
                       name="ClassID" />
                     <outputColumn
@@ -5652,6 +5735,13 @@ where [refTable].[PersonID] = ?</property>
                       length="100"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrTransportPersonID]"
                       name="StrTransportPersonID" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      name="StrClassID" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[Copy of StrCheckInTime]"
                       codePage="1252"
@@ -6193,7 +6283,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[ClassID]">
                       <properties>
@@ -6490,6 +6580,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 1].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -6604,7 +6709,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 2].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[ClassID]">
                       <properties>
@@ -6901,6 +7006,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 2].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Merge CreatedByPersonKey.Outputs[Merge Output 1].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Inputs[Merge Input 2].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -7018,7 +7138,7 @@ where [refTable].[PersonID] = ?</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[ClassID]"
                       name="ClassID" />
                     <outputColumn
@@ -7147,6 +7267,13 @@ where [refTable].[PersonID] = ?</property>
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrTransportPersonID]"
                       name="StrTransportPersonID" />
                     <outputColumn
+                      refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      name="StrClassID" />
+                    <outputColumn
                       refId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[Copy of StrCheckInTime]"
                       codePage="1252"
                       dataType="str"
@@ -7207,7 +7334,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[ClassID]">
                       <properties>
@@ -7504,6 +7631,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 1].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -7644,7 +7786,7 @@ where [refTable].[PersonID] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2].Columns[ClassID]"
-                      cachedDataType="i8"
+                      cachedDataType="guid"
                       cachedName="ClassID"
                       lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[ClassID]">
                       <properties>
@@ -7941,6 +8083,21 @@ where [refTable].[PersonID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2].Columns[StrClassID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StrClassID"
+                      lineageId="Package\Update FactCheckIn\Merge SchoolKey.Outputs[Merge Output 1].Columns[StrClassID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[StrClassID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Inputs[Merge Input 2].Columns[Copy of StrCheckInTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -8084,7 +8241,7 @@ where [refTable].[PersonID] = ?</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[ClassID]"
-                      dataType="i8"
+                      dataType="guid"
                       lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[ClassID]"
                       name="ClassID" />
                     <outputColumn
@@ -8212,6 +8369,13 @@ where [refTable].[PersonID] = ?</property>
                       length="100"
                       lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[StrTransportPersonID]"
                       name="StrTransportPersonID" />
+                    <outputColumn
+                      refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[StrClassID]"
+                      name="StrClassID" />
                     <outputColumn
                       refId="Package\Update FactCheckIn\Merge TransportPersonKey.Outputs[Merge Output 1].Columns[Copy of StrCheckInTime]"
                       codePage="1252"
@@ -9100,32 +9264,6 @@ where [refTable].[PersonID] = ?</property>
           Size="144,42"
           Id="Package\Import Check In data\Check In data"
           TopLeft="274,380" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Import Check In data\Check In source data"
-          TopLeft="257,136" />
-        <EdgeLayout
-          Id="Package\Import Check In data.Paths[OLE DB Source Output]"
-          TopLeft="345.25,178">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71"
-              Start="0,0"
-              End="0,63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Check In data.Paths[Data Conversion Output]"
           TopLeft="345,291">
@@ -9148,6 +9286,44 @@ where [refTable].[PersonID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Import Check In data\Check In source data"
+          TopLeft="263,123" />
+        <EdgeLayout
+          Id="Package\Import Check In data.Paths[OLE DB Source Output]"
+          TopLeft="352.5,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,84"
+              Start="0,0"
+              End="-8.5,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="-4,42" />
+                  <mssgle:LineSegment
+                    End="-4.5,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,42"
+                    Point2="-8.5,42"
+                    Point3="-8.5,46" />
+                  <mssgle:LineSegment
+                    End="-8.5,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -9161,14 +9337,6 @@ where [refTable].[PersonID] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Check In data\Check In source data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -9483,7 +9651,7 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-57.0600390625,10.75,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9690,40 +9858,40 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="153,42"
           Id="Package\Update FactCheckIn\Merge ClassKey"
-          TopLeft="325,608" />
+          TopLeft="310.5,605.5" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Lookup Match Output6]"
           TopLeft="268,554">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="133.5,54"
+              EndConnector="119,51.5"
               Start="0,0"
-              End="133.5,46.5">
+              End="119,44">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23" />
+                    End="0,21.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23"
-                    Point2="0,27"
-                    Point3="4,27" />
+                    Point1="0,21.75"
+                    Point2="0,25.75"
+                    Point3="4,25.75" />
                   <mssgle:LineSegment
-                    End="129.5,27" />
+                    End="115,25.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="129.5,27"
-                    Point2="133.5,27"
-                    Point3="133.5,31" />
+                    Point1="115,25.75"
+                    Point2="119,25.75"
+                    Point3="119,29.75" />
                   <mssgle:LineSegment
-                    End="133.5,46.5" />
+                    End="119,44" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="18.55861328125,32,96.3827734375,11.609375"
+              BoundingBox="11.30861328125,30.75,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9733,26 +9901,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-110.833333333333,51"
+              EndConnector="-125.333333333333,48.5"
               Start="0,0"
-              End="-110.833333333333,43.5">
+              End="-125.333333333333,41">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.2833117723156" />
+                    End="0,24.7988357050453" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.2833117723156"
-                    Point2="0,30.2833117723156"
-                    Point3="-4,30.2833117723156" />
+                    Point1="0,24.7988357050453"
+                    Point2="0,28.7988357050453"
+                    Point3="-4,28.7988357050453" />
                   <mssgle:LineSegment
-                    End="-106.833333333333,30.2833117723156" />
+                    End="-121.333333333333,28.7988357050453" />
                   <mssgle:CubicBezierSegment
-                    Point1="-106.833333333333,30.2833117723156"
-                    Point2="-110.833333333333,30.2833117723156"
-                    Point3="-110.833333333333,34.2833117723156" />
+                    Point1="-121.333333333333,28.7988357050453"
+                    Point2="-125.333333333333,28.7988357050453"
+                    Point3="-125.333333333333,32.7988357050453" />
                   <mssgle:LineSegment
-                    End="-110.833333333333,43.5" />
+                    End="-125.333333333333,41" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9763,30 +9931,30 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 1]"
-          TopLeft="401.5,650">
+          TopLeft="387,647.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-145.5,49"
+              EndConnector="-131,51.5"
               Start="0,0"
-              End="-145.5,41.5">
+              End="-131,44">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,21.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.5"
-                    Point2="0,24.5"
-                    Point3="-4,24.5" />
+                    Point1="0,21.75"
+                    Point2="0,25.75"
+                    Point3="-4,25.75" />
                   <mssgle:LineSegment
-                    End="-141.5,24.5" />
+                    End="-127,25.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-141.5,24.5"
-                    Point2="-145.5,24.5"
-                    Point3="-145.5,28.5" />
+                    Point1="-127,25.75"
+                    Point2="-131,25.75"
+                    Point3="-131,29.75" />
                   <mssgle:LineSegment
-                    End="-145.5,41.5" />
+                    End="-131,44" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9798,40 +9966,40 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="209,42"
           Id="Package\Update FactCheckIn\Merge CreatedByPersonKey"
-          TopLeft="314,791" />
+          TopLeft="326,795" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Lookup Match Output7]"
           TopLeft="256,741">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="162.5,50"
+              EndConnector="174.5,54"
               Start="0,0"
-              End="162.5,42.5">
+              End="174.5,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
+                    End="0,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="4,25" />
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
                   <mssgle:LineSegment
-                    End="158.5,25" />
+                    End="170.5,27" />
                   <mssgle:CubicBezierSegment
-                    Point1="158.5,25"
-                    Point2="162.5,25"
-                    Point3="162.5,29" />
+                    Point1="170.5,27"
+                    Point2="174.5,27"
+                    Point3="174.5,31" />
                   <mssgle:LineSegment
-                    End="162.5,42.5" />
+                    End="174.5,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="33.05861328125,30,96.3827734375,11.609375"
+              BoundingBox="39.05861328125,32,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9841,26 +10009,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-158.5,43"
+              EndConnector="-146.5,47"
               Start="0,0"
-              End="-158.5,35.5">
+              End="-146.5,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.6039886039886" />
+                    End="0,23.985754985755" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.6039886039886"
-                    Point2="0,25.6039886039886"
-                    Point3="-4,25.6039886039886" />
+                    Point1="0,23.985754985755"
+                    Point2="0,27.985754985755"
+                    Point3="-4,27.985754985755" />
                   <mssgle:LineSegment
-                    End="-154.5,25.6039886039886" />
+                    End="-142.5,27.985754985755" />
                   <mssgle:CubicBezierSegment
-                    Point1="-154.5,25.6039886039886"
-                    Point2="-158.5,25.6039886039886"
-                    Point3="-158.5,29.6039886039886" />
+                    Point1="-142.5,27.985754985755"
+                    Point2="-146.5,27.985754985755"
+                    Point3="-146.5,31.985754985755" />
                   <mssgle:LineSegment
-                    End="-158.5,35.5" />
+                    End="-146.5,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9871,53 +10039,51 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 11]"
-          TopLeft="418.5,833">
+          TopLeft="430.5,837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-186.5,38"
+              EndConnector="-198.5,34"
               Start="0,0"
-              End="-186.5,30.5">
+              End="-198.5,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15" />
+                    End="0,13" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="-4,17" />
                   <mssgle:LineSegment
-                    End="-182.5,19" />
+                    End="-194.5,17" />
                   <mssgle:CubicBezierSegment
-                    Point1="-182.5,19"
-                    Point2="-186.5,19"
-                    Point3="-186.5,23" />
+                    Point1="-194.5,17"
+                    Point2="-198.5,17"
+                    Point3="-198.5,21" />
                   <mssgle:LineSegment
-                    End="-186.5,30.5" />
+                    End="-198.5,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-101.25,24,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
           Size="160,42"
           Id="Package\Update FactCheckIn\Merge SchoolKey"
-          TopLeft="320,1051" />
+          TopLeft="309,1051" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Lookup Match Output8]"
           TopLeft="236.5,1000">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="163.5,51"
+              EndConnector="152.5,51"
               Start="0,0"
-              End="163.5,43.5">
+              End="152.5,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9928,20 +10094,20 @@ where [refTable].[PersonID] = ?</property>
                     Point2="0,25.5"
                     Point3="4,25.5" />
                   <mssgle:LineSegment
-                    End="159.5,25.5" />
+                    End="148.5,25.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="159.5,25.5"
-                    Point2="163.5,25.5"
-                    Point3="163.5,29.5" />
+                    Point1="148.5,25.5"
+                    Point2="152.5,25.5"
+                    Point3="152.5,29.5" />
                   <mssgle:LineSegment
-                    End="163.5,43.5" />
+                    End="152.5,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="33.55861328125,30.5,96.3827734375,11.609375"
+              BoundingBox="28.05861328125,30.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9951,9 +10117,9 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-146.666666666667,52"
+              EndConnector="-157.666666666667,52"
               Start="0,0"
-              End="-146.666666666667,44.5">
+              End="-157.666666666667,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9964,13 +10130,13 @@ where [refTable].[PersonID] = ?</property>
                     Point2="0,30.8910891089109"
                     Point3="-4,30.8910891089109" />
                   <mssgle:LineSegment
-                    End="-142.666666666667,30.8910891089109" />
+                    End="-153.666666666667,30.8910891089109" />
                   <mssgle:CubicBezierSegment
-                    Point1="-142.666666666667,30.8910891089109"
-                    Point2="-146.666666666667,30.8910891089109"
-                    Point3="-146.666666666667,34.8910891089109" />
+                    Point1="-153.666666666667,30.8910891089109"
+                    Point2="-157.666666666667,30.8910891089109"
+                    Point3="-157.666666666667,34.8910891089109" />
                   <mssgle:LineSegment
-                    End="-146.666666666667,44.5" />
+                    End="-157.666666666667,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9981,13 +10147,13 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 12]"
-          TopLeft="400,1093">
+          TopLeft="389,1093">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-195.5,32"
+              EndConnector="-184.5,32"
               Start="0,0"
-              End="-195.5,24.5">
+              End="-184.5,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9998,13 +10164,13 @@ where [refTable].[PersonID] = ?</property>
                     Point2="0,16"
                     Point3="-4,16" />
                   <mssgle:LineSegment
-                    End="-191.5,16" />
+                    End="-180.5,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="-191.5,16"
-                    Point2="-195.5,16"
-                    Point3="-195.5,20" />
+                    Point1="-180.5,16"
+                    Point2="-184.5,16"
+                    Point3="-184.5,20" />
                   <mssgle:LineSegment
-                    End="-195.5,24.5" />
+                    End="-184.5,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10016,40 +10182,40 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="206,42"
           Id="Package\Update FactCheckIn\Merge TransportPersonKey"
-          TopLeft="281,1296" />
+          TopLeft="297,1295" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Lookup Match Output9]"
           TopLeft="225.5,1249">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="158.5,47"
+              EndConnector="174.5,46"
               Start="0,0"
-              End="158.5,39.5">
+              End="174.5,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
+                    End="0,19" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
                   <mssgle:LineSegment
-                    End="154.5,23.5" />
+                    End="170.5,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="154.5,23.5"
-                    Point2="158.5,23.5"
-                    Point3="158.5,27.5" />
+                    Point1="170.5,23"
+                    Point2="174.5,23"
+                    Point3="174.5,27" />
                   <mssgle:LineSegment
-                    End="158.5,39.5" />
+                    End="174.5,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="31.05861328125,28.5,96.3827734375,11.609375"
+              BoundingBox="39.05861328125,28,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10059,26 +10225,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-152.5,46"
+              EndConnector="-136.5,45"
               Start="0,0"
-              End="-152.5,38.5">
+              End="-136.5,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3872832369942" />
+                    End="0,22.7919075144509" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.3872832369942"
-                    Point2="0,27.3872832369942"
-                    Point3="-4,27.3872832369942" />
+                    Point1="0,22.7919075144509"
+                    Point2="0,26.7919075144509"
+                    Point3="-4,26.7919075144509" />
                   <mssgle:LineSegment
-                    End="-148.5,27.3872832369942" />
+                    End="-132.5,26.7919075144509" />
                   <mssgle:CubicBezierSegment
-                    Point1="-148.5,27.3872832369942"
-                    Point2="-152.5,27.3872832369942"
-                    Point3="-152.5,31.3872832369942" />
+                    Point1="-132.5,26.7919075144509"
+                    Point2="-136.5,26.7919075144509"
+                    Point3="-136.5,30.7919075144509" />
                   <mssgle:LineSegment
-                    End="-152.5,38.5" />
+                    End="-136.5,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10090,33 +10256,33 @@ where [refTable].[PersonID] = ?</property>
         <NodeLayout
           Size="130,42"
           Id="Package\Update FactCheckIn\Merge Join"
-          TopLeft="409,1428" />
+          TopLeft="403,1431" />
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Output 13]"
-          TopLeft="384,1338">
+          TopLeft="400,1337">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="90,90"
+              EndConnector="68,94"
               Start="0,0"
-              End="90,82.5">
+              End="68,86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41" />
+                    End="0,43" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41"
-                    Point2="0,45"
-                    Point3="4,45" />
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="4,47" />
                   <mssgle:LineSegment
-                    End="86,45" />
+                    End="64,47" />
                   <mssgle:CubicBezierSegment
-                    Point1="86,45"
-                    Point2="90,45"
-                    Point3="90,49" />
+                    Point1="64,47"
+                    Point2="68,47"
+                    Point3="68,51" />
                   <mssgle:LineSegment
-                    End="90,82.5" />
+                    End="68,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10131,26 +10297,26 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-136.166666666667,42"
+              EndConnector="-142.166666666667,45"
               Start="0,0"
-              End="-136.166666666667,34.5">
+              End="-142.166666666667,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.8936170212766" />
+                    End="0,22.6717325227964" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.8936170212766"
-                    Point2="0,24.8936170212766"
-                    Point3="-4,24.8936170212766" />
+                    Point1="0,22.6717325227964"
+                    Point2="0,26.6717325227964"
+                    Point3="-4,26.6717325227964" />
                   <mssgle:LineSegment
-                    End="-132.166666666667,24.8936170212766" />
+                    End="-138.166666666667,26.6717325227964" />
                   <mssgle:CubicBezierSegment
-                    Point1="-132.166666666667,24.8936170212766"
-                    Point2="-136.166666666667,24.8936170212766"
-                    Point3="-136.166666666667,28.8936170212766" />
+                    Point1="-138.166666666667,26.6717325227964"
+                    Point2="-142.166666666667,26.6717325227964"
+                    Point3="-142.166666666667,30.6717325227964" />
                   <mssgle:LineSegment
-                    End="-136.166666666667,34.5" />
+                    End="-142.166666666667,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10161,30 +10327,30 @@ where [refTable].[PersonID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactCheckIn.Paths[Merge Join Output]"
-          TopLeft="474,1470">
+          TopLeft="468,1473">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-71,61"
+              EndConnector="-65,58"
               Start="0,0"
-              End="-71,53.5">
+              End="-65,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5" />
+                    End="0,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="-4,30.5" />
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
                   <mssgle:LineSegment
-                    End="-67,30.5" />
+                    End="-61,29" />
                   <mssgle:CubicBezierSegment
-                    Point1="-67,30.5"
-                    Point2="-71,30.5"
-                    Point3="-71,34.5" />
+                    Point1="-61,29"
+                    Point2="-65,29"
+                    Point3="-65,33" />
                   <mssgle:LineSegment
-                    End="-71,53.5" />
+                    End="-65,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10355,17 +10521,17 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[HubClass]</Value>
+          type="q3:string">[dbo].[HubClassGuidTemp]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10397,6 +10563,14 @@ where [refTable].[PersonID] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Update FactCheckIn\Class Check In source data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Check In data\Check In source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
