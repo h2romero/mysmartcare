@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{4960C1AA-52AB-4A40-AE70-930449A6ACA6}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{B013334D-2A49-498F-8DAE-4A8E8F3AFE6D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,6 +21,7 @@
       DTS:refId="Package\f_Addresses"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{7776098d-8287-4886-9373-4e37f5876e95}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -629,6 +630,7 @@ where PersonID is not NULL or OUID is not NULL</property>
       DTS:refId="Package\f_ChildCheckInOuts"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{02228b08-5fe2-4a77-88d5-261f74f1f8e5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1165,6 +1167,7 @@ From
       DTS:refId="Package\f_ClassCheckInOuts"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{971bc6f3-a8c8-4f40-a8e9-308ef9bc89ce}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2039,6 +2042,7 @@ From
       DTS:refId="Package\f_PhoneNumbers"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{72403917-5e7f-4107-99ed-79e2cb564885}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -3369,6 +3373,7 @@ From
       DTS:refId="Package\Truncate Initial Tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{e2cb7bb0-2fcc-4776-a77e-15a54402fb5d}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -3729,7 +3734,7 @@ From
     design-time-name="Package\f_ChildCheckInOuts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="295,42"
           Id="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts"
@@ -3757,16 +3762,14 @@ From
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
           ParentId="Package\f_ChildCheckInOuts"
           FontInfo="{assembly:Null}"
-          Size="76,NaN"
+          Size="76,56"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
           TopLeft="75.8333383624748,90.6000005733971" />
       </GraphLayout>
