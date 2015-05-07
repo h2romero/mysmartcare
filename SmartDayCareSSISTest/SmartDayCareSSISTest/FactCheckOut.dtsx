@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCheckOut"
   DTS:PackageType="5"
-  DTS:VersionBuild="117"
-  DTS:VersionGUID="{8E4DD29C-30B2-43DA-88E3-2E5A4FFADF81}">
+  DTS:VersionBuild="131"
+  DTS:VersionGUID="{03782270-EF42-4B49-8A9A-DFB22DC3B4EB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,6 +43,7 @@
       DTS:refId="Package\Import Check Out data"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E8EF89B5-6D69-446F-BEF8-8E7CBF42CE1D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -322,7 +323,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select top 1000
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
 	chk.ChildCheckInOutID CheckOutID
 	,NULL ClassID
 	,chk.ChildID ChildID
@@ -795,6 +796,7 @@ Order by
       DTS:refId="Package\Truncate StageCheckOut table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{3C4EC859-0F26-49FF-A3DC-388A724DCF92}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1576,80 +1578,15 @@ Order by
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[CheckTypeKey]"
-                      cachedDataType="i4"
-                      cachedName="CheckTypeKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CheckTypeKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactCheckTypeKey]"
-                      cachedDataType="i4"
-                      cachedName="FactCheckTypeKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCheckTypeKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[ChildKey]"
-                      cachedDataType="i4"
-                      cachedName="ChildKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactChildKey]"
-                      cachedDataType="i4"
-                      cachedName="FactChildKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactChildKey]" />
-                    <inputColumn
                       refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactCreatedByPersonKey]"
                       cachedDataType="i4"
                       cachedName="FactCreatedByPersonKey"
                       lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]" />
                     <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactDataCaptureKey]"
-                      cachedDataType="i4"
-                      cachedName="FactDataCaptureKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactOrganizationUnitKey]"
-                      cachedDataType="i4"
-                      cachedName="FactOrganizationUnitKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactSchoolKey]"
-                      cachedDataType="i4"
-                      cachedName="FactSchoolKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactTenantKey]"
-                      cachedDataType="i4"
-                      cachedName="FactTenantKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[DataCaptureKey]"
-                      cachedDataType="i4"
-                      cachedName="DataCaptureKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[ClassKey]"
-                      cachedDataType="i4"
-                      cachedName="ClassKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]" />
-                    <inputColumn
                       refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[CreatedByPersonKey]"
                       cachedDataType="i4"
                       cachedName="CreatedByPersonKey"
                       lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[OrganizationUnitKey]"
-                      cachedDataType="i4"
-                      cachedName="OrganizationUnitKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[SchoolKey]"
-                      cachedDataType="i4"
-                      cachedName="SchoolKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[TenantKey]"
-                      cachedDataType="i4"
-                      cachedName="TenantKey"
-                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]" />
                     <inputColumn
                       refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactCheckOutKey]"
                       cachedDataType="i8"
@@ -1661,6 +1598,56 @@ Order by
                       cachedName="CheckOutKey"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CheckOutKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactTenantKey]"
+                      cachedDataType="i4"
+                      cachedName="FactTenantKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[TenantKey]"
+                      cachedDataType="i4"
+                      cachedName="TenantKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactSchoolKey]"
+                      cachedDataType="i4"
+                      cachedName="FactSchoolKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[SchoolKey]"
+                      cachedDataType="i4"
+                      cachedName="SchoolKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactOrganizationUnitKey]"
+                      cachedDataType="i4"
+                      cachedName="FactOrganizationUnitKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[OrganizationUnitKey]"
+                      cachedDataType="i4"
+                      cachedName="OrganizationUnitKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactDataCaptureKey]"
+                      cachedDataType="i4"
+                      cachedName="FactDataCaptureKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[DataCaptureKey]"
+                      cachedDataType="i4"
+                      cachedName="DataCaptureKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[FactTransportPersonKey]"
+                      cachedDataType="i4"
+                      cachedName="FactTransportPersonKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactTransportPersonKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input].Columns[TransportPersonKey]"
+                      cachedDataType="i4"
+                      cachedName="TransportPersonKey"
+                      lineageId="Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[TransportPersonKey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1708,13 +1695,13 @@ Order by
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CheckOutKey]} == #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCheckOutKey]} &amp;&amp; #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CheckTypeKey]} == #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCheckTypeKey]} &amp;&amp; #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]} == #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactChildKey]} &amp;&amp; #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} == #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} &amp;&amp; (#{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]})</property>
+                      name="Expression">#{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CheckOutKey]} == #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCheckOutKey]} &amp;&amp; (#{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]} || #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[TransportPersonKey]} != #{Package\Update FactCheckOut\Merge Join.Outputs[Merge Join Output].Columns[FactTransportPersonKey]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">CheckOutKey == FactCheckOutKey &amp;&amp; CheckTypeKey == FactCheckTypeKey &amp;&amp; ChildKey == FactChildKey &amp;&amp; ClassKey == ClassKey &amp;&amp; (CreatedByPersonKey != FactCreatedByPersonKey || DataCaptureKey != FactDataCaptureKey || OrganizationUnitKey != FactOrganizationUnitKey || SchoolKey != FactSchoolKey || TenantKey != FactTenantKey)</property>
+                      name="FriendlyExpression">CheckOutKey == FactCheckOutKey &amp;&amp; (CreatedByPersonKey != FactCreatedByPersonKey || DataCaptureKey != FactDataCaptureKey || OrganizationUnitKey != FactOrganizationUnitKey || SchoolKey != FactSchoolKey || TenantKey != FactTenantKey || TransportPersonKey != FactTransportPersonKey)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
