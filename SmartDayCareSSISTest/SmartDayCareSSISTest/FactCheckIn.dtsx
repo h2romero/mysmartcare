@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCheckIn"
   DTS:PackageType="5"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{49BBD836-388B-4A91-94A8-D3667B476AC5}">
+  DTS:VersionBuild="110"
+  DTS:VersionGUID="{45E6D477-1DF8-4321-B3E2-9CDB5FEC0311}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,6 +43,7 @@
       DTS:refId="Package\Import Check In data"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{1d378030-b8a4-4abb-b5dc-66277a76a5a3}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -795,6 +796,7 @@ Order by
       DTS:refId="Package\Truncate StageCheckIn table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{834809f2-9ab4-46fe-abdf-c0e2de7c8657}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1581,26 +1583,6 @@ Order by
                       cachedName="FactCheckInKey"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]" />
                     <inputColumn
-                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[CheckTypeKey]"
-                      cachedDataType="i4"
-                      cachedName="CheckTypeKey"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckTypeKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[FactCheckTypeKey]"
-                      cachedDataType="i4"
-                      cachedName="FactCheckTypeKey"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckTypeKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[ChildKey]"
-                      cachedDataType="i4"
-                      cachedName="ChildKey"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]" />
-                    <inputColumn
-                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[FactChildKey]"
-                      cachedDataType="i4"
-                      cachedName="FactChildKey"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactChildKey]" />
-                    <inputColumn
                       refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[FactCreatedByPersonKey]"
                       cachedDataType="i4"
                       cachedName="FactCreatedByPersonKey"
@@ -1631,11 +1613,6 @@ Order by
                       cachedName="DataCaptureKey"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]" />
                     <inputColumn
-                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[ClassKey]"
-                      cachedDataType="i4"
-                      cachedName="ClassKey"
-                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]" />
-                    <inputColumn
                       refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[CreatedByPersonKey]"
                       cachedDataType="i4"
                       cachedName="CreatedByPersonKey"
@@ -1661,6 +1638,16 @@ Order by
                       cachedName="CheckInKey"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[FactTransportPersonKey]"
+                      cachedDataType="i4"
+                      cachedName="FactTransportPersonKey"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactTransportPersonKey]" />
+                    <inputColumn
+                      refId="Package\Update FactCheckIn\FactCheckIn Conditional Split.Inputs[Conditional Split Input].Columns[TransportPersonKey]"
+                      cachedDataType="i4"
+                      cachedName="TransportPersonKey"
+                      lineageId="Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TransportPersonKey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1708,13 +1695,13 @@ Order by
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckTypeKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckTypeKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ChildKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactChildKey]} &amp;&amp; #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[ClassKey]} &amp;&amp; (#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]})</property>
+                      name="Expression">#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]} == #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCheckInKey]} &amp;&amp; (#{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[CreatedByPersonKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactCreatedByPersonKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[DataCaptureKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactDataCaptureKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactOrganizationUnitKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactSchoolKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactTenantKey]} || #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[TransportPersonKey]} != #{Package\Update FactCheckIn\Merge Join.Outputs[Merge Join Output].Columns[FactTransportPersonKey]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">CheckInKey == FactCheckInKey &amp;&amp; CheckTypeKey == FactCheckTypeKey &amp;&amp; ChildKey == FactChildKey &amp;&amp; ClassKey == ClassKey &amp;&amp; (CreatedByPersonKey != FactCreatedByPersonKey || DataCaptureKey != FactDataCaptureKey || OrganizationUnitKey != FactOrganizationUnitKey || SchoolKey != FactSchoolKey || TenantKey != FactTenantKey)</property>
+                      name="FriendlyExpression">CheckInKey == FactCheckInKey &amp;&amp; (CreatedByPersonKey != FactCreatedByPersonKey || DataCaptureKey != FactDataCaptureKey || OrganizationUnitKey != FactOrganizationUnitKey || SchoolKey != FactSchoolKey || TenantKey != FactTenantKey || TransportPersonKey != FactTransportPersonKey)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2701,14 +2688,14 @@ where [refTable].[ChildID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[HubClassGuidTemp]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[HubClass]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[HubClassGuidTemp]) [refTable]
-where [refTable].[GuidClassID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[HubClass]) [refTable]
+where [refTable].[ClassID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -2739,7 +2726,7 @@ where [refTable].[GuidClassID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClassKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ClassID" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GuidClassID" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DWInsertDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RecordSource" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClassKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ClassID" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DWInsertDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RecordSource" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -2778,7 +2765,7 @@ where [refTable].[GuidClassID] = ?</property>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">GuidClassID</property>
+                          name="JoinToReferenceColumn">ClassID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -10709,17 +10696,17 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[HubClassGuidTemp]</Value>
+          type="q3:string">[dbo].[HubClass]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
