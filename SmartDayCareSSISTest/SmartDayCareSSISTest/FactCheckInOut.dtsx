@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCheckInOut"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{B9F2CE3E-9E1E-45A7-A9AE-34B2474B100E}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{378E90BD-0EDE-487A-8DC2-03C46D563DC3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -145,6 +145,16 @@
                       cachedDataType="i4"
                       cachedName="CheckOutTransportPersonKey"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutTransportPersonKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FactChecInOut Conditional Split.Inputs[Conditional Split Input].Columns[CheckOutKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckOutKey"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FactChecInOut Conditional Split.Inputs[Conditional Split Input].Columns[DestCheckOutKey]"
+                      cachedDataType="i8"
+                      cachedName="DestCheckOutKey"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutKey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -192,13 +202,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]} == #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInKey]} &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInCreatedByPersonKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInCreatedByPersonKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutCreatedByPersonKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutCreatedByPersonKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInDataCaptureKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInDataCaptureKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutDataCaptureKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutDataCaptureKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestOrganizationUnitKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestSchoolKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestTenantKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInTransportPersonKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInTransportPersonKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutTransportPersonKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutTransportPersonKey]})</property>
+                      name="Expression">#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInKey]} == #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInKey]} &amp;&amp; [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutKey]},0) == [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutKey]},0) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInCreatedByPersonKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInCreatedByPersonKey]} || [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutCreatedByPersonKey]},0) != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutCreatedByPersonKey]},0) || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInDataCaptureKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInDataCaptureKey]} || [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutDataCaptureKey]},0) != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutDataCaptureKey]},0) || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OrganizationUnitKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestOrganizationUnitKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[SchoolKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestSchoolKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TenantKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestTenantKey]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckInTransportPersonKey]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckInTransportPersonKey]} || [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CheckOutTransportPersonKey]},0) != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutTransportPersonKey]},0))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">CheckInKey == DestCheckInKey &amp;&amp; (CheckInCreatedByPersonKey != DestCheckInCreatedByPersonKey || CheckOutCreatedByPersonKey != DestCheckOutCreatedByPersonKey || CheckInDataCaptureKey != DestCheckInDataCaptureKey || CheckOutDataCaptureKey != DestCheckOutDataCaptureKey || OrganizationUnitKey != DestOrganizationUnitKey || SchoolKey != DestSchoolKey || TenantKey != DestTenantKey || CheckInTransportPersonKey != DestCheckInTransportPersonKey || CheckOutTransportPersonKey != DestCheckOutTransportPersonKey)</property>
+                      name="FriendlyExpression">CheckInKey == DestCheckInKey &amp;&amp; REPLACENULL(CheckOutKey,0) == REPLACENULL(DestCheckOutKey,0) &amp;&amp; (CheckInCreatedByPersonKey != DestCheckInCreatedByPersonKey || REPLACENULL(CheckOutCreatedByPersonKey,0) != REPLACENULL(DestCheckOutCreatedByPersonKey,0) || CheckInDataCaptureKey != DestCheckInDataCaptureKey || REPLACENULL(CheckOutDataCaptureKey,0) != REPLACENULL(DestCheckOutDataCaptureKey,0) || OrganizationUnitKey != DestOrganizationUnitKey || SchoolKey != DestSchoolKey || TenantKey != DestTenantKey || CheckInTransportPersonKey != DestCheckInTransportPersonKey || REPLACENULL(CheckOutTransportPersonKey,0) != REPLACENULL(DestCheckOutTransportPersonKey,0))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -817,8 +827,9 @@ order by i.CheckInKey</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
 	CheckInOutKey
 	,CheckInKey
+	,CheckOutKey
 	,CheckInCreatedByPersonKey
-                   ,CheckOutCreatedByPersonKey
+    ,CheckOutCreatedByPersonKey
 	,CheckInDataCaptureKey
 	,CheckOutDataCaptureKey
 	,OrganizationUnitKey
@@ -827,7 +838,8 @@ order by i.CheckInKey</property>
 	,CheckInTransportPersonKey
 	,CheckOutTransportPersonKey
 From
-	FactCheckInOut (NOLOCK)</property>
+	FactCheckInOut (NOLOCK)
+order by CheckInKey</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -964,6 +976,15 @@ From
                       lineageId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].Columns[DestCheckOutCreatedByPersonKey]"
                       name="DestCheckOutCreatedByPersonKey"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].Columns[CheckOutKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].ExternalColumns[CheckOutKey]"
+                      lineageId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].Columns[CheckOutKey]"
+                      name="CheckOutKey"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1011,6 +1032,10 @@ From
                       refId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].ExternalColumns[CheckOutCreatedByPersonKey]"
                       dataType="i4"
                       name="CheckOutCreatedByPersonKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].ExternalColumns[CheckOutKey]"
+                      dataType="i8"
+                      name="CheckOutKey" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1028,6 +1053,11 @@ From
                       dataType="i8"
                       lineageId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Error Output].Columns[CheckInKey]"
                       name="CheckInKey" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Error Output].Columns[CheckOutKey]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Error Output].Columns[CheckOutKey]"
+                      name="CheckOutKey" />
                     <outputColumn
                       refId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Error Output].Columns[CheckInCreatedByPersonKey]"
                       dataType="i4"
@@ -1640,6 +1670,11 @@ From
                       cachedDataType="i4"
                       cachedName="DestCheckOutCreatedByPersonKey"
                       lineageId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].Columns[DestCheckOutCreatedByPersonKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[CheckOutKey]"
+                      cachedDataType="i8"
+                      cachedName="CheckOutKey"
+                      lineageId="Package\Data Flow Task\FactCheckInOut source data.Outputs[OLE DB Source Output].Columns[CheckOutKey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2093,6 +2128,19 @@ From
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[DestCheckOutCreatedByPersonKey]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutKey]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[DestCheckOutKey]"
+                      name="DestCheckOutKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[CheckOutKey]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2458,26 +2506,26 @@ From
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="199,80.5"
+              EndConnector="178.666666666667,80.5"
               Start="0,0"
-              End="199,73">
+              End="178.666666666667,73">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.25" />
+                    End="0,43.7127659574468" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,36.25"
-                    Point2="0,40.25"
-                    Point3="4,40.25" />
+                    Point1="0,43.7127659574468"
+                    Point2="0,47.7127659574468"
+                    Point3="4,47.7127659574468" />
                   <mssgle:LineSegment
-                    End="195,40.25" />
+                    End="174.666666666667,47.7127659574468" />
                   <mssgle:CubicBezierSegment
-                    Point1="195,40.25"
-                    Point2="199,40.25"
-                    Point3="199,44.25" />
+                    Point1="174.666666666667,47.7127659574468"
+                    Point2="178.666666666667,47.7127659574468"
+                    Point3="178.666666666667,51.7127659574468" />
                   <mssgle:LineSegment
-                    End="199,73" />
+                    End="178.666666666667,73" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2618,7 +2666,7 @@ From
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-89.2846549479167,34.5052264808362,51.7359765625,11.609375"
+              BoundingBox="-98.1093619791667,34.5052264808362,69.385390625,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
