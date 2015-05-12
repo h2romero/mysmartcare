@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{39688872-3F9B-4B41-B534-E57241C0406F}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{95D78C91-9657-417F-AE83-16AC2A2C564A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3960,6 +3960,10 @@ From
           Id="Package\f_ClassCheckInOuts"
           TopLeft="83,663.166667325298" />
         <NodeLayout
+          Size="179,42"
+          Id="Package\f_EnrollmentHistories"
+          TopLeft="85,840" />
+        <NodeLayout
           Size="108,42"
           Id="Package\f_OUs"
           TopLeft="104,575.166667325298" />
@@ -4169,10 +4173,6 @@ From
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\f_EnrollmentHistories"
-          TopLeft="85,840" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="174,787">
@@ -4249,7 +4249,7 @@ From
     design-time-name="Package\f_ChildCheckInOuts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="295,42"
           Id="Package\f_ChildCheckInOuts\SmartCare DB - DayCare1 - ChildCheckInOuts"
@@ -4277,14 +4277,16 @@ From
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
           ParentId="Package\f_ChildCheckInOuts"
           FontInfo="{assembly:Null}"
-          Size="76,56"
+          Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
           TopLeft="75.8333383624748,90.6000005733971" />
       </GraphLayout>
@@ -4315,7 +4317,7 @@ From
     design-time-name="Package\f_ClassCheckInOuts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="296,42"
           Id="Package\f_ClassCheckInOuts\SmartCare DB - DayCare1 - ClassCheckInOuts"
@@ -4343,14 +4345,16 @@ From
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Full Load&#xA;"
           ParentId="Package\f_ClassCheckInOuts"
           FontInfo="{assembly:Null}"
-          Size="76,56"
+          Size="76,NaN"
           Id="b0e46eb4-e68b-465c-abcc-518801482874"
           TopLeft="75.8333383624748,90.6000005733971" />
       </GraphLayout>
@@ -4366,6 +4370,72 @@ From
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\f_ClassCheckInOuts\SmartCare DW - SOR - f_ClassCheckInOuts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\f_EnrollmentHistories">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="290,42"
+          Id="Package\f_EnrollmentHistories\SmartCare DW - SOR - f_EnrollmentHistories"
+          TopLeft="67.0000050415592,154.600000573397" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\f_EnrollmentHistories\SmartCare DB - DayCare1 - EnrollmentHistories"
+          TopLeft="63.8333383624748,43.2666672400633" />
+        <EdgeLayout
+          Id="Package\f_EnrollmentHistories.Paths[OLE DB Source Output]"
+          TopLeft="213.666671702017,85.2666672400633">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3333333333337"
+              Start="0,0"
+              End="0,61.8333333333337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8333333333337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_EnrollmentHistories"
+          FontInfo="{assembly:Null}"
+          Size="76,56"
+          Id="b0e46eb4-e68b-465c-abcc-518801482874"
+          TopLeft="75.8333383624748,90.6000005733971" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_EnrollmentHistories\SmartCare DB - DayCare1 - EnrollmentHistories">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_EnrollmentHistories\SmartCare DW - SOR - f_EnrollmentHistories">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4565,71 +4635,5 @@ From
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\f_EnrollmentHistories">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="303,42"
-          Id="Package\f_EnrollmentHistories\SmartCare DB - DayCare1 - EnrollmentHistories"
-          TopLeft="63.8333383624748,43.2666672400633" />
-        <NodeLayout
-          Size="290,42"
-          Id="Package\f_EnrollmentHistories\SmartCare DW - SOR - f_EnrollmentHistories"
-          TopLeft="67.0000050415592,154.600000573397" />
-        <EdgeLayout
-          Id="Package\f_EnrollmentHistories.Paths[OLE DB Source Output]"
-          TopLeft="213.666671702017,85.2666672400633">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69.3333333333337"
-              Start="0,0"
-              End="0,61.8333333333337">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.8333333333337" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Full Load&#xA;"
-          ParentId="Package\f_EnrollmentHistories"
-          FontInfo="{assembly:Null}"
-          Size="76,56"
-          Id="b0e46eb4-e68b-465c-abcc-518801482874"
-          TopLeft="75.8333383624748,90.6000005733971" />
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_EnrollmentHistories\SmartCare DB - DayCare1 - EnrollmentHistories">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\f_EnrollmentHistories\SmartCare DW - SOR - f_EnrollmentHistories">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

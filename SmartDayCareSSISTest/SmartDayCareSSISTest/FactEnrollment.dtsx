@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactEnrollment"
   DTS:PackageType="5"
-  DTS:VersionBuild="151"
-  DTS:VersionGUID="{270938A8-91DE-485D-8386-0B16C78E91EE}">
+  DTS:VersionBuild="152"
+  DTS:VersionGUID="{FABB0641-249E-4EC1-A3D9-AA310D12BCDE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -112,8 +112,8 @@
               <connections>
                 <connection
                   refId="Package\Import Enrollment data\Enrollment data.Connections[OleDbConnection]"
-                  connectionManagerID="{3027E0F3-5BC5-4A1B-BEE0-EA5BBFC961B8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-staging-Hector1]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.smartcare-staging-Hector1 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.smartcare-staging-Hector1 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -181,14 +181,6 @@
                       externalMetadataColumnId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentStartDate]"
                       lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartDate]" />
                     <inputColumn
-                      refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      externalMetadataColumnId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentStartTime]"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]" />
-                    <inputColumn
                       refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -200,14 +192,6 @@
                       cachedName="EnrollmentEndDate"
                       externalMetadataColumnId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndDate]"
                       lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndDate]" />
-                    <inputColumn
-                      refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      externalMetadataColumnId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndTime]"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]" />
                     <inputColumn
                       refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].Columns[SchoolID]"
                       cachedDataType="guid"
@@ -242,11 +226,6 @@
                       dataType="dbDate"
                       name="EnrollmentStartDate" />
                     <externalMetadataColumn
-                      refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentStartTime]"
-                      dataType="dbTime2"
-                      name="EnrollmentStartTime"
-                      scale="7" />
-                    <externalMetadataColumn
                       refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       name="EnrollmentEndDateTime" />
@@ -254,11 +233,6 @@
                       refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndDate]"
                       dataType="dbDate"
                       name="EnrollmentEndDate" />
-                    <externalMetadataColumn
-                      refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndTime]"
-                      dataType="dbTime2"
-                      name="EnrollmentEndTime"
-                      scale="7" />
                     <externalMetadataColumn
                       refId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
                       dataType="guid"
@@ -340,10 +314,8 @@
 	,e.OUID
 	,e.StartDate EnrollmentStartDateTime
 	,Convert(date, e.StartDate) EnrollmentStartDate
-	,Convert(varchar(8),Convert(time, e.StartDate)) EnrollmentStartTime
 	,e.EndDate EnrollmentEndDateTime
 	,Convert(date, e.EndDate) EnrollmentEndDate
-	,Convert(varchar(8),Convert(time, e.EndDate)) EnrollmentEndTime    
 	,e.TenantID
 	,e.CreatedByID
 	,Case e.IsArchived When 0 Then 1 Else 0 End IsLatest
@@ -484,17 +456,6 @@ Order by
                       name="EnrollmentStartDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentStartTime]"
-                      length="8"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
@@ -511,17 +472,6 @@ Order by
                       externalMetadataColumnId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndDate]"
                       lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndTime]"
-                      length="8"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[SchoolID]"
@@ -577,12 +527,6 @@ Order by
                       dataType="dbDate"
                       name="EnrollmentStartDate" />
                     <externalMetadataColumn
-                      refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="EnrollmentStartTime" />
-                    <externalMetadataColumn
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       name="EnrollmentEndDateTime" />
@@ -590,12 +534,6 @@ Order by
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndDate]"
                       dataType="dbDate"
                       name="EnrollmentEndDate" />
-                    <externalMetadataColumn
-                      refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="EnrollmentEndTime" />
                     <externalMetadataColumn
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
                       dataType="guid"
@@ -638,13 +576,6 @@ Order by
                       lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentStartDate]"
                       name="EnrollmentStartDate" />
                     <outputColumn
-                      refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime" />
-                    <outputColumn
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndDateTime]"
@@ -654,13 +585,6 @@ Order by
                       dataType="dbDate"
                       lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate" />
-                    <outputColumn
-                      refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime" />
                     <outputColumn
                       refId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[TenantID]"
                       dataType="guid"
@@ -704,120 +628,11 @@ Order by
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\Import Enrollment data\Format time"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Format time"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Import Enrollment data\Format time.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import Enrollment data\Format time.Inputs[Data Conversion Input].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]" />
-                    <inputColumn
-                      refId="Package\Import Enrollment data\Format time.Inputs[Data Conversion Input].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Import Enrollment data\Format time.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Output].Columns[FormattedEnrollmentStartTime]"
-                      dataType="dbTime"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Output].Columns[FormattedEnrollmentStartTime]"
-                      name="FormattedEnrollmentStartTime"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Output].Columns[FormattedEnrollmentEndTime]"
-                      dataType="dbTime"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Output].Columns[FormattedEnrollmentEndTime]"
-                      name="FormattedEnrollmentEndTime"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Import Enrollment data\Format time.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
-              refId="Package\Import Enrollment data.Paths[Data Conversion Output]"
-              endId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\Import Enrollment data\Format time.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\Import Enrollment data.Paths[OLE DB Source Output]"
-              endId="Package\Import Enrollment data\Format time.Inputs[Data Conversion Input]"
+              endId="Package\Import Enrollment data\Enrollment data.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Import Enrollment data\Enrollment source data.Outputs[OLE DB Source Output]" />
           </paths>
@@ -973,20 +788,6 @@ Order by
                       cachedLength="100"
                       cachedName="OUID"
                       lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[OUID]" />
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Convert to String.Inputs[Data Conversion Input].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]" />
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Convert to String.Inputs[Data Conversion Input].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1102,46 +903,6 @@ Order by
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[OUID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentStartTime]"
-                      dataType="dbTime"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentStartTime]"
-                      name="StrEnrollmentStartTime"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentEndTime]"
-                      dataType="dbTime"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentEndTime]"
-                      name="StrEnrollmentEndTime"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1301,21 +1062,6 @@ Order by
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -1339,21 +1085,6 @@ Order by
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1483,88 +1214,6 @@ Order by
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrOUID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentStartTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentEndTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1714,21 +1363,6 @@ Order by
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -1752,21 +1386,6 @@ Order by
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1899,88 +1518,6 @@ Order by
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentStartTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentEndTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 2].Columns[ChildKey]"
                       cachedDataType="i4"
                       cachedName="ChildKey"
@@ -2066,13 +1603,6 @@ Order by
                       lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartDate]"
                       name="EnrollmentStartDate" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateTime]"
@@ -2082,13 +1612,6 @@ Order by
                       dataType="dbDate"
                       lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime" />
                     <outputColumn
                       refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[YearInSchool]"
                       codePage="1252"
@@ -2147,40 +1670,6 @@ Order by
                       lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrOUID]"
                       name="StrOUID" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]"
-                      dataType="dbTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]"
-                      name="StrEnrollmentStartTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]"
-                      dataType="dbTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]"
-                      name="StrEnrollmentEndTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]"
-                      name="Copy of StrEnrollmentStartTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]"
-                      name="Copy of StrEnrollmentEndTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]"
-                      name="EnrollmentStartTimeKey" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]"
-                      name="EnrollmentEndTimeKey" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[ChildKey]"
                       dataType="i4"
                       lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[ChildKey]"
@@ -2226,10 +1715,8 @@ Order by
 	,Convert(varchar(100),OUID) OUID
 	,EnrollmentStartDateTime
 	,EnrollmentStartDate
-	,Convert(varchar(8),EnrollmentStartTime) EnrollmentStartTime
 	,EnrollmentEndDateTime
 	,EnrollmentEndDate
-	,Convert(varchar(8),EnrollmentEndTime) EnrollmentEndTime
 	,Convert(varchar(100),TenantID) TenantID
 	,Convert(varchar(100),CreatedByID) CreatedByID
 	,Convert(varchar(100),SchoolID) SchoolID
@@ -2357,17 +1844,6 @@ Order by
                       name="EnrollmentStartDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentStartTime]"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
@@ -2384,17 +1860,6 @@ Order by
                       externalMetadataColumnId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndDate]"
                       lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndTime]"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].Columns[YearInSchool]"
@@ -2462,12 +1927,6 @@ Order by
                       dataType="dbDate"
                       name="EnrollmentStartDate" />
                     <externalMetadataColumn
-                      refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="EnrollmentStartTime" />
-                    <externalMetadataColumn
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       name="EnrollmentEndDateTime" />
@@ -2475,12 +1934,6 @@ Order by
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndDate]"
                       dataType="dbDate"
                       name="EnrollmentEndDate" />
-                    <externalMetadataColumn
-                      refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="EnrollmentEndTime" />
                     <externalMetadataColumn
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output].ExternalColumns[YearInSchool]"
                       codePage="1252"
@@ -2528,13 +1981,6 @@ Order by
                       lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentStartDate]"
                       name="EnrollmentStartDate" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndDateTime]"
@@ -2544,13 +1990,6 @@ Order by
                       dataType="dbDate"
                       lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime" />
                     <outputColumn
                       refId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Error Output].Columns[TenantID]"
                       codePage="1252"
@@ -3538,166 +2977,6 @@ where [refTable].[CalendarDate] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Get EnrollmentEndTimeKey"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimTime]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimTime]) [refTable]
-where [refTable].[Time30] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TimeKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TimeAltKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Time30" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Hour30" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MinuteNumber" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SecondNumber" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TimeInSecond" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HourlyBucket" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DayTimeBucketSortKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayTimeBucket" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentEndTime]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Connections[OleDbConnection]"
-                  connectionManagerID="{5BAB7D65-2D9F-45AD-AB82-A9D7EA57E932}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-dw-Hector1]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Inputs[Lookup Input].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Time30</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentEndTimeKey]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentEndTimeKey]"
-                      name="EnrollmentEndTimeKey"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">TimeKey</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Update FactEnrollment\Get EnrollmentStartDateKey"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -3848,166 +3127,6 @@ where [refTable].[CalendarDate] = ?</property>
                       refId="Package\Update FactEnrollment\Get EnrollmentStartDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Update FactEnrollment\Get EnrollmentStartDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Get EnrollmentStartTimeKey"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimTime]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimTime]) [refTable]
-where [refTable].[Time30] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TimeKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TimeAltKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Time30" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Hour30" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MinuteNumber" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SecondNumber" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TimeInSecond" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HourlyBucket" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DayTimeBucketSortKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayTimeBucket" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentStartTime]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Connections[OleDbConnection]"
-                  connectionManagerID="{5BAB7D65-2D9F-45AD-AB82-A9D7EA57E932}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-dw-Hector1]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Inputs[Lookup Input].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Time30</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentStartTimeKey]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Match Output].Columns[EnrollmentStartTimeKey]"
-                      name="EnrollmentStartTimeKey"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">TimeKey</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -4551,7 +3670,7 @@ where [refTable].[YearInSchool] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[YearInSchool]};</property>
+                  name="ParameterMap">#{Package\Update FactEnrollment\2644:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4774,12 +3893,6 @@ where [refTable].[YearInSchool] = ?</property>
                       externalMetadataColumnId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentStartDateKey]"
                       lineageId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentStartDateKey]" />
                     <inputColumn
-                      refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      externalMetadataColumnId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentStartTimeKey]"
-                      lineageId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentStartTimeKey]" />
-                    <inputColumn
                       refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -4791,12 +3904,6 @@ where [refTable].[YearInSchool] = ?</property>
                       cachedName="EnrollmentEndDateKey"
                       externalMetadataColumnId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndDateKey]"
                       lineageId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentEndDateKey]" />
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      externalMetadataColumnId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndTimeKey]"
-                      lineageId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentEndTimeKey]" />
                     <inputColumn
                       refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].Columns[YearInSchoolKey]"
                       cachedDataType="i4"
@@ -4853,10 +3960,6 @@ where [refTable].[YearInSchool] = ?</property>
                       dataType="i4"
                       name="EnrollmentStartDateKey" />
                     <externalMetadataColumn
-                      refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentStartTimeKey]"
-                      dataType="i4"
-                      name="EnrollmentStartTimeKey" />
-                    <externalMetadataColumn
                       refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       name="EnrollmentEndDateTime" />
@@ -4864,10 +3967,6 @@ where [refTable].[YearInSchool] = ?</property>
                       refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndDateKey]"
                       dataType="i4"
                       name="EnrollmentEndDateKey" />
-                    <externalMetadataColumn
-                      refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentEndTimeKey]"
-                      dataType="i4"
-                      name="EnrollmentEndTimeKey" />
                     <externalMetadataColumn
                       refId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input].ExternalColumns[YearInSchoolKey]"
                       dataType="i4"
@@ -4916,7 +4015,7 @@ where [refTable].[YearInSchool] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">1</property>
+                  typeConverter="JoinType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
@@ -4967,16 +4066,6 @@ where [refTable].[YearInSchool] = ?</property>
                       cachedDataType="i4"
                       cachedName="EnrollmentEndDateKey"
                       lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateKey]" />
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Left Input].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]" />
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Left Input].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]" />
                     <inputColumn
                       refId="Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Left Input].Columns[ChildKey]"
                       cachedDataType="i4"
@@ -5283,32 +4372,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Left Input].Columns[EnrollmentEndDateKey]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentStartTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentStartTimeKey]"
-                      name="EnrollmentStartTimeKey">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Left Input].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentEndTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Merge Join.Outputs[Merge Join Output].Columns[EnrollmentEndTimeKey]"
-                      name="EnrollmentEndTimeKey">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Left Input].Columns[EnrollmentEndTimeKey]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5739,21 +4802,6 @@ where [refTable].[YearInSchool] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -5777,21 +4825,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -5921,88 +4954,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrOUID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -6178,21 +5129,6 @@ where [refTable].[YearInSchool] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -6216,21 +5152,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -6363,88 +5284,6 @@ where [refTable].[YearInSchool] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2].Columns[ChildKey]"
                       cachedDataType="i4"
                       cachedName="ChildKey"
@@ -6556,13 +5395,6 @@ where [refTable].[YearInSchool] = ?</property>
                       lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartDate]"
                       name="EnrollmentStartDate" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateTime]"
@@ -6572,13 +5404,6 @@ where [refTable].[YearInSchool] = ?</property>
                       dataType="dbDate"
                       lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime" />
                     <outputColumn
                       refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[YearInSchool]"
                       codePage="1252"
@@ -6637,40 +5462,6 @@ where [refTable].[YearInSchool] = ?</property>
                       lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrOUID]"
                       name="StrOUID" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]"
-                      dataType="dbTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]"
-                      name="StrEnrollmentStartTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]"
-                      dataType="dbTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]"
-                      name="StrEnrollmentEndTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]"
-                      name="Copy of StrEnrollmentStartTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]"
-                      name="Copy of StrEnrollmentEndTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]"
-                      name="EnrollmentStartTimeKey" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]"
-                      name="EnrollmentEndTimeKey" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[ChildKey]"
                       dataType="i4"
                       lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[ChildKey]"
@@ -6690,110 +5481,6 @@ where [refTable].[YearInSchool] = ?</property>
                       dataType="i4"
                       lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[SchoolKey]"
                       name="SchoolKey" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update FactEnrollment\Time Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Time Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update FactEnrollment\Time Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Time Conversion.Inputs[Data Conversion Input].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentStartTime]" />
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\Time Conversion.Inputs[Data Conversion Input].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentEndTime]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Update FactEnrollment\Time Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentStartTime]"
-                      name="Copy of StrEnrollmentStartTime"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentStartTime]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output].Columns[Copy of StrEnrollmentEndTime]"
-                      name="Copy of StrEnrollmentEndTime"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output].Columns[StrEnrollmentEndTime]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Update FactEnrollment\Time Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -7132,21 +5819,6 @@ where [refTable].[YearInSchool] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -7170,21 +5842,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -7314,88 +5971,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrOUID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -7597,21 +6172,6 @@ where [refTable].[YearInSchool] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndDateTime]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EnrollmentEndDateTime"
@@ -7635,21 +6195,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="EnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -7779,88 +6324,6 @@ where [refTable].[YearInSchool] = ?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrOUID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[StrEnrollmentStartTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[StrEnrollmentEndTime]"
-                      cachedDataType="dbTime"
-                      cachedName="StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[Copy of StrEnrollmentStartTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentStartTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[Copy of StrEnrollmentEndTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="Copy of StrEnrollmentEndTime"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentStartTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentStartTimeKey"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2].Columns[EnrollmentEndTimeKey]"
-                      cachedDataType="i4"
-                      cachedName="EnrollmentEndTimeKey"
-                      lineageId="Package\Update FactEnrollment\SchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -8001,13 +6464,6 @@ where [refTable].[YearInSchool] = ?</property>
                       lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartDate]"
                       name="EnrollmentStartDate" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTime]"
-                      name="EnrollmentStartTime" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateTime]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDateTime]"
@@ -8017,13 +6473,6 @@ where [refTable].[YearInSchool] = ?</property>
                       dataType="dbDate"
                       lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndDate]"
                       name="EnrollmentEndDate" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTime]"
-                      name="EnrollmentEndTime" />
                     <outputColumn
                       refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[YearInSchool]"
                       codePage="1252"
@@ -8082,40 +6531,6 @@ where [refTable].[YearInSchool] = ?</property>
                       lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrOUID]"
                       name="StrOUID" />
                     <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]"
-                      dataType="dbTime"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentStartTime]"
-                      name="StrEnrollmentStartTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]"
-                      dataType="dbTime"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[StrEnrollmentEndTime]"
-                      name="StrEnrollmentEndTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentStartTime]"
-                      name="Copy of StrEnrollmentStartTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[Copy of StrEnrollmentEndTime]"
-                      name="Copy of StrEnrollmentEndTime" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentStartTimeKey]"
-                      name="EnrollmentStartTimeKey" />
-                    <outputColumn
-                      refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]"
-                      dataType="i4"
-                      lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[EnrollmentEndTimeKey]"
-                      name="EnrollmentEndTimeKey" />
-                    <outputColumn
                       refId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[ChildKey]"
                       dataType="i4"
                       lineageId="Package\Update FactEnrollment\YearInSchoolKey Merge.Outputs[Merge Output 1].Columns[ChildKey]"
@@ -8154,12 +6569,7 @@ where [refTable].[YearInSchool] = ?</property>
           <paths>
             <path
               refId="Package\Update FactEnrollment.Paths[Data Conversion Output]"
-              endId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Inputs[Lookup Input]"
-              name="Data Conversion Output"
-              startId="Package\Update FactEnrollment\Time Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Data Conversion Output1]"
-              endId="Package\Update FactEnrollment\Time Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Update FactEnrollment\Get ChildKey.Inputs[Lookup Input]"
               name="Data Conversion Output"
               startId="Package\Update FactEnrollment\Convert to String.Outputs[Data Conversion Output]" />
             <path
@@ -8167,6 +6577,11 @@ where [refTable].[YearInSchool] = ?</property>
               endId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 2]"
               name="Derived Column Output"
               startId="Package\Update FactEnrollment\Mismatched YearInSchoolID.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Derived Column Output]"
+              endId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Update FactEnrollment\Add Current Date.Outputs[Derived Column Output]" />
             <path
               refId="Package\Update FactEnrollment.Paths[Derived Column Output2]"
               endId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 2]"
@@ -8178,75 +6593,60 @@ where [refTable].[YearInSchool] = ?</property>
               name="Derived Column Output"
               startId="Package\Update FactEnrollment\Mismatched CreatedByPersonID.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Update FactEnrollment.Paths[Derived Column Output]"
-              endId="Package\Update FactEnrollment\Insert FactEnrollment.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\Update FactEnrollment\Add Current Date.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output9]"
-              endId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get YearInSchoolKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output8]"
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output4]"
               endId="Package\Update FactEnrollment\Get YearInSchoolKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Update FactEnrollment\Get TenantKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output7]"
-              endId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get SchoolKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output6]"
-              endId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get CreatedByPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output5]"
-              endId="Package\Update FactEnrollment\Get SchoolKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get OrganizationUnitKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output4]"
-              endId="Package\Update FactEnrollment\Get CreatedByPersonKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get ChildKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output3]"
-              endId="Package\Update FactEnrollment\Get ChildKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output2]"
-              endId="Package\Update FactEnrollment\Get EnrollmentEndTimeKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get EnrollmentStartTimeKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactEnrollment.Paths[Lookup Match Output1]"
-              endId="Package\Update FactEnrollment\Convert to String.Inputs[Data Conversion Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactEnrollment\Get EnrollmentEndDateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Update FactEnrollment.Paths[Lookup Match Output]"
               endId="Package\Update FactEnrollment\Get EnrollmentEndDateKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Update FactEnrollment\Get EnrollmentStartDateKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Update FactEnrollment.Paths[Lookup No Match Output1]"
-              endId="Package\Update FactEnrollment\Mismatched SchoolID.Inputs[Derived Column Input]"
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output1]"
+              endId="Package\Update FactEnrollment\Convert to String.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactEnrollment\Get EnrollmentEndDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output2]"
+              endId="Package\Update FactEnrollment\Get CreatedByPersonKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactEnrollment\Get ChildKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output7]"
+              endId="Package\Update FactEnrollment\YearInSchoolKey Merge.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactEnrollment\Get YearInSchoolKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output6]"
+              endId="Package\Update FactEnrollment\SchoolKey Merge.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactEnrollment\Get SchoolKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output3]"
+              endId="Package\Update FactEnrollment\Get SchoolKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactEnrollment\Get OrganizationUnitKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Lookup Match Output5]"
+              endId="Package\Update FactEnrollment\CreatedByPersonKey Merge.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactEnrollment\Get CreatedByPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[Lookup No Match Output]"
+              endId="Package\Update FactEnrollment\Mismatched CreatedByPersonID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
-              startId="Package\Update FactEnrollment\Get SchoolKey.Outputs[Lookup No Match Output]" />
+              startId="Package\Update FactEnrollment\Get CreatedByPersonKey.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Update FactEnrollment.Paths[Lookup No Match Output2]"
               endId="Package\Update FactEnrollment\Mismatched YearInSchoolID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
               startId="Package\Update FactEnrollment\Get YearInSchoolKey.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Update FactEnrollment.Paths[Lookup No Match Output]"
-              endId="Package\Update FactEnrollment\Mismatched CreatedByPersonID.Inputs[Derived Column Input]"
+              refId="Package\Update FactEnrollment.Paths[Lookup No Match Output1]"
+              endId="Package\Update FactEnrollment\Mismatched SchoolID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
-              startId="Package\Update FactEnrollment\Get CreatedByPersonKey.Outputs[Lookup No Match Output]" />
+              startId="Package\Update FactEnrollment\Get SchoolKey.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Update FactEnrollment.Paths[Merge Join Output]"
               endId="Package\Update FactEnrollment\FactEnrollment Conditional Split.Inputs[Conditional Split Input]"
@@ -8273,15 +6673,15 @@ where [refTable].[YearInSchool] = ?</property>
               name="NewRow"
               startId="Package\Update FactEnrollment\FactEnrollment Conditional Split.Outputs[NewRow]" />
             <path
-              refId="Package\Update FactEnrollment.Paths[OLE DB Source Output1]"
-              endId="Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Right Input]"
-              name="OLE DB Source Output"
-              startId="Package\Update FactEnrollment\FactEnrollment source data.Outputs[OLE DB Source Output]" />
-            <path
               refId="Package\Update FactEnrollment.Paths[OLE DB Source Output]"
               endId="Package\Update FactEnrollment\Get EnrollmentStartDateKey.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Update FactEnrollment\Enrollment source data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Update FactEnrollment.Paths[OLE DB Source Output1]"
+              endId="Package\Update FactEnrollment\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update FactEnrollment\FactEnrollment source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update FactEnrollment.Paths[UpdateRow]"
               endId="Package\Update FactEnrollment\Update FactEnrollment.Inputs[OLE DB Command Input]"
@@ -8385,67 +6785,29 @@ where [refTable].[YearInSchool] = ?</property>
     design-time-name="Package\Import Enrollment data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="188,42"
           Id="Package\Import Enrollment data\Enrollment source data"
           TopLeft="263,123" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\Import Enrollment data\Format time"
-          TopLeft="276,249" />
-        <EdgeLayout
-          Id="Package\Import Enrollment data.Paths[OLE DB Source Output]"
-          TopLeft="357,165">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13,84"
-              Start="0,0"
-              End="-13,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="-4,42" />
-                  <mssgle:LineSegment
-                    End="-9,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9,42"
-                    Point2="-13,42"
-                    Point3="-13,46" />
-                  <mssgle:LineSegment
-                    End="-13,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="154,42"
           Id="Package\Import Enrollment data\Enrollment data"
-          TopLeft="269,367" />
+          TopLeft="279,334" />
         <EdgeLayout
-          Id="Package\Import Enrollment data.Paths[Data Conversion Output]"
-          TopLeft="345,291">
+          Id="Package\Import Enrollment data.Paths[OLE DB Source Output]"
+          TopLeft="356.5,165">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,76"
+              EndConnector="0,169"
               Start="0,0"
-              End="0,68.5">
+              End="0,161.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,68.5" />
+                    End="0,161.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8473,7 +6835,7 @@ where [refTable].[YearInSchool] = ?</property>
         <NodeLayout
           Size="139,42"
           Id="Package\Update FactEnrollment\Get ChildKey"
-          TopLeft="504,538" />
+          TopLeft="502,374" />
         <NodeLayout
           Size="159,42"
           Id="Package\Update FactEnrollment\Convert to String"
@@ -8485,15 +6847,7 @@ where [refTable].[YearInSchool] = ?</property>
         <NodeLayout
           Size="196,42"
           Id="Package\Update FactEnrollment\Get CreatedByPersonKey"
-          TopLeft="480,614" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Update FactEnrollment\Time Conversion"
-          TopLeft="794,360" />
-        <NodeLayout
-          Size="212,42"
-          Id="Package\Update FactEnrollment\Get EnrollmentStartTimeKey"
-          TopLeft="473,382" />
+          TopLeft="478,450" />
         <NodeLayout
           Size="188,42"
           Id="Package\Update FactEnrollment\Enrollment source data"
@@ -8501,75 +6855,7 @@ where [refTable].[YearInSchool] = ?</property>
         <NodeLayout
           Size="229,42"
           Id="Package\Update FactEnrollment\Mismatched CreatedByPersonID"
-          TopLeft="818,621" />
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Data Conversion Output1]"
-          TopLeft="659,319">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="135,56.3333333333333"
-              Start="0,0"
-              End="127.5,56.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="74.0275229357798,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="74.0275229357798,0"
-                    Point2="78.0275229357798,0"
-                    Point3="78.0275229357798,4" />
-                  <mssgle:LineSegment
-                    End="78.0275229357798,52.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="78.0275229357798,52.3333333333333"
-                    Point2="78.0275229357798,56.3333333333333"
-                    Point3="82.0275229357798,56.3333333333333" />
-                  <mssgle:LineSegment
-                    End="127.5,56.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Data Conversion Output]"
-          TopLeft="794,386.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-109,16.3333333333333"
-              Start="0,0"
-              End="-101.5,16.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-42,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-42,0"
-                    Point2="-46,0"
-                    Point3="-46,4" />
-                  <mssgle:LineSegment
-                    End="-46,12.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-46,12.3333333333333"
-                    Point2="-46,16.3333333333333"
-                    Point3="-50,16.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-101.5,16.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="816,457" />
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[OLE DB Source Output]"
           TopLeft="580.25,92">
@@ -8594,7 +6880,7 @@ where [refTable].[YearInSchool] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Lookup No Match Output]"
-          TopLeft="676,638.5">
+          TopLeft="674,474.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8668,61 +6954,9 @@ where [refTable].[YearInSchool] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Update FactEnrollment\Get EnrollmentEndTimeKey"
-          TopLeft="468,462" />
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Lookup Match Output2]"
-          TopLeft="575.25,424">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output3]"
-          TopLeft="572.5,504">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output4]"
-          TopLeft="575.75,580">
+          TopLeft="573.75,416">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8747,42 +6981,42 @@ where [refTable].[YearInSchool] = ?</property>
         <NodeLayout
           Size="161,42"
           Id="Package\Update FactEnrollment\Add Current Date"
-          TopLeft="704,1591" />
+          TopLeft="702,1427" />
         <NodeLayout
           Size="228,42"
           Id="Package\Update FactEnrollment\FactEnrollment Conditional Split"
-          TopLeft="595,1498" />
+          TopLeft="593,1334" />
         <NodeLayout
           Size="180,42"
           Id="Package\Update FactEnrollment\Mismatched SchoolID"
-          TopLeft="804,872" />
+          TopLeft="802,708" />
         <NodeLayout
           Size="149,42"
           Id="Package\Update FactEnrollment\Get TenantKey"
-          TopLeft="452,1040" />
+          TopLeft="450,876" />
         <NodeLayout
           Size="207,42"
           Id="Package\Update FactEnrollment\FactEnrollment source data"
-          TopLeft="827,1315" />
+          TopLeft="825,1151" />
         <NodeLayout
           Size="186,42"
           Id="Package\Update FactEnrollment\Update FactEnrollment"
-          TopLeft="361,1638" />
+          TopLeft="359,1474" />
         <NodeLayout
           Size="194,42"
           Id="Package\Update FactEnrollment\Get OrganizationUnitKey"
-          TopLeft="457,786" />
+          TopLeft="455,622" />
         <NodeLayout
           Size="180,42"
           Id="Package\Update FactEnrollment\Insert FactEnrollment"
-          TopLeft="714,1674" />
+          TopLeft="712,1510" />
         <NodeLayout
           Size="147,42"
           Id="Package\Update FactEnrollment\Get SchoolKey"
-          TopLeft="485,873" />
+          TopLeft="483,709" />
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Derived Column Output]"
-          TopLeft="784.5,1633">
+          TopLeft="782.5,1469">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8816,7 +7050,7 @@ where [refTable].[YearInSchool] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[UpdateRow]"
-          TopLeft="672.333333333333,1540">
+          TopLeft="670.333333333333,1376">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8852,7 +7086,7 @@ where [refTable].[YearInSchool] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[NewRow]"
-          TopLeft="745.666666666667,1540">
+          TopLeft="743.666666666667,1376">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8888,7 +7122,7 @@ where [refTable].[YearInSchool] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Lookup No Match Output1]"
-          TopLeft="632,893.5">
+          TopLeft="630,729.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8911,8 +7145,8 @@ where [refTable].[YearInSchool] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output5]"
-          TopLeft="556.25,828">
+          Id="Package\Update FactEnrollment.Paths[Lookup Match Output3]"
+          TopLeft="554.25,664">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8935,232 +7169,16 @@ where [refTable].[YearInSchool] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="209,42"
-          Id="Package\Update FactEnrollment\CreatedByPersonKey Merge"
-          TopLeft="643,708" />
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output6]"
-          TopLeft="578,656">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="169.5,52"
-              Start="0,0"
-              End="169.5,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22"
-                    Point2="0,26"
-                    Point3="4,26" />
-                  <mssgle:LineSegment
-                    End="165.5,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="165.5,26"
-                    Point2="169.5,26"
-                    Point3="169.5,30" />
-                  <mssgle:LineSegment
-                    End="169.5,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="36.55861328125,31,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Derived Column Output1]"
-          TopLeft="932.5,663">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-151.5,45"
-              Start="0,0"
-              End="-151.5,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.7948717948718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.7948717948718"
-                    Point2="0,26.7948717948718"
-                    Point3="-4,26.7948717948718" />
-                  <mssgle:LineSegment
-                    End="-147.5,26.7948717948718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-147.5,26.7948717948718"
-                    Point2="-151.5,26.7948717948718"
-                    Point3="-151.5,30.7948717948718" />
-                  <mssgle:LineSegment
-                    End="-151.5,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Merge Output 1]"
-          TopLeft="747.5,750">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-193.5,36"
-              Start="0,0"
-              End="-193.5,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="-4,18" />
-                  <mssgle:LineSegment
-                    End="-189.5,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-189.5,18"
-                    Point2="-193.5,18"
-                    Point3="-193.5,22" />
-                  <mssgle:LineSegment
-                    End="-193.5,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Update FactEnrollment\SchoolKey Merge"
-          TopLeft="646.704824976348,964.288200810011" />
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output7]"
-          TopLeft="558.5,915">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="168.204824976348,49.2882008100112"
-              Start="0,0"
-              End="168.204824976348,41.7882008100112">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6441004050056" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.6441004050056"
-                    Point2="0,24.6441004050056"
-                    Point3="4,24.6441004050056" />
-                  <mssgle:LineSegment
-                    End="164.204824976348,24.6441004050056" />
-                  <mssgle:CubicBezierSegment
-                    Point1="164.204824976348,24.6441004050056"
-                    Point2="168.204824976348,24.6441004050056"
-                    Point3="168.204824976348,28.6441004050056" />
-                  <mssgle:LineSegment
-                    End="168.204824976348,41.7882008100112" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="35.9110257694241,29.6441004050056,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Derived Column Output2]"
-          TopLeft="894,914">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-141.961841690318,50.2882008100112"
-              Start="0,0"
-              End="-141.961841690318,42.7882008100112">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.8741786990165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.8741786990165"
-                    Point2="0,29.8741786990165"
-                    Point3="-4,29.8741786990165" />
-                  <mssgle:LineSegment
-                    End="-137.961841690318,29.8741786990165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-137.961841690318,29.8741786990165"
-                    Point2="-141.961841690318,29.8741786990165"
-                    Point3="-141.961841690318,33.8741786990165" />
-                  <mssgle:LineSegment
-                    End="-141.961841690318,42.7882008100112" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Merge Output 11]"
-          TopLeft="726.704824976348,1006.28820081001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-200.204824976348,33.7117991899888"
-              Start="0,0"
-              End="-200.204824976348,26.2117991899888">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.8558995949944" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.8558995949944"
-                    Point2="0,16.8558995949944"
-                    Point3="-4,16.8558995949944" />
-                  <mssgle:LineSegment
-                    End="-196.204824976348,16.8558995949944" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-196.204824976348,16.8558995949944"
-                    Point2="-200.204824976348,16.8558995949944"
-                    Point3="-200.204824976348,20.8558995949944" />
-                  <mssgle:LineSegment
-                    End="-200.204824976348,26.2117991899888" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="211,42"
           Id="Package\Update FactEnrollment\Mismatched YearInSchoolID"
-          TopLeft="776,1127" />
+          TopLeft="774,963" />
         <NodeLayout
           Size="178,42"
           Id="Package\Update FactEnrollment\Get YearInSchoolKey"
-          TopLeft="457,1128" />
+          TopLeft="455,964" />
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Lookup No Match Output2]"
-          TopLeft="635,1148.5">
+          TopLeft="633,984.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9183,8 +7201,8 @@ where [refTable].[YearInSchool] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output8]"
-          TopLeft="526.5,1082">
+          Id="Package\Update FactEnrollment.Paths[Lookup Match Output4]"
+          TopLeft="524.5,918">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9218,72 +7236,322 @@ where [refTable].[YearInSchool] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="191,42"
-          Id="Package\Update FactEnrollment\YearInSchoolKey Merge"
-          TopLeft="634,1234" />
         <EdgeLayout
-          Id="Package\Update FactEnrollment.Paths[Lookup Match Output9]"
-          TopLeft="546,1170">
+          Id="Package\Update FactEnrollment.Paths[Data Conversion Output]"
+          TopLeft="579.5,340">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="183.5,64"
+              EndConnector="-8,34"
               Start="0,0"
-              End="183.5,56.5">
+              End="-8,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28" />
+                    End="0,13" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28"
-                    Point2="0,32"
-                    Point3="4,32" />
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="-4,17" />
                   <mssgle:LineSegment
-                    End="179.5,32" />
+                    End="-4,17" />
                   <mssgle:CubicBezierSegment
-                    Point1="179.5,32"
-                    Point2="183.5,32"
-                    Point3="183.5,36" />
+                    Point1="-4,17"
+                    Point2="-8,17"
+                    Point3="-8,21" />
                   <mssgle:LineSegment
-                    End="183.5,56.5" />
+                    End="-8,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Update FactEnrollment\CreatedByPersonKey Merge"
+          TopLeft="638,543" />
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Lookup Match Output5]"
+          TopLeft="576,492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.5,51"
+              Start="0,0"
+              End="166.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="162.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.5,25.5"
+                    Point2="166.5,25.5"
+                    Point3="166.5,29.5" />
+                  <mssgle:LineSegment
+                    End="166.5,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="43.55861328125,37,96.3827734375,11.609375"
+              BoundingBox="35.05861328125,30.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Derived Column Output1]"
+          TopLeft="930.5,499">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.5,44"
+              Start="0,0"
+              End="-154.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1994301994302" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.1994301994302"
+                    Point2="0,26.1994301994302"
+                    Point3="-4,26.1994301994302" />
+                  <mssgle:LineSegment
+                    End="-150.5,26.1994301994302" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150.5,26.1994301994302"
+                    Point2="-154.5,26.1994301994302"
+                    Point3="-154.5,30.1994301994302" />
+                  <mssgle:LineSegment
+                    End="-154.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Merge Output 1]"
+          TopLeft="742.5,585">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.5,37"
+              Start="0,0"
+              End="-190.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-186.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.5,18.5"
+                    Point2="-190.5,18.5"
+                    Point3="-190.5,22.5" />
+                  <mssgle:LineSegment
+                    End="-190.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Update FactEnrollment\SchoolKey Merge"
+          TopLeft="642,807" />
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Lookup Match Output6]"
+          TopLeft="556.5,751">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165.5,56"
+              Start="0,0"
+              End="165.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="161.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="161.5,28"
+                    Point2="165.5,28"
+                    Point3="165.5,32" />
+                  <mssgle:LineSegment
+                    End="165.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="34.55861328125,33,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Derived Column Output2]"
+          TopLeft="892,750">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144.666666666667,57"
+              Start="0,0"
+              End="-144.666666666667,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8613861386139" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8613861386139"
+                    Point2="0,33.8613861386139"
+                    Point3="-4,33.8613861386139" />
+                  <mssgle:LineSegment
+                    End="-140.666666666667,33.8613861386139" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140.666666666667,33.8613861386139"
+                    Point2="-144.666666666667,33.8613861386139"
+                    Point3="-144.666666666667,37.8613861386139" />
+                  <mssgle:LineSegment
+                    End="-144.666666666667,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Merge Output 11]"
+          TopLeft="722,849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-197.5,27"
+              Start="0,0"
+              End="-197.5,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="-4,13.5" />
+                  <mssgle:LineSegment
+                    End="-193.5,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-193.5,13.5"
+                    Point2="-197.5,13.5"
+                    Point3="-197.5,17.5" />
+                  <mssgle:LineSegment
+                    End="-197.5,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Update FactEnrollment\YearInSchoolKey Merge"
+          TopLeft="618,1067" />
+        <EdgeLayout
+          Id="Package\Update FactEnrollment.Paths[Lookup Match Output7]"
+          TopLeft="544,1006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="169.5,61"
+              Start="0,0"
+              End="169.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="165.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="165.5,30.5"
+                    Point2="169.5,30.5"
+                    Point3="169.5,34.5" />
+                  <mssgle:LineSegment
+                    End="169.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="36.55861328125,35.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Derived Column Output3]"
-          TopLeft="881.5,1169">
+          TopLeft="879.5,1005">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-121.5,65"
+              EndConnector="-135.5,62"
               Start="0,0"
-              End="-121.5,57.5">
+              End="-135.5,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.6760124610592" />
+                    End="0,32.8909657320872" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.6760124610592"
-                    Point2="0,38.6760124610592"
-                    Point3="-4,38.6760124610592" />
+                    Point1="0,32.8909657320872"
+                    Point2="0,36.8909657320872"
+                    Point3="-4,36.8909657320872" />
                   <mssgle:LineSegment
-                    End="-117.5,38.6760124610592" />
+                    End="-131.5,36.8909657320872" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.5,38.6760124610592"
-                    Point2="-121.5,38.6760124610592"
-                    Point3="-121.5,42.6760124610592" />
+                    Point1="-131.5,36.8909657320872"
+                    Point2="-135.5,36.8909657320872"
+                    Point3="-135.5,40.8909657320872" />
                   <mssgle:LineSegment
-                    End="-121.5,57.5" />
+                    End="-135.5,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9295,33 +7563,33 @@ where [refTable].[YearInSchool] = ?</property>
         <NodeLayout
           Size="130,42"
           Id="Package\Update FactEnrollment\Merge Join"
-          TopLeft="661.5,1396.5" />
+          TopLeft="710,1234" />
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Merge Output 12]"
-          TopLeft="729.5,1276">
+          TopLeft="713.5,1109">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-23.3333333333334,120.5"
+              EndConnector="61.5,125"
               Start="0,0"
-              End="-23.3333333333334,113">
+              End="61.5,117.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,67.4209726443769" />
+                    End="0,58.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,67.4209726443769"
-                    Point2="0,71.4209726443769"
-                    Point3="-4,71.4209726443769" />
+                    Point1="0,58.5"
+                    Point2="0,62.5"
+                    Point3="4,62.5" />
                   <mssgle:LineSegment
-                    End="-19.3333333333334,71.4209726443769" />
+                    End="57.5,62.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-19.3333333333334,71.4209726443769"
-                    Point2="-23.3333333333334,71.4209726443769"
-                    Point3="-23.3333333333334,75.4209726443769" />
+                    Point1="57.5,62.5"
+                    Point2="61.5,62.5"
+                    Point3="61.5,66.5" />
                   <mssgle:LineSegment
-                    End="-23.3333333333334,113" />
+                    End="61.5,117.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9332,30 +7600,30 @@ where [refTable].[YearInSchool] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[OLE DB Source Output1]"
-          TopLeft="930.5,1357">
+          TopLeft="928.5,1193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-183.666666666667,39.5"
+              EndConnector="-133.166666666667,41"
               Start="0,0"
-              End="-183.666666666667,32">
+              End="-133.166666666667,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4118541033435" />
+                    End="0,20.3009118541034" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.4118541033435"
-                    Point2="0,23.4118541033435"
-                    Point3="-4,23.4118541033435" />
+                    Point1="0,20.3009118541034"
+                    Point2="0,24.3009118541034"
+                    Point3="-4,24.3009118541034" />
                   <mssgle:LineSegment
-                    End="-179.666666666667,23.4118541033435" />
+                    End="-129.166666666667,24.3009118541034" />
                   <mssgle:CubicBezierSegment
-                    Point1="-179.666666666667,23.4118541033435"
-                    Point2="-183.666666666667,23.4118541033435"
-                    Point3="-183.666666666667,27.4118541033435" />
+                    Point1="-129.166666666667,24.3009118541034"
+                    Point2="-133.166666666667,24.3009118541034"
+                    Point3="-133.166666666667,28.3009118541034" />
                   <mssgle:LineSegment
-                    End="-183.666666666667,32" />
+                    End="-133.166666666667,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9366,30 +7634,30 @@ where [refTable].[YearInSchool] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Update FactEnrollment.Paths[Merge Join Output]"
-          TopLeft="726.5,1438.5">
+          TopLeft="775,1276">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.5,59.5"
+              EndConnector="-68,58"
               Start="0,0"
-              End="-17.5,52">
+              End="-68,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.75" />
+                    End="0,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.75"
-                    Point2="0,29.75"
-                    Point3="-4,29.75" />
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
                   <mssgle:LineSegment
-                    End="-13.5,29.75" />
+                    End="-64,29" />
                   <mssgle:CubicBezierSegment
-                    Point1="-13.5,29.75"
-                    Point2="-17.5,29.75"
-                    Point3="-17.5,33.75" />
+                    Point1="-64,29"
+                    Point2="-68,29"
+                    Point3="-68,33" />
                   <mssgle:LineSegment
-                    End="-17.5,52" />
+                    End="-68,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9471,46 +7739,10 @@ where [refTable].[YearInSchool] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Update FactEnrollment\Get EnrollmentStartTimeKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimTime]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Update FactEnrollment\Enrollment source data">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Enrollment data\Enrollment data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -9526,29 +7758,6 @@ where [refTable].[YearInSchool] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update FactEnrollment\Get EnrollmentEndTimeKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimTime]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -9601,6 +7810,19 @@ where [refTable].[YearInSchool] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Enrollment data\Enrollment data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
