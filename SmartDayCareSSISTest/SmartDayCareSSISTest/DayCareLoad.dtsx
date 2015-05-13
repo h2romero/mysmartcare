@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{F54D7497-F3A9-447D-ACF6-F8F6DE9DE2ED}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{3F68194D-7CF9-4CAC-AFF7-AA78DFA94574}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1751,8 +1751,7 @@ From
 From 
 	EnrollmentHistories e (NOLOCK)
 Where 
-	e.StartDate between '1980-01-01' and dateadd(M,1,GETDATE())
-	and e.EndDate between '1980-01-01' and dateadd(M,1,GETDATE())</property>
+	e.StartDate between '1980-01-01' and dateadd(M,1,GETDATE())</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
