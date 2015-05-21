@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactEnrollment"
   DTS:PackageType="5"
-  DTS:VersionBuild="164"
-  DTS:VersionGUID="{185103C5-F0A2-44EE-9624-80EA01D80127}">
+  DTS:VersionBuild="165"
+  DTS:VersionGUID="{ACB1522F-68F3-4C66-830A-BF3BD284FC43}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

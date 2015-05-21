@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCheckOut"
   DTS:PackageType="5"
-  DTS:VersionBuild="132"
-  DTS:VersionGUID="{CC074015-360A-4F5D-BEE2-0B8452A1EEA3}">
+  DTS:VersionBuild="133"
+  DTS:VersionGUID="{7863C22E-D87C-4C7E-B6BD-8CF8815E4ED5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,7 +43,6 @@
       DTS:refId="Package\Import Check Out data"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{E8EF89B5-6D69-446F-BEF8-8E7CBF42CE1D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -166,7 +165,7 @@
                       refId="Package\Import Check Out data\Check Out data.Inputs[OLE DB Destination Input].Columns[CheckType]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="5"
+                      cachedLength="6"
                       cachedName="CheckType"
                       externalMetadataColumnId="Package\Import Check Out data\Check Out data.Inputs[OLE DB Destination Input].ExternalColumns[CheckType]"
                       lineageId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Output].Columns[CheckType]" />
@@ -335,7 +334,7 @@
 	,chk.TenantID TenantID
 	,chk.DateCreated
 	,chk.CreatedByID
-	,'Child' CheckType
+	,'Center' CheckType
 	,s.SchoolID SchoolID
 	,chk.PickUpDropOffPersonID TransportPersonID
 From
@@ -478,7 +477,7 @@ Order by
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Output].ExternalColumns[CheckType]"
-                      length="5"
+                      length="6"
                       lineageId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Output].Columns[CheckType]"
                       name="CheckType"
                       truncationRowDisposition="FailComponent" />
@@ -573,7 +572,7 @@ Order by
                       refId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Output].ExternalColumns[CheckType]"
                       codePage="1252"
                       dataType="str"
-                      length="5"
+                      length="6"
                       name="CheckType" />
                     <externalMetadataColumn
                       refId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Output].ExternalColumns[SchoolID]"
@@ -669,7 +668,7 @@ Order by
                       refId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Error Output].Columns[CheckType]"
                       codePage="1252"
                       dataType="str"
-                      length="5"
+                      length="6"
                       lineageId="Package\Import Check Out data\Check Out source data.Outputs[OLE DB Source Error Output].Columns[CheckType]"
                       name="CheckType" />
                     <outputColumn
@@ -796,7 +795,6 @@ Order by
       DTS:refId="Package\Truncate StageCheckOut table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{3C4EC859-0F26-49FF-A3DC-388A724DCF92}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -2890,7 +2888,7 @@ where [refTable].[PersonID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckOut\1376:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckOut\1269:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3049,7 +3047,7 @@ where [refTable].[OrganizationUnitID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckOut\1280:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckOut\1270:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3368,7 +3366,7 @@ where [refTable].[TenantID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckOut\1282:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckOut\1271:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3528,7 +3526,7 @@ where [refTable].[PersonID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Update FactCheckOut\1283:invalid};</property>
+                  name="ParameterMap">#{Package\Update FactCheckOut\1272:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9110,100 +9108,100 @@ where [refTable].[PersonID] = ?</property>
               name="Data Conversion Output"
               startId="Package\Update FactCheckOut\Convert to String.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Derived Column Output1]"
+              refId="Package\Update FactCheckOut.Paths[Derived Column Output]"
               endId="Package\Update FactCheckOut\Merge ClassKey.Inputs[Merge Input 2]"
               name="Derived Column Output"
               startId="Package\Update FactCheckOut\Mismatched ClassID.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Derived Column Output3]"
+              refId="Package\Update FactCheckOut.Paths[Derived Column Output1]"
               endId="Package\Update FactCheckOut\Merge SchoolKey.Inputs[Merge Input 2]"
               name="Derived Column Output"
               startId="Package\Update FactCheckOut\Mismatched SchoolID.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Derived Column Output4]"
+              refId="Package\Update FactCheckOut.Paths[Derived Column Output2]"
               endId="Package\Update FactCheckOut\Merge TransportPersonKey.Inputs[Merge Input 2]"
               name="Derived Column Output"
               startId="Package\Update FactCheckOut\Mismatched TransportPersonID.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Derived Column Output2]"
+              refId="Package\Update FactCheckOut.Paths[Derived Column Output3]"
               endId="Package\Update FactCheckOut\Merge CreatedByPersonKey.Inputs[Merge Input 2]"
               name="Derived Column Output"
               startId="Package\Update FactCheckOut\Mismatched CreatedByPersonID.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Derived Column Output]"
+              refId="Package\Update FactCheckOut.Paths[Derived Column Output4]"
               endId="Package\Update FactCheckOut\Insert FactCheckOut.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\Update FactCheckOut\Add Current Date.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output3]"
-              endId="Package\Update FactCheckOut\Get CheckTypeKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get CheckOutTimeKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output4]"
-              endId="Package\Update FactCheckOut\Get TransportPersonKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get TenantKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output5]"
-              endId="Package\Update FactCheckOut\Get SchoolKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get OrganizationUnitKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output7]"
-              endId="Package\Update FactCheckOut\Merge CreatedByPersonKey.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get CreatedByPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output1]"
-              endId="Package\Update FactCheckOut\Get ChildKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get CheckTypeKey.Outputs[Lookup Match Output]" />
-            <path
               refId="Package\Update FactCheckOut.Paths[Lookup Match Output9]"
-              endId="Package\Update FactCheckOut\Merge TransportPersonKey.Inputs[Merge Input 1]"
+              endId="Package\Update FactCheckOut\Convert to String.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get TransportPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output]"
-              endId="Package\Update FactCheckOut\Get ClassKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get ChildKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output6]"
-              endId="Package\Update FactCheckOut\Merge ClassKey.Inputs[Merge Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get ClassKey.Outputs[Lookup Match Output]" />
+              startId="Package\Update FactCheckOut\Get CheckOutDateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Update FactCheckOut.Paths[Lookup Match Output8]"
               endId="Package\Update FactCheckOut\Merge SchoolKey.Inputs[Merge Input 1]"
               name="Lookup Match Output"
               startId="Package\Update FactCheckOut\Get SchoolKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Lookup Match Output2]"
-              endId="Package\Update FactCheckOut\Convert to String.Inputs[Data Conversion Input]"
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output6]"
+              endId="Package\Update FactCheckOut\Get ClassKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Update FactCheckOut\Get CheckOutDateKey.Outputs[Lookup Match Output]" />
+              startId="Package\Update FactCheckOut\Get ChildKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output5]"
+              endId="Package\Update FactCheckOut\Merge TransportPersonKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get TransportPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output7]"
+              endId="Package\Update FactCheckOut\Merge ClassKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get ClassKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output3]"
+              endId="Package\Update FactCheckOut\Merge CreatedByPersonKey.Inputs[Merge Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get CreatedByPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output2]"
+              endId="Package\Update FactCheckOut\Get SchoolKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get OrganizationUnitKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output4]"
+              endId="Package\Update FactCheckOut\Get ChildKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get CheckTypeKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output1]"
+              endId="Package\Update FactCheckOut\Get TransportPersonKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get TenantKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup Match Output]"
+              endId="Package\Update FactCheckOut\Get CheckTypeKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Update FactCheckOut\Get CheckOutTimeKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup No Match Output2]"
+              endId="Package\Update FactCheckOut\Mismatched TransportPersonID.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Update FactCheckOut\Get TransportPersonKey.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[Lookup No Match Output3]"
+              endId="Package\Update FactCheckOut\Mismatched CreatedByPersonID.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Update FactCheckOut\Get CreatedByPersonKey.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Update FactCheckOut.Paths[Lookup No Match Output]"
               endId="Package\Update FactCheckOut\Mismatched SchoolID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
               startId="Package\Update FactCheckOut\Get SchoolKey.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Lookup No Match Output2]"
+              refId="Package\Update FactCheckOut.Paths[Lookup No Match Output1]"
               endId="Package\Update FactCheckOut\Mismatched ClassID.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
               startId="Package\Update FactCheckOut\Get ClassKey.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup No Match Output3]"
-              endId="Package\Update FactCheckOut\Mismatched TransportPersonID.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\Update FactCheckOut\Get TransportPersonKey.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[Lookup No Match Output1]"
-              endId="Package\Update FactCheckOut\Mismatched CreatedByPersonID.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\Update FactCheckOut\Get CreatedByPersonKey.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Update FactCheckOut.Paths[Merge Join Output]"
               endId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Inputs[Conditional Split Input]"
@@ -9215,17 +9213,17 @@ where [refTable].[PersonID] = ?</property>
               name="Merge Output 1"
               startId="Package\Update FactCheckOut\Merge ClassKey.Outputs[Merge Output 1]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Merge Output 12]"
+              refId="Package\Update FactCheckOut.Paths[Merge Output 11]"
               endId="Package\Update FactCheckOut\Get TenantKey.Inputs[Lookup Input]"
               name="Merge Output 1"
               startId="Package\Update FactCheckOut\Merge SchoolKey.Outputs[Merge Output 1]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Merge Output 13]"
+              refId="Package\Update FactCheckOut.Paths[Merge Output 12]"
               endId="Package\Update FactCheckOut\Merge Join.Inputs[Merge Join Left Input]"
               name="Merge Output 1"
               startId="Package\Update FactCheckOut\Merge TransportPersonKey.Outputs[Merge Output 1]" />
             <path
-              refId="Package\Update FactCheckOut.Paths[Merge Output 11]"
+              refId="Package\Update FactCheckOut.Paths[Merge Output 13]"
               endId="Package\Update FactCheckOut\Get OrganizationUnitKey.Inputs[Lookup Input]"
               name="Merge Output 1"
               startId="Package\Update FactCheckOut\Merge CreatedByPersonKey.Outputs[Merge Output 1]" />
@@ -9236,14 +9234,14 @@ where [refTable].[PersonID] = ?</property>
               startId="Package\Update FactCheckOut\FactCheckOut Conditional Split.Outputs[NewRow]" />
             <path
               refId="Package\Update FactCheckOut.Paths[OLE DB Source Output1]"
-              endId="Package\Update FactCheckOut\Merge Join.Inputs[Merge Join Right Input]"
-              name="OLE DB Source Output"
-              startId="Package\Update FactCheckOut\FactCheckOut source data.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Update FactCheckOut.Paths[OLE DB Source Output]"
               endId="Package\Update FactCheckOut\Get CheckOutDateKey.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Update FactCheckOut\Class Check Out source data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Update FactCheckOut.Paths[OLE DB Source Output]"
+              endId="Package\Update FactCheckOut\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update FactCheckOut\FactCheckOut source data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update FactCheckOut.Paths[UpdateRow]"
               endId="Package\Update FactCheckOut\Update FactCheckOut.Inputs[OLE DB Command Input]"
@@ -9450,6 +9448,10 @@ where [refTable].[PersonID] = ?</property>
           Id="Package\Update FactCheckOut\Get SchoolKey"
           TopLeft="163,958" />
         <NodeLayout
+          Size="209,42"
+          Id="Package\Update FactCheckOut\Merge CreatedByPersonKey"
+          TopLeft="315,792" />
+        <NodeLayout
           Size="139,42"
           Id="Package\Update FactCheckOut\Get ChildKey"
           TopLeft="200,429" />
@@ -9458,17 +9460,25 @@ where [refTable].[PersonID] = ?</property>
           Id="Package\Update FactCheckOut\Insert FactCheckOut"
           TopLeft="414,1707" />
         <NodeLayout
-          Size="194,42"
-          Id="Package\Update FactCheckOut\Get OrganizationUnitKey"
-          TopLeft="135,871" />
+          Size="173,42"
+          Id="Package\Update FactCheckOut\Mismatched ClassID"
+          TopLeft="450,515" />
         <NodeLayout
           Size="159,42"
           Id="Package\Update FactCheckOut\Convert to String"
           TopLeft="194,177" />
         <NodeLayout
-          Size="229,42"
-          Id="Package\Update FactCheckOut\Mismatched CreatedByPersonID"
-          TopLeft="496,706" />
+          Size="194,42"
+          Id="Package\Update FactCheckOut\Get OrganizationUnitKey"
+          TopLeft="135,871" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Update FactCheckOut\Merge TransportPersonKey"
+          TopLeft="276,1292" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Update FactCheckOut\Get CheckOutDateKey"
+          TopLeft="163,92" />
         <NodeLayout
           Size="167,42"
           Id="Package\Update FactCheckOut\Get CheckTypeKey"
@@ -9477,6 +9487,10 @@ where [refTable].[PersonID] = ?</property>
           Size="193,42"
           Id="Package\Update FactCheckOut\Get TransportPersonKey"
           TopLeft="129,1207" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Update FactCheckOut\Merge Join"
+          TopLeft="415,1434" />
         <NodeLayout
           Size="181,42"
           Id="Package\Update FactCheckOut\Update FactCheckOut"
@@ -9490,9 +9504,17 @@ where [refTable].[PersonID] = ?</property>
           Id="Package\Update FactCheckOut\Get CreatedByPersonKey"
           TopLeft="158,699" />
         <NodeLayout
+          Size="160,42"
+          Id="Package\Update FactCheckOut\Merge SchoolKey"
+          TopLeft="316,1049" />
+        <NodeLayout
           Size="157,42"
           Id="Package\Update FactCheckOut\Time Conversion"
           TopLeft="488,239" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Update FactCheckOut\Merge ClassKey"
+          TopLeft="319,607" />
         <NodeLayout
           Size="184,42"
           Id="Package\Update FactCheckOut\Get CheckOutTimeKey"
@@ -9506,35 +9528,67 @@ where [refTable].[PersonID] = ?</property>
           Id="Package\Update FactCheckOut\Get TenantKey"
           TopLeft="130,1125" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\Update FactCheckOut\Mismatched ClassID"
-          TopLeft="450,515" />
-        <NodeLayout
           Size="180,42"
           Id="Package\Update FactCheckOut\Mismatched SchoolID"
           TopLeft="482,957" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Update FactCheckOut\Get ClassKey"
-          TopLeft="198,512" />
         <NodeLayout
           Size="223,42"
           Id="Package\Update FactCheckOut\FactCheckOut Conditional Split"
           TopLeft="295,1531" />
         <NodeLayout
+          Size="140,42"
+          Id="Package\Update FactCheckOut\Get ClassKey"
+          TopLeft="198,512" />
+        <NodeLayout
           Size="213,42"
           Id="Package\Update FactCheckOut\Class Check Out source data"
           TopLeft="174,11" />
         <NodeLayout
-          Size="183,42"
-          Id="Package\Update FactCheckOut\Get CheckOutDateKey"
-          TopLeft="163,92" />
+          Size="229,42"
+          Id="Package\Update FactCheckOut\Mismatched CreatedByPersonID"
+          TopLeft="496,706" />
         <NodeLayout
           Size="161,42"
           Id="Package\Update FactCheckOut\Add Current Date"
           TopLeft="404,1624" />
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output1]"
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output5]"
+          TopLeft="225.5,1249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.5,43"
+              Start="0,0"
+              End="153.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="149.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.5,21.5"
+                    Point2="153.5,21.5"
+                    Point3="153.5,25.5" />
+                  <mssgle:LineSegment
+                    End="153.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.55861328125,26.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output4]"
           TopLeft="249.5,390">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9570,31 +9624,139 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output]"
-          TopLeft="268.75,471">
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output3]"
+          TopLeft="256,741">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="163.5,51"
               Start="0,0"
-              End="0,33.5">
+              End="163.5,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="159.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="159.5,25.5"
+                    Point2="163.5,25.5"
+                    Point3="163.5,29.5" />
+                  <mssgle:LineSegment
+                    End="163.5,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.9453125,96.3827734375,11.609375"
+              BoundingBox="33.55861328125,30.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Derived Column Output]"
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output2]"
+          TopLeft="234.25,913">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output1]"
+          TopLeft="204.5,1167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,40"
+              Start="0,0"
+              End="21,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="17,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,20"
+                    Point2="21,20"
+                    Point3="21,24" />
+                  <mssgle:LineSegment
+                    End="21,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.69138671875,25,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output]"
+          TopLeft="259,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,45"
+              Start="0,0"
+              End="-9.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-5.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,22.5"
+                    Point2="-9.5,22.5"
+                    Point3="-9.5,26.5" />
+                  <mssgle:LineSegment
+                    End="-9.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.94138671875,27.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Derived Column Output4]"
           TopLeft="484.5,1666">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9624,7 +9786,153 @@ where [refTable].[PersonID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Derived Column Output3]"
+          TopLeft="610.5,748">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157.5,44"
+              Start="0,0"
+              End="-157.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1994301994302" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.1994301994302"
+                    Point2="0,26.1994301994302"
+                    Point3="-4,26.1994301994302" />
+                  <mssgle:LineSegment
+                    End="-153.5,26.1994301994302" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.5,26.1994301994302"
+                    Point2="-157.5,26.1994301994302"
+                    Point3="-157.5,30.1994301994302" />
+                  <mssgle:LineSegment
+                    End="-157.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Derived Column Output2]"
+          TopLeft="569.5,1250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157.5,42"
+              Start="0,0"
+              End="-157.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0057803468208" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0057803468208"
+                    Point2="0,25.0057803468208"
+                    Point3="-4,25.0057803468208" />
+                  <mssgle:LineSegment
+                    End="-153.5,25.0057803468208" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.5,25.0057803468208"
+                    Point2="-157.5,25.0057803468208"
+                    Point3="-157.5,29.0057803468208" />
+                  <mssgle:LineSegment
+                    End="-157.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Derived Column Output1]"
+          TopLeft="572,999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-150.666666666667,50"
+              Start="0,0"
+              End="-150.666666666667,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7029702970297" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7029702970297"
+                    Point2="0,29.7029702970297"
+                    Point3="-4,29.7029702970297" />
+                  <mssgle:LineSegment
+                    End="-146.666666666667,29.7029702970297" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-146.666666666667,29.7029702970297"
+                    Point2="-150.666666666667,29.7029702970297"
+                    Point3="-150.666666666667,33.7029702970297" />
+                  <mssgle:LineSegment
+                    End="-150.666666666667,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Derived Column Output]"
+          TopLeft="536.5,557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-116.833333333333,50"
+              Start="0,0"
+              End="-116.833333333333,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6895213454075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6895213454075"
+                    Point2="0,29.6895213454075"
+                    Point3="-4,29.6895213454075" />
+                  <mssgle:LineSegment
+                    End="-112.833333333333,29.6895213454075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-112.833333333333,29.6895213454075"
+                    Point2="-116.833333333333,29.6895213454075"
+                    Point3="-116.833333333333,33.6895213454075" />
+                  <mssgle:LineSegment
+                    End="-116.833333333333,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9658,7 +9966,9 @@ where [refTable].[PersonID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9692,7 +10002,9 @@ where [refTable].[PersonID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9732,7 +10044,7 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[OLE DB Source Output]"
+          Id="Package\Update FactCheckOut.Paths[OLE DB Source Output1]"
           TopLeft="280.5,53">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9762,7 +10074,45 @@ where [refTable].[PersonID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[OLE DB Source Output]"
+          TopLeft="634,1386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-133.666666666667,48"
+              Start="0,0"
+              End="-133.666666666667,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4498480243161" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4498480243161"
+                    Point2="0,28.4498480243161"
+                    Point3="-4,28.4498480243161" />
+                  <mssgle:LineSegment
+                    End="-129.666666666667,28.4498480243161" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-129.666666666667,28.4498480243161"
+                    Point2="-133.666666666667,28.4498480243161"
+                    Point3="-133.666666666667,32.4498480243161" />
+                  <mssgle:LineSegment
+                    End="-133.666666666667,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9802,7 +10152,211 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Merge Output 13]"
+          TopLeft="419.5,834">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-187.5,37"
+              Start="0,0"
+              End="-187.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-183.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-183.5,18.5"
+                    Point2="-187.5,18.5"
+                    Point3="-187.5,22.5" />
+                  <mssgle:LineSegment
+                    End="-187.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Merge Output 12]"
+          TopLeft="379,1334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101,100"
+              Start="0,0"
+              End="101,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46"
+                    Point2="0,50"
+                    Point3="4,50" />
+                  <mssgle:LineSegment
+                    End="97,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97,50"
+                    Point2="101,50"
+                    Point3="101,54" />
+                  <mssgle:LineSegment
+                    End="101,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Merge Output 11]"
+          TopLeft="396,1091">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.5,34"
+              Start="0,0"
+              End="-191.5,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="-4,17" />
+                  <mssgle:LineSegment
+                    End="-187.5,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.5,17"
+                    Point2="-191.5,17"
+                    Point3="-191.5,21" />
+                  <mssgle:LineSegment
+                    End="-191.5,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Merge Output 1]"
+          TopLeft="395.5,649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-139.5,50"
+              Start="0,0"
+              End="-139.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-135.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-135.5,25"
+                    Point2="-139.5,25"
+                    Point3="-139.5,29" />
+                  <mssgle:LineSegment
+                    End="-139.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Merge Join Output]"
+          TopLeft="480,1476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.5,55"
+              Start="0,0"
+              End="-73.5,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="-4,27.5" />
+                  <mssgle:LineSegment
+                    End="-69.5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-69.5,27.5"
+                    Point2="-73.5,27.5"
+                    Point3="-73.5,31.5" />
+                  <mssgle:LineSegment
+                    End="-73.5,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Update FactCheckOut.Paths[Lookup No Match Output3]"
+          TopLeft="354,723.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142,0"
+              Start="0,0"
+              End="134.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="134.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update FactCheckOut.Paths[Lookup No Match Output2]"
           TopLeft="322,1228.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9826,7 +10380,7 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup No Match Output2]"
+          Id="Package\Update FactCheckOut.Paths[Lookup No Match Output1]"
           TopLeft="338,534.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9846,30 +10400,6 @@ where [refTable].[PersonID] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-3.55638671875,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup No Match Output1]"
-          TopLeft="354,723.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="142,0"
-              Start="0,0"
-              End="134.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="134.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="11.44361328125,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9898,103 +10428,7 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output5]"
-          TopLeft="234.25,913">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output4]"
-          TopLeft="204.5,1167">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21,40"
-              Start="0,0"
-              End="21,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="17,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17,20"
-                    Point2="21,20"
-                    Point3="21,24" />
-                  <mssgle:LineSegment
-                    End="21,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.69138671875,25,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output3]"
-          TopLeft="259,303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.5,45"
-              Start="0,0"
-              End="-9.5,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="-4,22.5" />
-                  <mssgle:LineSegment
-                    End="-5.5,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.5,22.5"
-                    Point2="-9.5,22.5"
-                    Point3="-9.5,26.5" />
-                  <mssgle:LineSegment
-                    End="-9.5,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-52.94138671875,27.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output2]"
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output9]"
           TopLeft="254.5,134">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10029,226 +10463,6 @@ where [refTable].[PersonID] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Update FactCheckOut\Merge ClassKey"
-          TopLeft="319,607" />
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output6]"
-          TopLeft="268,554">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.5,53"
-              Start="0,0"
-              End="127.5,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="123.5,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.5,26.5"
-                    Point2="127.5,26.5"
-                    Point3="127.5,30.5" />
-                  <mssgle:LineSegment
-                    End="127.5,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="15.55861328125,31.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Derived Column Output1]"
-          TopLeft="536.5,557">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-116.833333333333,50"
-              Start="0,0"
-              End="-116.833333333333,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.6895213454075" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.6895213454075"
-                    Point2="0,29.6895213454075"
-                    Point3="-4,29.6895213454075" />
-                  <mssgle:LineSegment
-                    End="-112.833333333333,29.6895213454075" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-112.833333333333,29.6895213454075"
-                    Point2="-116.833333333333,29.6895213454075"
-                    Point3="-116.833333333333,33.6895213454075" />
-                  <mssgle:LineSegment
-                    End="-116.833333333333,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Merge Output 1]"
-          TopLeft="395.5,649">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-139.5,50"
-              Start="0,0"
-              End="-139.5,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-135.5,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-135.5,25"
-                    Point2="-139.5,25"
-                    Point3="-139.5,29" />
-                  <mssgle:LineSegment
-                    End="-139.5,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Update FactCheckOut\Merge CreatedByPersonKey"
-          TopLeft="315,792" />
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output7]"
-          TopLeft="256,741">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="163.5,51"
-              Start="0,0"
-              End="163.5,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="4,25.5" />
-                  <mssgle:LineSegment
-                    End="159.5,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="159.5,25.5"
-                    Point2="163.5,25.5"
-                    Point3="163.5,29.5" />
-                  <mssgle:LineSegment
-                    End="163.5,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="33.55861328125,30.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Derived Column Output2]"
-          TopLeft="610.5,748">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-157.5,44"
-              Start="0,0"
-              End="-157.5,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.1994301994302" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.1994301994302"
-                    Point2="0,26.1994301994302"
-                    Point3="-4,26.1994301994302" />
-                  <mssgle:LineSegment
-                    End="-153.5,26.1994301994302" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-153.5,26.1994301994302"
-                    Point2="-157.5,26.1994301994302"
-                    Point3="-157.5,30.1994301994302" />
-                  <mssgle:LineSegment
-                    End="-157.5,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Merge Output 11]"
-          TopLeft="419.5,834">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-187.5,37"
-              Start="0,0"
-              End="-187.5,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="-4,18.5" />
-                  <mssgle:LineSegment
-                    End="-183.5,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-183.5,18.5"
-                    Point2="-187.5,18.5"
-                    Point3="-187.5,22.5" />
-                  <mssgle:LineSegment
-                    End="-187.5,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Update FactCheckOut\Merge SchoolKey"
-          TopLeft="316,1049" />
         <EdgeLayout
           Id="Package\Update FactCheckOut.Paths[Lookup Match Output8]"
           TopLeft="236.5,1000">
@@ -10286,251 +10500,63 @@ where [refTable].[PersonID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Derived Column Output3]"
-          TopLeft="572,999">
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output7]"
+          TopLeft="268,554">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-150.666666666667,50"
+              EndConnector="127.5,53"
               Start="0,0"
-              End="-150.666666666667,42.5">
+              End="127.5,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7029702970297" />
+                    End="0,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.7029702970297"
-                    Point2="0,29.7029702970297"
-                    Point3="-4,29.7029702970297" />
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
                   <mssgle:LineSegment
-                    End="-146.666666666667,29.7029702970297" />
+                    End="123.5,26.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-146.666666666667,29.7029702970297"
-                    Point2="-150.666666666667,29.7029702970297"
-                    Point3="-150.666666666667,33.7029702970297" />
+                    Point1="123.5,26.5"
+                    Point2="127.5,26.5"
+                    Point3="127.5,30.5" />
                   <mssgle:LineSegment
-                    End="-150.666666666667,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Merge Output 12]"
-          TopLeft="396,1091">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-191.5,34"
-              Start="0,0"
-              End="-191.5,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13"
-                    Point2="0,17"
-                    Point3="-4,17" />
-                  <mssgle:LineSegment
-                    End="-187.5,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187.5,17"
-                    Point2="-191.5,17"
-                    Point3="-191.5,21" />
-                  <mssgle:LineSegment
-                    End="-191.5,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Update FactCheckOut\Merge TransportPersonKey"
-          TopLeft="276,1292" />
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Lookup Match Output9]"
-          TopLeft="225.5,1249">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="153.5,43"
-              Start="0,0"
-              End="153.5,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="4,21.5" />
-                  <mssgle:LineSegment
-                    End="149.5,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="149.5,21.5"
-                    Point2="153.5,21.5"
-                    Point3="153.5,25.5" />
-                  <mssgle:LineSegment
-                    End="153.5,35.5" />
+                    End="127.5,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="28.55861328125,26.5,96.3827734375,11.609375"
+              BoundingBox="15.55861328125,31.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Derived Column Output4]"
-          TopLeft="569.5,1250">
+          Id="Package\Update FactCheckOut.Paths[Lookup Match Output6]"
+          TopLeft="268.75,471">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-157.5,42"
+              EndConnector="0,41"
               Start="0,0"
-              End="-157.5,34.5">
+              End="0,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.0057803468208" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.0057803468208"
-                    Point2="0,25.0057803468208"
-                    Point3="-4,25.0057803468208" />
-                  <mssgle:LineSegment
-                    End="-153.5,25.0057803468208" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-153.5,25.0057803468208"
-                    Point2="-157.5,25.0057803468208"
-                    Point3="-157.5,29.0057803468208" />
-                  <mssgle:LineSegment
-                    End="-157.5,34.5" />
+                    End="0,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Update FactCheckOut\Merge Join"
-          TopLeft="415,1434" />
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Merge Output 13]"
-          TopLeft="379,1334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101,100"
-              Start="0,0"
-              End="101,92.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46"
-                    Point2="0,50"
-                    Point3="4,50" />
-                  <mssgle:LineSegment
-                    End="97,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="97,50"
-                    Point2="101,50"
-                    Point3="101,54" />
-                  <mssgle:LineSegment
-                    End="101,92.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[OLE DB Source Output1]"
-          TopLeft="634,1386">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-133.666666666667,48"
-              Start="0,0"
-              End="-133.666666666667,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.4498480243161" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.4498480243161"
-                    Point2="0,28.4498480243161"
-                    Point3="-4,28.4498480243161" />
-                  <mssgle:LineSegment
-                    End="-129.666666666667,28.4498480243161" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-129.666666666667,28.4498480243161"
-                    Point2="-133.666666666667,28.4498480243161"
-                    Point3="-133.666666666667,32.4498480243161" />
-                  <mssgle:LineSegment
-                    End="-133.666666666667,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update FactCheckOut.Paths[Merge Join Output]"
-          TopLeft="480,1476">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-73.5,55"
-              Start="0,0"
-              End="-73.5,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.5"
-                    Point2="0,27.5"
-                    Point3="-4,27.5" />
-                  <mssgle:LineSegment
-                    End="-69.5,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-69.5,27.5"
-                    Point2="-73.5,27.5"
-                    Point3="-73.5,31.5" />
-                  <mssgle:LineSegment
-                    End="-73.5,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,10.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10552,7 +10578,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10562,7 +10588,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10606,12 +10632,35 @@ where [refTable].[PersonID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Update FactCheckOut\Get CheckOutDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Update FactCheckOut\Get CheckTypeKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10621,7 +10670,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10665,7 +10714,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10675,7 +10724,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10688,7 +10737,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10721,7 +10770,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10731,7 +10780,7 @@ where [refTable].[PersonID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10741,29 +10790,6 @@ where [refTable].[PersonID] = ?</property>
   <PipelineComponentMetadata
     design-time-name="Package\Update FactCheckOut\Class Check Out source data">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update FactCheckOut\Get CheckOutDateKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
