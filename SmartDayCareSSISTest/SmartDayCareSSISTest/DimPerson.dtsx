@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimPerson"
   DTS:PackageType="5"
-  DTS:VersionBuild="192"
-  DTS:VersionGUID="{4B793AFB-F3E7-4C80-8840-C8CA736E9FAF}">
+  DTS:VersionBuild="193"
+  DTS:VersionGUID="{FC120499-7D18-4C4B-8783-3AD151D350E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -127,7 +127,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACLC2H6ZpXALfvrW8Hku+sKy+Hkdz02PrtYs4K663JWJgAAAAAOgAAAAAIAACAAAACo5aalMnjGpm6nIl18IF7CRZHMVRdruXtFL6AaDASlGyAAAAC07QvwuBQl5qu/PGb+oPPhYD69nO87rYWJxf53xCgIFUAAAADzc8/gBFY/+YYe6QFCI1jqAAqDOCmYqCMB8GSOhZT40LlOm3BWiwY2GJcCt+tqpwTDJfFJNm5T1MFIpysCm33G</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABaI3AlPQ9NvHINseBWTlUzxDAKLXb5w/R2kR4d+6LrDwAAAAAOgAAAAAIAACAAAABXYWFTpmkD+oJdxFqSajL54FldA2UocN+7+aJjES3LhCAAAABxPuvH2z9pfzvtWSCfgjH1MHHu3m+0g/SaFkn4U0ubQ0AAAAB1lyLDHIWC2BL91cc/Ymk4h95ClSVW5/h/xNkSN3WQ53Gaz82aiPiEeP//9GjrRpjtNJsYVYI6qn4DWvGT8C2n</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -142,7 +142,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC+N3suvePYiYLdssxUnsy8G2y3R4PJ2RiXD4O0cUWnPwAAAAAOgAAAAAIAACAAAABI2x7IwXB39O7VG7h8+13bIP9SdIivDNlhoRq1IILVJyAAAADIUQXLOTSUWyvxolu4IYpjzsWQiwkca3liqtOsNnVQtUAAAABbITbJO/CyPlhvpvxQwQQRcDaLeWm5laVr/K7jrf7djHiBy/Jrn89AUBnSrvmJiAk/5T+leNwozIZHL+pzuHZA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACjHr7iKFQvPEpOmQvXBAWmpmNyzVVqbbF+Lrz75X/+9wAAAAAOgAAAAAIAACAAAADeibXv0nNyYPN8GlBJ9yoe6oMabyppLV5z/pVRgwqi2yAAAADyKzV8QlxuQxU7ggX+3u/SNCsZldNssS8d55DCQ7nTV0AAAACR4bs85B2RRSuHGGNzcrOGWArCGw4N2ERHI0/d3O+lKLgQtwQEZl6wq31Y2vU/hv/c4TUkJrSoHmUzsHcJem6U</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -157,7 +157,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAXdHVzA41CSjnbYThuHOQLMaUT6hnmMPsD+TvsKH+JqQAAAAAOgAAAAAIAACAAAADkI8GxaiUkPSllv3Iu8g9oKW/YUv/YjMStrmC/WgAbEyAAAADfshQ8vW4bQSNmw3iXdduzJGQ2+9BUZxBkBlBuf3fFR0AAAAAjnWRB+Bn6BYFE326qMZ3p6hDB9p/Qd09afENLByMT4Yni0LKJ2Z0EWm4ZddkaOUsG57jyY6emPJIv6ck9LzY0</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxulaOrYaUiNjPe86kMqMgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAnoL4RrD+I2LH/n+YS9Bx3whVCYxjoTiA0xMn1wAmv4gAAAAAOgAAAAAIAACAAAACVM6t6uU5kOzSBfTQsDCCMin3dDTwXaNTEul8c/CIimyAAAAAt1lptrK7erHlJOmbOKwgKA69lcg32me12CGrdWEn5UUAAAABA7UPuJkz/tcygQeTv91I+yTV9o+aQqjJW4EmMmm8Df80CMeiFqLvPNDJFqidHmHIxv6Kczw6pQRq2vt8M9Jmz</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1305,7 +1305,7 @@ FirstName
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select PersonID, ChangeHash from DimPersonSCD1 Order by PersonID</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select PersonID, ChangeHash from DimPerson Order by PersonID</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1433,7 +1433,7 @@ FirstName
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Insert Into DimPersonSCD1 (PersonID, FirstName, MiddleName, LastName, PreferredName, Ethnicity, BirthDate, Gender, Email,DateCreated,DWInsertDate,ChangeHash) Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),?);</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Insert Into DimPerson (PersonID, FirstName, MiddleName, LastName, PreferredName, Ethnicity, BirthDate, Gender, Email,DateCreated,DWInsertDate,ChangeHash) Values (?,?,?,?,?,?,?,?,?,?,GETDATE(),?);</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2405,12 +2405,12 @@ Order by PersonID</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update DimPersonSCD1 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update DimPerson 
 	Set FirstName = ?, MiddleName = ?, LastName = ?, PreferredName = ?, Ethnicity = ?, BirthDate = ?, Gender = ?, Email = ?
 		,DWUpdateDate =  GETDATE()
 		,ChangeHash = ?
 	from
-		DimPersonSCD1 pers
+		DimPerson pers
 	where 
 		pers.PersonID = ?
 </property>
@@ -9423,9 +9423,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9459,9 +9457,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9519,9 +9515,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9555,9 +9549,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9591,9 +9583,7 @@ Order by
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

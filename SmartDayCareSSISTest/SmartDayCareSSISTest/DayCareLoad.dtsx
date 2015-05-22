@@ -11,12 +11,892 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DayCareLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{3F68194D-7CF9-4CAC-AFF7-AA78DFA94574}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{E88E8B26-FD04-48A7-8485-6A452757AC71}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\f_Accounting_Accounts"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{d5a059fb-8c9f-4ad3-b8ca-a0237d57ab55}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="f_Accounting_Accounts">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SmartCare DB - DayCare1 - Accounting Accounts"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	Guid
+	,Name
+	,OwnerID
+	,TenantID
+	,CurrentBalance
+	,BalanceDue
+	,AgencyBalanceDue
+	,DateCreated
+	,DateLastModified
+From
+	accounting.Accounts (NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Connections[OleDbConnection]"
+                  connectionManagerID="{D07ECCEC-5DB3-471F-8AB6-230A2CA62A10}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[smartcare-db1.cloudapp.net.DayCare_1.hromero 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      name="TenantID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[Guid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[Guid]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[Guid]"
+                      name="Guid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[OwnerID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[OwnerID]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[OwnerID]"
+                      name="OwnerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[CurrentBalance]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[CurrentBalance]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[CurrentBalance]"
+                      name="CurrentBalance"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[BalanceDue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[BalanceDue]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[BalanceDue]"
+                      name="BalanceDue"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[AgencyBalanceDue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[AgencyBalanceDue]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[AgencyBalanceDue]"
+                      name="AgencyBalanceDue"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      name="DateLastModified"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[Guid]"
+                      dataType="guid"
+                      name="Guid" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[OwnerID]"
+                      dataType="guid"
+                      name="OwnerID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[CurrentBalance]"
+                      dataType="numeric"
+                      name="CurrentBalance"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[BalanceDue]"
+                      dataType="numeric"
+                      name="BalanceDue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[AgencyBalanceDue]"
+                      dataType="numeric"
+                      name="AgencyBalanceDue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[Guid]"
+                      dataType="guid"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[Guid]"
+                      name="Guid" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[OwnerID]"
+                      dataType="guid"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[OwnerID]"
+                      name="OwnerID" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      dataType="guid"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      name="TenantID" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[CurrentBalance]"
+                      dataType="numeric"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[CurrentBalance]"
+                      name="CurrentBalance"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[BalanceDue]"
+                      dataType="numeric"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[BalanceDue]"
+                      name="BalanceDue"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[AgencyBalanceDue]"
+                      dataType="numeric"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[AgencyBalanceDue]"
+                      name="AgencyBalanceDue"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      name="DateLastModified" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SmartCare DW - SOR - f_Accounting_Accounts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[f_Accounting_Accounts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[TenantID]"
+                      cachedDataType="guid"
+                      cachedName="TenantID"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[Guid]"
+                      cachedDataType="guid"
+                      cachedName="Guid"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[Guid]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[Guid]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[OwnerID]"
+                      cachedDataType="guid"
+                      cachedName="OwnerID"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[OwnerID]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[OwnerID]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[CurrentBalance]"
+                      cachedDataType="numeric"
+                      cachedName="CurrentBalance"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[CurrentBalance]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[CurrentBalance]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[BalanceDue]"
+                      cachedDataType="numeric"
+                      cachedName="BalanceDue"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[BalanceDue]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[BalanceDue]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[AgencyBalanceDue]"
+                      cachedDataType="numeric"
+                      cachedName="AgencyBalanceDue"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[AgencyBalanceDue]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[AgencyBalanceDue]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].Columns[DateLastModified]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateLastModified"
+                      externalMetadataColumnId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output].Columns[DateLastModified]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[Guid]"
+                      dataType="guid"
+                      name="Guid" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[OwnerID]"
+                      dataType="guid"
+                      name="OwnerID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[CurrentBalance]"
+                      dataType="numeric"
+                      name="CurrentBalance"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[BalanceDue]"
+                      dataType="numeric"
+                      name="BalanceDue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[AgencyBalanceDue]"
+                      dataType="numeric"
+                      name="AgencyBalanceDue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\f_Accounting_Accounts.Paths[OLE DB Source Output]"
+              endId="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\f_Accounting_Agencies"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5d0995fd-cc4d-4262-bebc-798a06665c45}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="f_Accounting_Agencies">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SmartCare DB - DayCare1 - Accounting Agencies"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+	Guid
+	,Name
+	,TenantID
+	,DateCreated
+	,DateLastModified
+From
+	accounting.Agencies (NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Connections[OleDbConnection]"
+                  connectionManagerID="{D07ECCEC-5DB3-471F-8AB6-230A2CA62A10}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[smartcare-db1.cloudapp.net.DayCare_1.hromero 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[TenantID]"
+                      name="TenantID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[Guid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[Guid]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[Guid]"
+                      name="Guid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[DateLastModified]"
+                      name="DateLastModified"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[Guid]"
+                      dataType="guid"
+                      name="Guid" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[Guid]"
+                      dataType="guid"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[Guid]"
+                      name="Guid" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      dataType="guid"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[TenantID]"
+                      name="TenantID" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[DateLastModified]"
+                      name="DateLastModified" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SmartCare DW - SOR - f_Accounting_Agencies"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[f_Accounting_Agencies]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Connections[OleDbConnection]"
+                  connectionManagerID="{246513EB-0B74-45D4-9A7A-43E14FE2F7C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.smartcare-SOR-Hector]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].Columns[TenantID]"
+                      cachedDataType="guid"
+                      cachedName="TenantID"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[TenantID]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].Columns[Guid]"
+                      cachedDataType="guid"
+                      cachedName="Guid"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[Guid]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[Guid]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].Columns[DateLastModified]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateLastModified"
+                      externalMetadataColumnId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output].Columns[DateLastModified]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[TenantID]"
+                      dataType="guid"
+                      name="TenantID" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[Guid]"
+                      dataType="guid"
+                      name="Guid" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input].ExternalColumns[DateLastModified]"
+                      dataType="dbTimeStamp"
+                      name="DateLastModified" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\f_Accounting_Agencies.Paths[OLE DB Source Output]"
+              endId="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\f_Addresses"
       DTS:CreationName="Microsoft.Pipeline"
@@ -1704,6 +2584,7 @@ From
       DTS:refId="Package\f_EnrollmentHistories"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{3515769a-eea0-4553-9ccd-fef5d4a78f2f}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -3936,6 +4817,22 @@ From
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\f_EnrollmentHistories" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C188B7D-48CA-40FC-80E9-CB6A34D857EE}"
+      DTS:From="Package\f_EnrollmentHistories"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\f_Accounting_Agencies" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C4194AA-51BB-4775-9754-294671411120}"
+      DTS:From="Package\f_Accounting_Agencies"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\f_Accounting_Accounts" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -4189,6 +5086,70 @@ From
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="187,42"
+          Id="Package\f_Accounting_Agencies"
+          TopLeft="80,928" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\f_Accounting_Accounts"
+          TopLeft="89,1021" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="174,882">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="173.5,970">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,51"
+              Start="0,0"
+              End="9.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="5.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,25.5"
+                    Point2="9.5,25.5"
+                    Point3="9.5,29.5" />
+                  <mssgle:LineSegment
+                    End="9.5,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4637,5 +5598,137 @@ From
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <TaskHost
+    design-time-name="Package\f_Accounting_Agencies">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="308,42"
+          Id="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies"
+          TopLeft="63.8333383624748,43.2666672400633" />
+        <NodeLayout
+          Size="298,42"
+          Id="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies"
+          TopLeft="67.0000050415592,154.600000573397" />
+        <EdgeLayout
+          Id="Package\f_Accounting_Agencies.Paths[OLE DB Source Output]"
+          TopLeft="216.916671702017,85.2666672400633">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3333333333337"
+              Start="0,0"
+              End="0,61.8333333333337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8333333333337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_Accounting_Agencies"
+          FontInfo="{assembly:Null}"
+          Size="76,56"
+          Id="b0e46eb4-e68b-465c-abcc-518801482874"
+          TopLeft="75.8333383624748,90.6000005733971" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_Accounting_Agencies\SmartCare DB - DayCare1 - Accounting Agencies">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_Accounting_Agencies\SmartCare DW - SOR - f_Accounting_Agencies">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\f_Accounting_Accounts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="309,42"
+          Id="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts"
+          TopLeft="63.8333383624748,43.2666672400633" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts"
+          TopLeft="67.0000050415592,154.600000573397" />
+        <EdgeLayout
+          Id="Package\f_Accounting_Accounts.Paths[OLE DB Source Output]"
+          TopLeft="217.416671702017,85.2666672400633">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3333333333337"
+              Start="0,0"
+              End="0,61.8333333333337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8333333333337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Full Load&#xA;"
+          ParentId="Package\f_Accounting_Accounts"
+          FontInfo="{assembly:Null}"
+          Size="76,56"
+          Id="b0e46eb4-e68b-465c-abcc-518801482874"
+          TopLeft="75.8333383624748,90.6000005733971" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_Accounting_Accounts\SmartCare DB - DayCare1 - Accounting Accounts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\f_Accounting_Accounts\SmartCare DW - SOR - f_Accounting_Accounts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
